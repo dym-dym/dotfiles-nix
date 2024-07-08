@@ -54,7 +54,7 @@
       [
         "$mod, B, exec, firefox"
         "$mod, Return, exec, alacritty"
-	"$mod SHIFT, Return, exec rofi -show drun -show-icons"
+	"$mod SHIFT, Return, exec, rofi -show drun -show-icons"
 	"$mod, C, killactive"
 	"$mod, Space, fullscreen, 0"
 	"$mod, h, movefocus, l"
