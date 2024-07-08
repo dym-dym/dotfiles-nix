@@ -16,7 +16,8 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [ 
-     ./hyprland.nix 
+     # ./hyprland.nix 
+     ./fish.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -35,11 +36,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
-  programs = {
-    fish.enable = true;
-    starship.enable = true;
-  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
