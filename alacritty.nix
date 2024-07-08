@@ -36,10 +36,11 @@
 	};
       };
 
-      draw_bold_text_with_bright_colors = true;
 
       # Catppuccin!
       colors = {
+
+        draw_bold_text_with_bright_colors = true;
         # Default colors
         primary = {
           background =  "0x1E1D2F";
