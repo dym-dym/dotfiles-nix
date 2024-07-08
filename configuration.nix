@@ -125,6 +125,7 @@
     grc
     starship
     alacritty
+    rofi
   ];
 
 
