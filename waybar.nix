@@ -22,7 +22,7 @@
       "custom/dot"
       "custom/separator"
       "custom/wrap-left"
-      # "custom/pacman-update"
+      "custom/pacman-update"
       "custom/wrap-right"
     ];
 
@@ -80,20 +80,25 @@
       format = "{icon}";
       on-scroll-up = "hyprctl dispatch workspace e+1";
       on-scroll-down = "hyprctl dispatch workspace e-1";
-      format-icons = [
-        "1" = ""
-        "2" = ""
-        "3" = ""
-        "4" = ""
-        "5" = ""
-        "6" = ""
-        "urgent" = ""
-        "active" = ""
-        "default" = ""
-      ];
+#      format-icons = {
+#        1 = "";
+#        2 = "";
+#        3 = "";
+#        4 = "";
+#        5 = "";
+#        6 = "";
+#        urgent = "";
+#        active = "";
+#        default = "";
+#      };
     };
 
-
+    "custom/pacman-update" = {
+      format = "  <b>{}</b> ";
+      # interval = 3600;
+      # exec = "checkupdates | wc -l";
+      # signal = 8;
+    };
   };
 
 #  modules-right = [
@@ -177,12 +182,6 @@
 #    "format" = "<b>{}</b>",
 #    "interval" = 1,
 #    "exec" = "hyprctl activewindow | grep class | awk '{print $2}'"
-#  },
-#  "custom/pacman-update" = {
-#    "format" = "  <b>{}</b> ",
-#    "interval" = 3600,
-#    "exec" = "checkupdates | wc -l",
-#    "signal" = 8
 #  },
 #  "custom/window-icon" = {},
 
