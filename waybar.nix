@@ -99,6 +99,28 @@
       # exec = "checkupdates | wc -l";
       # signal = 8;
     };
+
+    tray = {
+      icon-size = 20;
+      spacing = 8;
+    };
+
+    "clock" = {
+      format = "<b>{:%H:%M %p}</b>";
+      format-alt = "<b>{:%a.%d,%b}</b>";
+      tooltip-format = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>";
+    };
+
+    "backlight" = {
+      device = "amdgpu_bl1";
+      format = "{icon} {percent}";
+      tooltip = false;
+      format-icons = [
+        ""
+        ""
+        ""
+      ];
+    };
   };
 
 #  modules-right = [
@@ -114,26 +136,7 @@
 #    "custom/dot"
 #    "clock"
 #  ];
-#  tray = {
-#    "icon-size" = 20,
-#    "spacing" = 8
-#  };
-#  "clock" = {
-#    "format" = "<b>{:%H:%M %p}</b>",
-#    "format-alt" = "<b>{:%a.%d,%b}</b>",
-#    "tooltip-format" = "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
-#  },
 
-#  "backlight" = {
-#    "device" = "amdgpu_bl1",
-#    "format" = "{icon} {percent}",
-#    "tooltip" = false,
-#    "format-icons" = [
-#      "",
-#      "",
-#      ""
-#    ]
-#  },
 #  "network" = {
 #    "format-wifi" = " {essid}",
 #    "on-click" = "iwgtk",
