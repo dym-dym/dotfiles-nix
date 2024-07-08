@@ -126,6 +126,7 @@
     starship
     alacritty
     rofi
+    waybar
   ];
 
 
