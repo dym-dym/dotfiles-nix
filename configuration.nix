@@ -128,6 +128,7 @@
     fishPlugins.grc
     grc
     starship
+    alacritty
   ];
 
   programs.fish.enable = true;
