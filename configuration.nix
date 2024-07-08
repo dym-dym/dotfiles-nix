@@ -43,15 +43,7 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  # services.xserver.enable = true;
-
   # Enable the KDE Plasma Desktop Environment.
-#  services.xserver.displayManager.gdm = {
-#    enable = true;
-#    wayland = false;
-#  };
    services.displayManager.sddm.enable = true;
    services.displayManager.sddm.wayland.enable = true;
    services.desktopManager.plasma6.enable = true;
@@ -110,7 +102,11 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs = {
+    firefox.enable = true;
+    fish.enable = true;
+    hyprland.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -131,7 +127,6 @@
     alacritty
   ];
 
-  programs.fish.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
