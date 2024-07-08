@@ -13,7 +13,7 @@
 
   wayland.windowManager.hyprland.settings = {
 
-    monitor = "eDP-1,1920x1080@60,0x0,1";
+    monitor = "Virtual-1,1920x1080@60,0x0,1";
     
     input = {
       follow_mouse = "1";
