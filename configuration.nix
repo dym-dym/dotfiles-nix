@@ -125,7 +125,7 @@
     grc
     starship
     alacritty
-    rofi
+    wofi
     waybar
     fira-code-nerdfont
   ];
