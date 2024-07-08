@@ -84,7 +84,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.defaultUserShell = pkgs.fish;
+  users.users.dymdym.shell = pkgs.fish;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dymdym = {
