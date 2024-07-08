@@ -53,7 +53,18 @@
     bind =
       [
         "$mod, B, exec, firefox"
-        "$mod SHIFT, Return, exec, alacritty"
+        "$mod, Return, exec, alacritty"
+	"$mod SHIFT, Return, exec rofi -show drun -show-icons"
+	"$mod, C, killactive"
+	"$mod, Space, fullscreen, 0"
+	"$mod, h, movefocus, l"
+	"$mod, l, movefocus, r"
+	"$mod, k, movefocus, u"
+	"$mod, j, movefocus, d"
+	"$mod SHIFT, h, movewindow, l"
+	"$mod SHIFT, l, movewindow, r"
+	"$mod SHIFT, k, movewindow, u"
+	"$mod SHIFT, j, movewindow, d"
       ]
       ++ (
         # workspaces
@@ -66,7 +77,7 @@
                 builtins.toString (x + 1 - (c * 10));
             in [
               "$mod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
             ]
           )
           10)
