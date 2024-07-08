@@ -30,7 +30,7 @@
     "custom/separator"
     "tray"
   ];
-  "modules-right" = [
+  modules-right = [
     "backlight"
     "battery"
     "pulseaudio"
@@ -43,7 +43,7 @@
     "custom/dot"
     "clock"
   ];
-  "hyprland/workspaces" = {
+  hyprland.workspaces = {
     "all-outputs" = true;
     "sort-by-number" = true;
     "active-only" = false;
@@ -61,7 +61,7 @@
       "urgent" = "";
       "active" = "";
       "default" = "";
-    }
+    };
   };
   "tray" = {
     "icon-size" = 20;
