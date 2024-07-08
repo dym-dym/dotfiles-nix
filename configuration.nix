@@ -84,6 +84,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  users.defaultUserShell = pkgs.fish;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dymdym = {
     isNormalUser = true;
@@ -112,9 +114,19 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    fishPlugins.done
+    fishPlugins.fzf-fish
+    fishPlugins.forgit
+    fishPlugins.hydro
+    fzf
+    fishPlugins.grc
+    grc
+    starship
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
+
+  programs.fish.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
