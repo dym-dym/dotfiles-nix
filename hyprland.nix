@@ -52,6 +52,27 @@
       enabled = "no";
     };
 
+    windowrule = [
+      "float, title:^(Open)$"
+      "float, title:^(Choose Files)$"
+      "float, title:^(Save As)$"
+      "float, title:^(Confirm to replace files)$"
+      "float, title:^(File Operation Progress)$"
+      "center, pavucontrol"
+      "float, pavucontrol"
+      "idleinhibit fullscreen, firefox"
+      "idleinhibit fullscreen, mpv"
+      "idleinhibit fullscreen, librewolf"
+    ];
+
+    windowrulev2 = [
+      "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+      "noanim,class:^(xwaylandvideobridge)$"
+      "noinitialfocus,class:^(xwaylandvideobridge)$"
+      "maxsize 1 1,class:^(xwaylandvideobridge)$"
+      "noblur,class:^(xwaylandvideobridge)$"
+    ];
+
     "$mod" = "SUPER";
     bind =
       [
