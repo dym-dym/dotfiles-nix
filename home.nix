@@ -15,9 +15,9 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  modules = [ 
-    ./hyprland.nix 
-  ];
+#  modules = [ 
+#    ./hyprland.nix 
+#  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -73,6 +73,11 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs = {
+    fish.enable = true;
+    starship.enable = true;
   };
 
   # Let Home Manager install and manage itself.
