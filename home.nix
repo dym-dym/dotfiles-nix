@@ -16,7 +16,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [ 
-     # ./hyprland.nix 
+     ./hyprland.nix 
      ./fish.nix
   ];
 
