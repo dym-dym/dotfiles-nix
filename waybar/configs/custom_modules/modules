@@ -1,5 +1,5 @@
 {
-  "include": "/home/dymdym/.config/waybar/configs/custom_modules/privacy_container",
+  "include": "./privacy_container",
   "custom/dot": {
     "format": "  ",
     "tooltip": false
