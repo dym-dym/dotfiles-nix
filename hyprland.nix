@@ -51,7 +51,38 @@
     };
 
     animations = {
-      enabled = "no";
+      enabled = "yes";
+
+      bezier = "myBezier, 0.05, 0.9, 0.1, 1.0";
+      animation = [
+        "windows, 1, 5, myBezier"
+        "windowsOut, 1, 5, default, popin 80%"
+	"border, 1, 10, default"
+	"borderangle, 1, 8, default"
+	"fade, 1, 7, default"
+	"workspaces, 1, 2, myBezier"
+      ];
+    };
+
+    dwindle = {
+      pseudotile = "1";
+    }
+
+    master = {
+      always_center_master = true;
+    };
+
+    gestures = { 
+      workspace_swipe = true;
+      workspace_swipe_fingers = "3";
+      workspace_swipe_invert = true;
+      workspace_swipe_distance = "200";
+    };
+
+    misc = {
+      disable_hyprland_logo = true;
+      disable_splash_rendering = true;
+      disable_autoreload = true;
     };
 
     windowrule = [
