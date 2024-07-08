@@ -9,7 +9,7 @@
 	decorations = "none";
 	startup_mode = "Maximized";
 	dynamic_title = true;
-	gtk_theme_variant = "dark";
+	# gtk_theme_variant = "dark";
       };
 
       font = {
