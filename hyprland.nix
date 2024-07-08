@@ -106,6 +106,10 @@
       "noblur,class:^(xwaylandvideobridge)$"
     ];
 
+    exec-once = [
+      "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config.json"
+    ];
+
     "$mod" = "SUPER";
     bind =
       [
