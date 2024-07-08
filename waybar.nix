@@ -4,8 +4,7 @@
 
   programs.waybar.settings.mainBar = {
 
-    # include = "~/.config/waybar/configs/custom_modules/modules";
-    include = "./waybar/configs/custom_modules/modules";
+    include = "~/.config/waybar/configs/custom_modules/modules";
     layer = "top";
     height = 30;
     margin-top = 4;
