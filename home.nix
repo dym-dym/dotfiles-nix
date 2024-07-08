@@ -45,7 +45,7 @@
   # plain files is through 'home.file'.
   home.file = {
 
-    ".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
+#    ".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
    
   };
 
