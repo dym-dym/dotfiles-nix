@@ -127,6 +127,7 @@
     alacritty
     rofi
     waybar
+    fira-code-nerdfont
   ];
 
 
