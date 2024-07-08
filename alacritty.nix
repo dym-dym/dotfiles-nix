@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       window = {
-        opacity = "1";
+        opacity = 1;
 	dynamic_padding = true;
 	decorations = "none";
 	startup_mode = "Maximized";
