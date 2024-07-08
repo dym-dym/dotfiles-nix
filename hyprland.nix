@@ -66,7 +66,7 @@
 
     dwindle = {
       pseudotile = "1";
-    }
+    };
 
     master = {
       always_center_master = true;
