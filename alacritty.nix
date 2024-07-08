@@ -25,7 +25,7 @@
 	  family = "FiraCode Nerd Font";
 	  style = "Italic";
 	};
-	size = "12";
+	size = 12;
 	offset = {
 	  x = 0;
 	  y = 0;
