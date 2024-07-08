@@ -8,6 +8,9 @@
     systemd.enable = true;
   };
 
+  
+  wayland.windowManager.hyprland.systemd.variables = ["--all"];
+
   wayland.windowManager.hyprland.settings = {
     
     input = {
