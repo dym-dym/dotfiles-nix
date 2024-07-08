@@ -22,9 +22,19 @@
       "custom/dot"
       "custom/separator"
       "custom/wrap-left"
-      "custom/pacman-update"
+      # "custom/pacman-update"
       "custom/wrap-right"
     ];
+
+    modules-center = [
+      "custom/window-name"
+      "custom/dot"
+      "hyprland/workspaces"
+      "custom/dot"
+      "custom/separator"
+      "tray"
+    ];
+
 
     "custom/launcher" = {
       format = "";
@@ -55,16 +65,37 @@
       format = " <b>{temperatureC}°C</b>";
     };
 
+    "custom/wrap-left" = {
+      format = "<b>[</b>";
+    };
+    "custom/wrap-right" = {
+      format = "<b>]</b>";
+    };
+
+    "hyprland/workspaces" = {
+      all-outputs = true;
+      sort-by-number = true;
+      active-only = false;
+      on-click = "activate";
+      format = "{icon}";
+      on-scroll-up = "hyprctl dispatch workspace e+1";
+      on-scroll-down = "hyprctl dispatch workspace e-1";
+      format-icons = [
+        "1" = ""
+        "2" = ""
+        "3" = ""
+        "4" = ""
+        "5" = ""
+        "6" = ""
+        "urgent" = ""
+        "active" = ""
+        "default" = ""
+      ];
+    };
+
+
   };
 
-#  modules-center = [
-#    "custom/window-name"
-#    "custom/dot"
-#    "hyprland/workspaces"
-#    "custom/dot"
-#    "custom/separator"
-#    "tray"
-#  ];
 #  modules-right = [
 #    "backlight"
 #    "battery"
@@ -78,26 +109,6 @@
 #    "custom/dot"
 #    "clock"
 #  ];
-#  "hyprland/workspaces" = {
-#    all-outputs = true;
-#    sort-by-number = true;
-#    active-only = false;
-#    on-click = "activate";
-#    format = "{icon}";
-#    on-scroll-up = "hyprctl dispatch workspace e+1";
-#    on-scroll-down = "hyprctl dispatch workspace e-1";
-#    format-icons = {
-#      "1" = "",
-#      "2" = "",
-#      "3" = "",
-#      "4" = "",
-#      "5" = "",
-#      "6" = "",
-#      "urgent" = "",
-#      "active" = "",
-#      "default" = ""
-#    };
-#  };
 #  tray = {
 #    "icon-size" = 20,
 #    "spacing" = 8
@@ -175,12 +186,6 @@
 #  },
 #  "custom/window-icon" = {},
 
-#  "custom/wrap-left" = {
-#    "format" = "<b>[</b>"
-#  },
-#  "custom/wrap-right" = {
-#    "format" = "<b>]</b>"
-#  },
 #  "custom/weatherNancy" = {
 #    "format" = "{}",
 #    "tooltip" = true,
