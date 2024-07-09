@@ -110,6 +110,7 @@
 
     exec-once = [
       "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
+      "dunst"
     ];
 
     "$mod" = "SUPER";
