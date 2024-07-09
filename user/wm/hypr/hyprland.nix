@@ -133,7 +133,7 @@
 	"$mod SHIFT, l, movewindow, r"
 	"$mod SHIFT, k, movewindow, u"
 	"$mod SHIFT, j, movewindow, d"
-        "$mod SHIFT, r, hyprctl reload"
+        "$mod SHIFT, r, exec, hyprctl reload"
       ]
       ++ (
         # workspaces
