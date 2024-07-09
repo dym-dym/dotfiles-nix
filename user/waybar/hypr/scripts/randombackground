@@ -1,4 +1,0 @@
-image_dir=/home/dymdym/Images/wallpapers/
-image=$(ls $image_dir | sort -R | tail -1 | awk '{print $NF}')
-killall swaybg
-swaybg -i $image_dir$image &

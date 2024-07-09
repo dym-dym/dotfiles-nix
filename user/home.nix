@@ -16,11 +16,11 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [ 
-     ./hyprland.nix 
-     ./fish.nix
-     ./alacritty.nix
-     ./waybar.nix
-     ./dunst.nix
+     ./wm/hypr/hyprland.nix 
+     ./shell/fish.nix
+     ./terminal/alacritty.nix
+     ./bar/waybar/waybar.nix
+     ./notifications/dunst.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
