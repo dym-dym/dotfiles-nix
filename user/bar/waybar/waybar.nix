@@ -21,9 +21,9 @@
       "temperature"
       "custom/dot"
       "custom/separator"
-      "custom/wrap-left"
-      "custom/pacman-update"
-      "custom/wrap-right"
+#      "custom/wrap-left"
+#      "custom/pacman-update"
+#      "custom/wrap-right"
     ];
 
     modules-center = [
