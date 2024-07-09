@@ -35,6 +35,19 @@
       "tray"
     ];
 
+    modules-right = [
+      "backlight"
+      "battery"
+      "pulseaudio"
+      "custom/dot"
+      "custom/separator"
+      "custom/weatherNancy"
+      "custom/separator"
+      "custom/weatherMontpellier"
+      "custom/separator"
+      "custom/dot"
+      "clock"
+    ];
 
     "custom/launcher" = {
       format = "";
@@ -121,85 +134,73 @@
         ""
       ];
     };
+
+    "network" = {
+      format-wifi = " {essid}";
+      on-click = "iwgtk";
+      format-ethernet = " wired";
+      tooltip = false;
+      format-disconnected = "";
+    };
+    "pulseaudio" = {
+      format = "{icon} <b>{volume}</b>";
+      format-bluetooth = " ";
+      format-bluetooth-muted = "";
+      tooltip = false;
+      format-muted = "";
+      format-icons = {
+        default = [
+          "";
+          "";
+          ""
+        ];
+      };
+      on-click = "pavucontrol";
+    };
+   "battery" = {
+      bat = "BAT0";
+      interval = 60;
+      states = {
+        warning = 30;
+        critical = 15;
+      };
+      format = "{icon} {capacity}%";
+      format-icons = [
+        " "
+        " "
+        " "
+        " "
+      ];
+      max-length = 25;
+      tooltip = false;
+    };
+    "custom/right-arr" = {
+      format = "  ";
+    };
+
+
+    "custom/window-name" = {
+      format = "<b>{}</b>";
+      interval = 1;
+      exec = "hyprctl activewindow | grep class | awk '{print $2}'";
+    };
+
+    "custom/window-icon" = {};
+
+    "custom/weatherNancy" = {
+      format = "{}";
+      tooltip = true;
+      interval = 3600;
+      exec = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Nancy ";
+      return-type = "json";
+    };
+
+    "custom/weatherMontpellier" = {
+      format = "{}";
+      tooltip = true;
+      interval = 3600;
+      exec = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Montpellier ";
+      return-type = "json";
+    };
   };
-
-#  modules-right = [
-#    "backlight"
-#    "battery"
-#    "pulseaudio"
-#    "custom/dot"
-#    "custom/separator"
-#    "custom/weatherNancy"
-#    "custom/separator"
-#    "custom/weatherMontpellier"
-#    "custom/separator"
-#    "custom/dot"
-#    "clock"
-#  ];
-
-#  "network" = {
-#    "format-wifi" = " {essid}",
-#    "on-click" = "iwgtk",
-#    "format-ethernet" = " wired",
-#    "tooltip" = false,
-#    "format-disconnected" = ""
-#  },
-#  "pulseaudio" = {
-#    "format" = "{icon} <b>{volume}</b>",
-#    "format-bluetooth" = " ",
-#    "format-bluetooth-muted" = "",
-#    "tooltip" = false,
-#    "format-muted" = "",
-#    "format-icons" = {
-#      "default" = [
-#        "",
-#        "",
-#        ""
-#      ]
-#    },
-#    "on-click" = "pavucontrol"
-#  },
-#  "battery" = {
-#    "bat" = "BAT0",
-#    "interval" = 60,
-#    "states" = {
-#      "warning" = 30,
-#      "critical" = 15
-#    },
-#    "format" = "{icon} {capacity}%",
-#    "format-icons" = [
-#      " ",
-#      " ",
-#      " ",
-#      " "
-#    ],
-#    "max-length" = 25,
-#    "tooltip" = false
-#  },
-#  "custom/right-arr" = {
-#    "format" = "  "
-#  },
-
-
-#  "custom/window-name" = {
-#    "format" = "<b>{}</b>",
-#    "interval" = 1,
-#    "exec" = "hyprctl activewindow | grep class | awk '{print $2}'"
-#  },
-#  "custom/window-icon" = {},
-
-#  "custom/weatherNancy" = {
-#    "format" = "{}",
-#    "tooltip" = true,
-#    "interval" = 3600,
-#    "exec" = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Nancy ",
-#    "return-type" = "json"
-#  },
-#  "custom/weatherMontpellier" = {
-#    "format" = "{}",
-#    "tooltip" = true,
-#    "interval" = 3600,
-#    "exec" = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Montpellier ",
-#    "return-type" = "json"
-#  }
 }
