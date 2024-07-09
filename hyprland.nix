@@ -14,6 +14,8 @@
   wayland.windowManager.hyprland.settings = {
 
     monitor = "Virtual-1,1920x1080@60,0x0,1";
+
+    source = "~/.config/hypr/mocha.conf";
     
     input = {
       follow_mouse = "1";
