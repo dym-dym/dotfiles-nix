@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  service.dunst = {
+  services.dunst = {
     enable = true;
     settings = {
       global = {
