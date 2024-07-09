@@ -128,6 +128,7 @@
     wofi
     waybar
     fira-code-nerdfont
+    swaybg
   ];
 
 

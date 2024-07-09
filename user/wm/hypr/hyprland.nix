@@ -113,6 +113,10 @@
       "dunst"
     ];
 
+    exec = [
+      "~/.config/hypr/scripts/randombackground"
+    ];
+
     "$mod" = "SUPER";
     bind =
       [
@@ -129,6 +133,7 @@
 	"$mod SHIFT, l, movewindow, r"
 	"$mod SHIFT, k, movewindow, u"
 	"$mod SHIFT, j, movewindow, d"
+        "$mod SHIFT, r, hyprctl reload"
       ]
       ++ (
         # workspaces
@@ -147,5 +152,9 @@
           10)
       );
   };
-  # home.file.".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
+
+  bindm = [
+    "SUPER, mouse:272, movewindow"
+    "SUPER, mouse:273, resizewindow"
+  ];
 }
