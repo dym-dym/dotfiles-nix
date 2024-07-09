@@ -109,11 +109,11 @@
     ];
 
     exec-once = [
-      "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
       "dunst"
     ];
 
     exec = [
+      "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
       "~/.config/hypr/scripts/randombackground"
     ];
 
