@@ -150,8 +150,8 @@
       format-muted = "";
       format-icons = {
         default = [
-          "";
-          "";
+          ""
+          ""
           ""
         ];
       };
