@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+
+  programs.opam.enable = true;
   
   programs.neovim = 
   let
@@ -16,10 +18,15 @@
 
     extraPackages = with pkgs; [
       lua-language-server
-      # rnix-lsp
+      nil
 
-      # xclip
       wl-clipboard
+
+      luarocks-nix
+      cargo
+      rustc
+      opam
+      ocaml
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -61,7 +68,11 @@
       friendly-snippets
 
 
-      lualine-nvim
+      {
+        plugin = lualine-nvim;
+        config = toLuaFile ./nvim/plugin/lualine.lua;
+      }
+
       nvim-web-devicons
 
       {
@@ -77,6 +88,22 @@
       }
 
       vim-nix
+
+      {
+        plugin = dashboard-nvim;
+        config = toLuaFile ./nvim/plugin/dashboard.lua;
+      }
+
+      {
+        plugin = mason-nvim;
+        config = toLuaFile ./nvim/plugin/mason.lua;
+      }
+
+      {
+        plugin = which-key-nvim;
+        config = toLuaFile ./nvim/plugin/which-key.lua;
+      }
+
     ];
 
     extraLuaConfig = ''
