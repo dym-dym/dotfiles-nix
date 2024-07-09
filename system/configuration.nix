@@ -55,6 +55,7 @@
       layout = "us";
       variant = "intl";
     };
+    videoDrivers = [ "nvidia" ];
   };
 
   # Configure console keymap
