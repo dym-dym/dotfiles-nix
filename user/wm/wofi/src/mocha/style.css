@@ -54,6 +54,7 @@
 * {
   font-family: 'Inconsolata Nerd Font', monospace;
   font-size: 14px;
+  border-radius: 10px;
 }
 
 /* Window */
@@ -61,7 +62,7 @@ window {
   margin: 0px;
   padding: 10px;
   border: 0.16em solid @lavender;
-  border-radius: 0.1em;
+  border-radius: 10px;
   background-color: @base;
   animation: slideIn 0.5s ease-in-out both;
 }
