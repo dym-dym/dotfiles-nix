@@ -21,6 +21,7 @@
      ./terminal/alacritty.nix
      ./bar/waybar/waybar.nix
      ./notifications/dunst.nix
+     ./text-editors/neovim.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
