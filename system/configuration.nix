@@ -129,6 +129,7 @@
     waybar
     fira-code-nerdfont
     swaybg
+    wttrbar
   ];
 
 
