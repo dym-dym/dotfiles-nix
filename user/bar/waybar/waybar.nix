@@ -93,17 +93,17 @@
       format = "{icon}";
       on-scroll-up = "hyprctl dispatch workspace e+1";
       on-scroll-down = "hyprctl dispatch workspace e-1";
-#      format-icons = {
-#        1 = "";
-#        2 = "";
-#        3 = "";
-#        4 = "";
-#        5 = "";
-#        6 = "";
-#        urgent = "";
-#        active = "";
-#        default = "";
-#      };
+      format-icons = {
+        "1" = "";
+        "2" = "";
+        "3" = "";
+        "4" = "";
+        "5" = "";
+        "6" = "";
+        urgent = "";
+        active = "";
+        default = "";
+      };
     };
 
     "custom/pacman-update" = {
