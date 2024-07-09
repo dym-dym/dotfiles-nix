@@ -59,10 +59,10 @@
       animation = [
         "windows, 1, 5, myBezier"
         "windowsOut, 1, 5, default, popin 80%"
-	"border, 1, 10, default"
-	"borderangle, 1, 8, default"
-	"fade, 1, 7, default"
-	"workspaces, 1, 2, myBezier"
+	      "border, 1, 10, default"
+	      "borderangle, 1, 8, default"
+	      "fade, 1, 7, default"
+	      "workspaces, 1, 2, myBezier"
       ];
     };
 
@@ -86,6 +86,24 @@
       disable_splash_rendering = true;
       disable_autoreload = true;
     };
+
+    env = [
+      "XDG_CURRENT_DESKTOP,Hyprland"
+			"XDG_SESSION_TYPE,wayland"
+			"XDG_SESSION_DESKTOP,Hyprland"
+			
+			## QT
+			"QT_AUTO_SCREEN_SCALE_FACTOR,1"
+			"QT_QPA_PLATFORM=wayland;xcb    # Not yet working for onlyoffice-editor"
+			"QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+			"QT_QPA_PLATFORMTHEME,qt6ct"
+			
+			## Toolkit
+			"SDL_VIDEODRIVER,wayland"
+			"_JAVA_AWT_WM_NONEREPARENTING,1"
+			"CLUTTER_BACKEND,wayland"
+			"GDK_BACKEND,wayland,x11"
+    ];
 
     windowrule = [
       "float, title:^(Open)$"

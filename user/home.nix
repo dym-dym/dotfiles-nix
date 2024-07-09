@@ -22,6 +22,7 @@
      ./bar/waybar/waybar.nix
      ./notifications/dunst.nix
      ./text-editors/neovim.nix
+     ./atuin/atuin.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
