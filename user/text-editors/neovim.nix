@@ -23,10 +23,6 @@
       wl-clipboard
 
       luarocks-nix
-      cargo
-      rustc
-      opam
-      ocaml
     ];
 
     plugins = with pkgs.vimPlugins; [
