@@ -13,7 +13,7 @@
 
   wayland.windowManager.hyprland.settings = {
 
-    monitor = "Virtual-1,1920x1080@60,0x0,1";
+    monitor = "eDP-1,1920x1080@60,0x0,1";
 
     source = "~/.config/hypr/mocha.conf";
     
@@ -53,7 +53,7 @@
     };
 
     animations = {
-      enabled = "no";
+      enabled = "yes";
 
       bezier = "myBezier, 0.05, 0.9, 0.1, 1.0";
       animation = [
@@ -128,29 +128,29 @@
 
     exec-once = [
       "dunst"
+      "~/.config/hypr/scripts/randombackground"
     ];
 
     exec = [
       "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
-      "~/.config/hypr/scripts/randombackground"
     ];
 
     "$mod" = "SUPER";
     bind =
       [
-        "$mod, B, exec, firefox"
+        "$mod, B, exec, librewolf"
         "$mod, Return, exec, alacritty"
-	"$mod SHIFT, Return, exec, ~/.config/hypr/scripts/wofi"
-	"$mod, C, killactive"
-	"$mod, Space, fullscreen, 0"
-	"$mod, h, movefocus, l"
-	"$mod, l, movefocus, r"
-	"$mod, k, movefocus, u"
-	"$mod, j, movefocus, d"
-	"$mod SHIFT, h, movewindow, l"
-	"$mod SHIFT, l, movewindow, r"
-	"$mod SHIFT, k, movewindow, u"
-	"$mod SHIFT, j, movewindow, d"
+	      "$mod SHIFT, Return, exec, wofi"
+	      "$mod, C, killactive"
+				"$mod, Space, fullscreen, 0"
+				"$mod, h, movefocus, l"
+				"$mod, l, movefocus, r"
+				"$mod, k, movefocus, u"
+				"$mod, j, movefocus, d"
+				"$mod SHIFT, h, movewindow, l"
+				"$mod SHIFT, l, movewindow, r"
+				"$mod SHIFT, k, movewindow, u"
+				"$mod SHIFT, j, movewindow, d"
         "$mod SHIFT, r, exec, hyprctl reload"
       ]
       ++ (

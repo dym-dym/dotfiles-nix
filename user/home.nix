@@ -17,12 +17,14 @@
 
   imports = [ 
      ./wm/hypr/hyprland.nix 
+     ./wm/wofi/wofi.nix
      ./shell/fish.nix
      ./terminal/alacritty.nix
      ./bar/waybar/waybar.nix
      ./notifications/dunst.nix
      ./text-editors/neovim.nix
      ./atuin/atuin.nix
+     ./browser/librewolf/librewolf.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
