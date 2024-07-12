@@ -12,9 +12,15 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    # systemd-boot.device = "/dev/nvme0n1p3";
+    # grub = {
+      # enable = false;
+      # useOSProber = true;
+      # device = "/dev/nvme0n1p3";
+    # };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -139,6 +145,8 @@
   programs.steam = {
     enable = true;
   };
+
+  programs.nm-applet.enable = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are
