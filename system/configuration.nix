@@ -146,6 +146,7 @@
     pavucontrol
     lxappearance
     pcmanfm
+    blueberry
   ];
 
   programs.steam = {
@@ -154,6 +155,7 @@
 
   programs.nm-applet.enable = true;
 
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
