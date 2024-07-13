@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+
+  services.swayosd.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -128,14 +131,16 @@
 
     exec-once = [
       "dunst"
-      "~/.config/hypr/scripts/randombackground"
-    ];
-
-    exec = [
+      # "~/.config/hypr/scripts/randombackground"
+      "waypaper --restore"
       "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
     ];
 
+    exec = [
+    ];
+
     "$mod" = "SUPER";
+
     bind =
       [
         "$mod, B, exec, librewolf"
@@ -152,6 +157,13 @@
 				"$mod SHIFT, k, movewindow, u"
 				"$mod SHIFT, j, movewindow, d"
         "$mod SHIFT, r, exec, hyprctl reload"
+
+				",XF86MonBrightnessUp,exec,swayosd-client --brightness raise"
+				",XF86MonBrightnessDown,exec,swayosd-client --brightness lower"
+				",XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise"
+				",XF86AudioLowerVolume,exec,swayosd-client --output-volume lower"
+				",XF86AudioMute,exec,swayosd-client --output-volume mute-toggle"
+				",XF86AudioMicMute,exec,swayosd-client --input-volume mute-toggle"
       ]
       ++ (
         # workspaces

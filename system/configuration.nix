@@ -137,11 +137,15 @@
     waybar
     fira-code-nerdfont
     swaybg
+    swayosd
     waypaper
     wttrbar
     librewolf
     qutebrowser
     jellyfin-media-player
+    pavucontrol
+    lxappearance
+    pcmanfm
   ];
 
   programs.steam = {

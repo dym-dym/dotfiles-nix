@@ -18,6 +18,7 @@
   imports = [ 
      ./wm/hypr/hyprland.nix 
      ./wm/wofi/wofi.nix
+     ./wm/global_theme/theme.nix
      ./shell/fish.nix
      ./terminal/alacritty.nix
      ./bar/waybar/waybar.nix
