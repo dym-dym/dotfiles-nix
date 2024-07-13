@@ -18,7 +18,7 @@
   imports = [ 
      ./wm/hypr/hyprland.nix 
      ./wm/wofi/wofi.nix
-     ./wm/global_theme/theme.nix
+     # ./wm/global_theme/theme.nix
      ./shell/fish.nix
      ./terminal/alacritty.nix
      ./bar/waybar/waybar.nix
@@ -27,8 +27,7 @@
      ./atuin/atuin.nix
      ./browser/librewolf/librewolf.nix
   ];
-
-  # The home.packages option allows you to install Nix packages into your
+# The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -54,7 +53,12 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".XCompose".text = ''
+        include "%L"
 
+        <dead_acute> <C> : "Ç"
+        <dead_acute> <c> : "ç"
+    '';
 #    ".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
    
   };
@@ -78,6 +82,41 @@
   home.sessionVariables = {
      EDITOR = "nvim";
   };
+
+
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    polarity = "dark";
+    autoEnable = true;
+
+    image = ./wallpapers/Cloudsnight.jpg;
+
+    cursor.package = pkgs.bibata-cursors;
+    cursor.name = "Bibata-Modern-Ice";
+
+    targets = {
+      fish.enable = false;
+      waybar.enable = false;
+    };
+
+	  fonts = {
+	    monospace = {
+	      package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+	      name = "FiraCode Nerd Font Mono";
+	    };
+	    sansSerif = {
+	      package = pkgs.dejavu_fonts;
+	      name = "DejaVu Sans";
+	    };
+	    serif = {
+	      package = pkgs.dejavu_fonts;
+	      name = "DejaVu Serif";
+	    };
+    };
+  };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

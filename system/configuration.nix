@@ -51,9 +51,9 @@
   };
 
   # Enable the KDE Plasma Desktop Environment.
-#   services.displayManager.sddm.enable = true;
-#   services.displayManager.sddm.wayland.enable = true;
-   services.desktopManager.plasma6.enable = true;
+    services.displayManager.sddm.enable = true;
+    services.displayManager.sddm.wayland.enable = true;
+   # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -98,8 +98,8 @@
     description = "dymdym";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
+      # kdePackages.kate
+      # thunderbird
     ];
   };
 
@@ -136,6 +136,8 @@
     wofi
     waybar
     fira-code-nerdfont
+    font-awesome
+    texliveFull
     swaybg
     swayosd
     waypaper
@@ -148,6 +150,8 @@
     pcmanfm
     blueberry
     btop
+    webcord
+    mpv
   ];
 
   programs.steam = {
@@ -156,11 +160,6 @@
 
   programs.nm-applet.enable = true;
 
-  stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    polarity = "dark";
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

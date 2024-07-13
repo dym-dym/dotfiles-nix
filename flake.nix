@@ -37,7 +37,7 @@
                 ];
               };
             }
-            inputs.stylix.nixosModules.stylix
+            # inputs.stylix.nixosModules.stylix
           ];
         };
       };
@@ -45,7 +45,10 @@
       homeConfigurations = {
         dymdym = home-manager.lib.homeManagerConfiguration {
 	        inherit pkgs;
-          modules = [ ./user/home.nix ];
+          modules = [ 
+            ./user/home.nix 
+            inputs.stylix.homeManagerModules.stylix
+          ];
         };       
       };
     };
