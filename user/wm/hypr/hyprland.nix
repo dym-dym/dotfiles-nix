@@ -134,6 +134,7 @@
       # "~/.config/hypr/scripts/randombackground"
       "waypaper --restore"
       "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
+      "swayosd-server"
     ];
 
     exec = [
