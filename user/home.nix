@@ -103,18 +103,23 @@
     };
 
 	  fonts = {
+
 	    monospace = {
-	      package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
 	      name = "FiraCode Nerd Font Mono";
 	    };
 	    sansSerif = {
-	      package = pkgs.dejavu_fonts;
-	      name = "DejaVu Sans";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
 	    };
 	    serif = {
 	      package = pkgs.dejavu_fonts;
 	      name = "DejaVu Serif";
 	    };
+       emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
     };
   };
 

@@ -4,7 +4,7 @@
 
   programs.waybar.settings.mainBar = {
 
-    include = "/home/dymdym/.config/waybar/configs/custom_modules/modules";
+    # include = "/home/dymdym/.config/waybar/configs/custom_modules/modules";
     layer = "top";
     height = 30;
     margin-top = 4;
@@ -50,7 +50,10 @@
     ];
 
     "custom/launcher" = {
-      format = "";
+#      format = "";
+      format = "";
+      on-click = "pkill wofi || wofi";
+      tooltip = false;
     };
 
     "custom/separator" = {
@@ -66,8 +69,8 @@
 
     "memory" = {
       interval = 30;
-      format = "<b> {used}GiB</b>";
-      format-alt = " {used:0.1f}G";
+      format = " <b>{used}GiB</b>";
+      format-alt = "  {used:0.1f}G";
       max-length = 10;
     };
 
@@ -126,12 +129,13 @@
 
     "backlight" = {
       device = "amdgpu_bl1";
-      format = "{icon} {percent}";
+      format = "{icon} <b>{percent}</b>";
       tooltip = false;
       format-icons = [
-        ""
-        ""
-        ""
+        # ""
+        # ""
+        # ""
+        "💡"
       ];
     };
 
@@ -143,11 +147,13 @@
       format-disconnected = "";
     };
     "pulseaudio" = {
-      format = "{icon} <b>{volume}</b>";
+      format = "{icon}  <b>{volume}</b>";
       format-bluetooth = " ";
-      format-bluetooth-muted = "";
+      # format-bluetooth-muted = " 🔇";
+      format-bluetooth-muted = "🔇";
       tooltip = false;
-      format-muted = "";
+      # format-muted = "";
+      format-muted = "🔇";
       format-icons = {
         default = [
           ""
@@ -164,7 +170,7 @@
         warning = 30;
         critical = 15;
       };
-      format = "{icon} {capacity}%";
+      format = "{icon} <b>{capacity}</b>%";
       format-icons = [
         " "
         " "
@@ -202,5 +208,183 @@
       exec = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Montpellier ";
       return-type = "json";
     };
+    "custom/dot" = {
+      format = "  ";
+      tooltip = false;
+    };
+    "custom/dot-alt" = {
+      format = "  ";
+      tooltip = false;
+    };
   };
+
+  programs.waybar.style = ''
+    * {
+		  padding: 0;
+		  margin: 0;
+		  font-family: JetBrainsMono Nerd Font;
+		  font-size: 16px;
+		}
+		
+		window#waybar {
+		  background: transparent;
+		}
+		/*
+		  background: rgba(30, 30, 46, 0.6);
+		*/
+		#custom-launcher {
+		  font-size: 20px;
+		  color: #00bfff; /* deepskyblue */
+		  padding: 0px 15px 0px 15px;
+		}
+		
+		#cpu,
+		#memory,
+		#temperature,
+		#battery,
+		#clock,
+		#custom-wrap-left,
+		#custom-wrap-right,
+		#custom-pacman-update,
+		#tray,
+		#custom-window-name
+		{
+		  font-size:14px;
+		  background: #363a4f;
+		  margin: 5px 0px 5px 0px;
+		}
+		
+		#cpu,
+		#memory,
+		#temperature
+		{
+		  font-size: 14px;
+		}
+		
+		#clock,
+		#custom-window-name,
+		#modules-right,
+		#tray
+		{
+		  margin: 0px 5px 0px 0px;
+		  padding: 0px 10px 0px 12px;
+		  border-radius: 8px 8px 8px 8px;
+		}
+		
+		#cpu,
+		#custom-wrap-left
+		{
+		  border-radius: 8px 0px 0px 8px;
+		  padding: 0px 0px 0px 12px;
+		}
+		
+		#cpu
+		{
+		  color: #eed49f;
+		  padding: 5px 10px 0px 12px;
+		}
+		
+		#memory {
+		  color: #a6da95;
+		  padding: 0px 10px 0px 0px;
+		}
+		
+		#temperature
+		{
+		  color: #8aadf4;
+		}
+		
+		#temperature,
+		#custom-wrap-right
+		{
+		  padding: 0px 12px 0px 0px;
+		  border-radius: 0px 8px 8px 0px;
+		}
+		
+		#custom-wrap-left {
+		  font-size: 18px;
+		}
+		
+		#custom-wrap-right {
+		  font-size: 18px;
+		}
+		
+		#custom-pacman-update {
+		  color: #8bd5ca;
+		}
+		
+		#workspaces button:nth-child(1) label {
+		  color: #8aadf4;
+		  margin: 0px 8px;
+		}
+		
+		#workspaces button:nth-child(2) label {
+		  color: #ed8796;
+		  margin: 0px 8px;
+		}
+		
+		#workspaces button:nth-child(3) label {
+		  color: #a6da95;
+		  margin: 0px 8px;
+		}
+		
+		#workspaces button:nth-child(4) label {
+		  color: #c6a0f6;
+		  margin: 0px 8px;
+		}
+		
+		#workspaces button:nth-child(5) label {
+		  color: #f4dbd6;
+		  margin: 0px 8px;
+		}
+		
+		#workspaces button:nth-child(6) label {
+		  color: #f5a97f;
+		  margin: 0px 8px;
+		}
+		
+		#pulseaudio,
+		#backlight,
+		#battery
+		{
+		  font-size: 14px;
+		  background: #363a4f;
+		  margin: 5px 0px 5px 0px;
+		}
+		
+		#battery {
+		  color: #a6da95;
+		  padding: 0px 10px 0px 0px;
+		}
+		
+		#backlight {
+		  color: #eed49f;
+		  padding: 0px 10px 0px 10px;
+		  border-radius: 8px 0px 0px 8px;
+		}
+		
+		#pulseaudio {
+		  color: #91d7e3;
+		  padding: 0px 10px 0px 0px;
+		  border-radius: 0px 8px 8px 0px;
+		}
+		
+		#custom-right-arr {
+		  color: #8aadf4;
+		}
+		
+		#network {
+		  color: #c6a0f6;
+		}
+		
+		#custom-dot {
+		  color: #6e738d;
+		}
+		
+		#custom-dot-alt {
+		  color: #a5adcb;
+		}
+		
+		/*# sourceMappingURL=style.css.map */
+		'';
 }
