@@ -6,6 +6,7 @@
     nixpkgs.url = "nixpkgs/nixos-24.05";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     stylix.url = "github:danth/stylix";
     sddm-sugar-candy-nix = {
@@ -16,7 +17,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -29,6 +30,7 @@
 	        inherit system;
           modules = [ 
             ./system/configuration.nix 
+            nixos-hardware.nixosModules.lenovo-thinkpad-t590
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
               nixpkgs = {

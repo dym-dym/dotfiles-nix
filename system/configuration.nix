@@ -89,10 +89,24 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
+
+    prime = {
+#      offload = {
+#        enable = true;
+#        enableOffloadCmd = true;
+#      };
+
+      sync.enable = true;
+
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:60:0:0";
+    };
   };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
+
+  hardware.bluetooth.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -175,11 +189,16 @@
     discord
     mpv
     thunderbird
+    mangohud
+    heroic
   ];
 
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true;
   };
+
+  programs.gamemode.enable = true;
 
   programs.nm-applet.enable = true;
 
