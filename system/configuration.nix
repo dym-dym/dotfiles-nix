@@ -151,7 +151,9 @@
     blueberry
     btop
     webcord
+    discord
     mpv
+    thunderbird
   ];
 
   programs.steam = {
@@ -188,6 +190,18 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  #Garbage colector
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 15d";
+  };
+
+  system.autoUpgrade = {
+   enable = true;
+   channel = "https://nixos.org/channels/nixos-24.05";
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
