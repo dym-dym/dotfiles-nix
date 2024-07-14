@@ -93,8 +93,9 @@
 
     image = ./wallpapers/Cloudsnight.jpg;
 
-    cursor.package = pkgs.bibata-cursors;
-    cursor.name = "Bibata-Modern-Ice";
+    cursor.package = pkgs.simp1e-cursors;
+    cursor.name = "Simp1e-Catppuccin-Mocha";
+    cursor.size = 25;
 
     targets = {
       fish.enable = false;
