@@ -198,6 +198,8 @@
     tealdeer
     wlogout
     hyprlock
+    eza
+    ripgrep
   ];
 
   programs.steam = {

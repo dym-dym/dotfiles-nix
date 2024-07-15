@@ -126,6 +126,9 @@
     };
   };
 
+  programs.eza.enable = true;
+  programs.ripgrep.enable = true;
+
   services.udiskie.enable = true;
 
   # Let Home Manager install and manage itself.
