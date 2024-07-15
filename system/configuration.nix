@@ -174,7 +174,7 @@
     font-awesome
     texliveFull
     swaybg
-    swayosd
+    # swayosd
     waypaper
     wttrbar
     librewolf
@@ -191,6 +191,10 @@
     thunderbird
     mangohud
     heroic
+    #fprintd
+    gnome.nautilus
+    kio-admin
+    tealdeer
   ];
 
   programs.steam = {
@@ -202,6 +206,9 @@
 
   programs.nm-applet.enable = true;
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  services.devmon.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -216,6 +223,31 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+#  services.fprintd = {
+#    enable = true;
+#    package = pkgs.fprintd-tod;
+#    tod = {
+#      enable = true;
+#      driver = pkgs.libfprint-2-tod1-vfs0090;
+#    };
+#  };
+
+  systemd = {
+	  user.services.polkit-gnome-authentication-agent-1 = {
+	    description = "polkit-gnome-authentication-agent-1";
+	    wantedBy = [ "graphical-session.target" ];
+	    wants = [ "graphical-session.target" ];
+	    after = [ "graphical-session.target" ];
+	    serviceConfig = {
+	        Type = "simple";
+	        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+	        Restart = "on-failure";
+	        RestartSec = 1;
+	        TimeoutStopSec = 10;
+	      };
+	  };
+	};
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

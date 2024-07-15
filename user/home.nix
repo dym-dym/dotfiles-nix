@@ -48,6 +48,7 @@
       ocaml
       gcc
       gnumake
+      swayosd
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -123,6 +124,7 @@
     };
   };
 
+  services.udiskie.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
