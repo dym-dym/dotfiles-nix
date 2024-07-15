@@ -17,7 +17,9 @@
 
   imports = [ 
      ./wm/hypr/hyprland.nix 
+     ./wm/hypr/hyprlock.nix 
      ./wm/wofi/wofi.nix
+     ./wm/wlogout
      # ./wm/global_theme/theme.nix
      ./shell/fish.nix
      ./terminal/alacritty.nix

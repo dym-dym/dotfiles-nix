@@ -135,6 +135,7 @@
     packages = with pkgs; [
       # kdePackages.kate
       # thunderbird
+      telegram-desktop
     ];
   };
 
@@ -195,6 +196,8 @@
     gnome.nautilus
     kio-admin
     tealdeer
+    wlogout
+    hyprlock
   ];
 
   programs.steam = {
