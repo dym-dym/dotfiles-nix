@@ -2,7 +2,7 @@
 
 {
 
-  programs.opam.enable = true;
+  # programs.opam.enable = true;
   
   programs.neovim = 
   let
@@ -79,6 +79,8 @@
           p.tree-sitter-lua
           p.tree-sitter-python
           p.tree-sitter-json
+          p.tree-sitter-ocaml
+          p.tree-sitter-rust
         ]));
         config = toLuaFile ./nvim/plugin/treesitter.lua;
       }

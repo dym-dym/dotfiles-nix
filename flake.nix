@@ -30,7 +30,7 @@
 	        inherit system;
           modules = [ 
             ./system/configuration.nix 
-            nixos-hardware.nixosModules.lenovo-thinkpad-t590
+            # nixos-hardware.nixosModules.lenovo-thinkpad-t590
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
               nixpkgs = {

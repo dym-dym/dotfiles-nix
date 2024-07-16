@@ -12,6 +12,7 @@
     ];
 
   # Bootloader.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     systemd-boot.enable = true;
     systemd-boot.configurationLimit = 5;
@@ -74,10 +75,18 @@
   services.printing.enable = true;
 
   #NvidiaConfig
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        vaapiIntel
+        libvdpau-va-gl
+        intel-media-driver
+      ];
+    };
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg:
@@ -109,9 +118,9 @@
 #        enable = true;
 #        enableOffloadCmd = true;
 #      };
-
-      sync.enable = true;
-
+#
+      reverseSync.enable = true;
+#
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:60:0:0";
     };
@@ -152,6 +161,10 @@
         # thunderbird
         telegram-desktop
         element-desktop
+        signal-desktop
+        android-tools
+        neofetch
+        lshw
       ])
 
       ++ 

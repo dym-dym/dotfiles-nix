@@ -45,12 +45,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-      cargo
-      rustc
-      opam
-      ocaml
-      gcc
-      gnumake
       swayosd
   ];
 
