@@ -22,6 +22,7 @@
      ./wm/wlogout
      # ./wm/global_theme/theme.nix
      ./shell/fish.nix
+     ./shell/starship.nix
      ./terminal/alacritty.nix
      ./bar/waybar/waybar.nix
      ./notifications/dunst.nix
