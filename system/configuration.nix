@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-unstable, lib, ... }:
 
 {
   imports =
@@ -146,12 +146,18 @@
     isNormalUser = true;
     description = "dymdym";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      # kdePackages.kate
-      # thunderbird
-      telegram-desktop
-      element-desktop
-    ];
+    packages = 
+      (with pkgs; [
+        # kdePackages.kate
+        # thunderbird
+        telegram-desktop
+        element-desktop
+      ])
+
+      ++ 
+
+      (with pkgs-unstable; [
+      ]);
   };
 
   # Enable automatic login for the user.
@@ -172,52 +178,54 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git
-    neovim
-    fishPlugins.done
-    fishPlugins.fzf-fish
-    fishPlugins.forgit
-    fishPlugins.hydro
-    fzf
-    fishPlugins.grc
-    grc
-    starship
-    alacritty
-    wofi
-    waybar
-    fira-code-nerdfont
-    font-awesome
-    texliveFull
-    swaybg
-    # swayosd
-    waypaper
-    wttrbar
-    librewolf
-    qutebrowser
-    jellyfin-media-player
-    pavucontrol
-    lxappearance
-    pcmanfm
-    blueberry
-    btop
-    webcord
-    discord
-    mpv
-    thunderbird
-    mangohud
-    heroic
-    #fprintd
-    gnome.nautilus
-    kio-admin
-    tealdeer
-    wlogout
-    hyprlock
-    eza
-    ripgrep
-    sway-contrib.grimshot
-    protonup
-  ];
+  environment.systemPackages = 
+    (with pkgs; [
+	    git
+	    neovim
+	    fishPlugins.done
+	    fishPlugins.fzf-fish
+	    fishPlugins.forgit
+	    fishPlugins.hydro
+	    fzf
+	    fishPlugins.grc
+	    grc
+	    starship
+	    alacritty
+	    wofi
+	    waybar
+	    fira-code-nerdfont
+	    font-awesome
+	    texliveFull
+	    swaybg
+	    # swayosd
+	    waypaper
+	    wttrbar
+	    librewolf
+	    qutebrowser
+	    jellyfin-media-player
+	    pavucontrol
+	    lxappearance
+	    pcmanfm
+	    blueberry
+	    btop
+	    discord
+	    mpv
+	    thunderbird
+	    mangohud
+	    heroic
+	    gnome.nautilus
+	    kio-admin
+	    tealdeer
+	    wlogout
+	    hyprlock
+	    eza
+	    ripgrep
+	    sway-contrib.grimshot
+	    protonup
+    ])
+    ++
+    (with pkgs-unstable; [
+    ]);
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/dymdym/.steam/root/compatibilitytools.d";

@@ -4,6 +4,7 @@
   inputs = {
 
     nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -11,17 +12,16 @@
     stylix.url = "github:danth/stylix";
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      # Optional, by default this flake follows nixpkgs-unstable.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
@@ -41,6 +41,9 @@
             }
             # inputs.stylix.nixosModules.stylix
           ];
+          specialArgs = {
+            inherit pkgs-unstable;
+          };
         };
       };
 
