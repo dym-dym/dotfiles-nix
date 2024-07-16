@@ -6,6 +6,6 @@
 
     enableFishIntegration = true;
 
-    settings = pkgs.lib.importTOML ./starhip.toml;
+    settings = pkgs.lib.importTOML ./starship.toml;
     };
 }
