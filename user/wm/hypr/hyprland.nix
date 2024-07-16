@@ -165,8 +165,10 @@
 				",XF86AudioLowerVolume,exec,swayosd-client --output-volume lower"
 				",XF86AudioMute,exec,swayosd-client --output-volume mute-toggle"
 				",XF86AudioMicMute,exec,swayosd-client --input-volume mute-toggle"
+        ",CAPS, exec, swayosd-client --caps-lock"
 
         "$mod SHIFT, d, exec, wlogout --css /home/dymdym/.config/wlogout/style.css"
+        "$mod SHIFT, s, exec, grimshot copy area"
       ]
       ++ (
         # workspaces
