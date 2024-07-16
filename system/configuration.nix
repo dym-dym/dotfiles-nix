@@ -14,6 +14,7 @@
   # Bootloader.
   boot.loader = {
     systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 5;
     # systemd-boot.device = "/dev/nvme0n1p3";
     # grub = {
       # enable = false;
@@ -149,6 +150,7 @@
       # kdePackages.kate
       # thunderbird
       telegram-desktop
+      element-desktop
     ];
   };
 
