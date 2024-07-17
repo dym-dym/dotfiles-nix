@@ -21,7 +21,7 @@ min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
 format = " took [$duration]($style)"
 #
 [directory]
-truncation_length = 4
+truncation_length = 2
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 #
 [git_branch]
