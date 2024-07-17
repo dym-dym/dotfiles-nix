@@ -2,7 +2,7 @@
 
 add_newline = false
 
-format = "$username$directory$git_branch$git_status$python$rust$ocaml$js$nix$character"
+format = "$username$directory$git_branch$git_status$python$rust$ocaml$js$nix_shell$character"
 
 # [battery]
 # full_symbol = "🔋"
