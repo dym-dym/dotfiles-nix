@@ -131,13 +131,13 @@
 
     exec-once = [
       "dunst"
-      # "~/.config/hypr/scripts/randombackground"
-      "waypaper --restore"
+      # "waypaper --restore"
       "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
       "swayosd-server &"
     ];
 
     exec = [
+      "/home/dymdym/.config/hypr/scripts/randombackground"
     ];
 
     "$mod" = "SUPER";
@@ -147,6 +147,7 @@
         "$mod, B, exec, librewolf"
         "$mod, Return, exec, alacritty"
 	      "$mod SHIFT, Return, exec, wofi"
+        "$mod SHIFT,T,togglefloating"
 	      "$mod, C, killactive"
 				"$mod, Space, fullscreen, 0"
 				"$mod, h, movefocus, l"

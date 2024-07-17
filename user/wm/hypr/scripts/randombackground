@@ -1,4 +1,4 @@
-image_dir=/home/dymdym/Images/wallpapers/
+image_dir=/home/dymdym/Pictures/wallpapers/landscapes/
 image=$(ls $image_dir | sort -R | tail -1 | awk '{print $NF}')
-killall swaybg
+pkill swaybg
 swaybg -i $image_dir$image &
