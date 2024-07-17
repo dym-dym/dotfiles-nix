@@ -165,6 +165,7 @@
         android-tools
         neofetch
         lshw
+        atuin
       ])
 
       ++ 
