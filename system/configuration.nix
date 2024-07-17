@@ -166,6 +166,7 @@
         neofetch
         lshw
         atuin
+        spotify
       ])
 
       ++ 
