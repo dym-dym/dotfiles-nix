@@ -154,7 +154,7 @@
   users.users.dymdym = {
     isNormalUser = true;
     description = "dymdym";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" ]; # "libvirtd" ];
     packages = 
       (with pkgs; [
         # kdePackages.kate
@@ -167,6 +167,19 @@
         lshw
         atuin
         spotify
+
+    # support 64-bit only
+    (wine.override { wineBuild = "wine64"; })
+
+    # support 64-bit only
+    wine64
+
+    # wine-staging (version with experimental features)
+    wineWowPackages.staging
+
+    # winetricks (all versions)
+    winetricks
+
       ])
 
       ++ 
@@ -298,6 +311,10 @@
 	      };
 	  };
 	};
+
+  # virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
