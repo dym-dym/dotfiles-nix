@@ -4,6 +4,13 @@
 
   services.swayosd.enable = true;
 
+  services.wlsunset = {
+    enable = true;
+    latitude = -23; 
+    longitude = -46;
+  };
+
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;

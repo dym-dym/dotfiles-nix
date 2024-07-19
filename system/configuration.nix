@@ -184,19 +184,15 @@
         lshw
         atuin
         spotify
-
-    # support 64-bit only
-    (wine.override { wineBuild = "wine64"; })
-
-    # support 64-bit only
-    wine64
-
-    # wine-staging (version with experimental features)
-    wineWowPackages.staging
-
-    # winetricks (all versions)
-    winetricks
-
+        # support 64-bit only
+        (wine.override { wineBuild = "wine64"; })
+        # support 64-bit only
+        wine64
+        # wine-staging (version with experimental features)
+        wineWowPackages.staging
+        # winetricks (all versions)
+        winetricks
+        wlsunset
       ])
 
       ++ 
