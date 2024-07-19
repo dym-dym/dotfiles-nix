@@ -3,6 +3,13 @@
 {
   programs = {
     fish.enable = true;
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+      options = [
+        "--cmd cd"
+      ];
+    };
   };
 
   programs.fish = {
@@ -18,6 +25,7 @@
     shellAliases = {
       "ls" = "eza -1l --icons";
       "grep" = "rg";
+      # "cd" = "z";
     };
   };
 }

@@ -50,12 +50,15 @@
         config = toLuaFile ./nvim/plugin/cmp.lua;
       }
 
+
+
       {
         plugin = telescope-nvim;
         config = toLuaFile ./nvim/plugin/telescope.lua;
       }
 
       telescope-fzf-native-nvim
+      telescope-zoxide
 
       cmp_luasnip
       cmp-nvim-lsp

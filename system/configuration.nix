@@ -193,6 +193,7 @@
         # winetricks (all versions)
         winetricks
         wlsunset
+        zoxide
       ])
 
       ++ 
