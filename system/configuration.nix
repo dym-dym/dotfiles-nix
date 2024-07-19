@@ -40,6 +40,9 @@
   # Enable wireguard VPN
   networking.wireguard.enable = true;
 
+  # Setup DNS
+  networking.nameservers = [ "9.9.9.9" ];
+
   ## == Locales ==
 
   # Set your time zone.
@@ -126,6 +129,7 @@
 
     prime = {
       reverseSync.enable = true;
+      # sync.enable = true;
 
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:60:0:0";
@@ -174,6 +178,7 @@
         telegram-desktop
         element-desktop
         signal-desktop
+        whatsapp-for-linux
         android-tools
         neofetch
         lshw
@@ -275,6 +280,7 @@
       # Media
 	    jellyfin-media-player
 	    mpv
+      obs-studio
 
       # Sound
 	    pavucontrol
@@ -338,9 +344,27 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [ 51820 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+#   networking.wg-quick.interfaces = {
+#     wg0 = {
+#       address = [ "10.192.1.2/24" ];
+#       dns = [ "10.192.1.1" "9.9.9.9" ];
+#       privateKeyFile = "/home/dymdym/.ssh/privatekey_dymwork";
+#       
+#       peers = [
+#         {
+#           publicKey = "hN8vhr7WahPF+VsrIlEXAsB+QD3JXQmu1IJOnB6MhyQ=";
+#           presharedKeyFile = "/home/dymdym/.ssh/presharedkey_dymwork";
+#           allowedIPs = [ "0.0.0.0/0" ];
+#           endpoint = "vpn.dylanbettendroffer.fr:51820";
+#           persistentKeepalive = 25;
+#         }
+#       ];
+#     };
+#   };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
