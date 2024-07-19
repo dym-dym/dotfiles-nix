@@ -6,8 +6,10 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Login Manager
       ./sddm.nix
     ];
 
@@ -24,6 +26,8 @@
     # };
   };
 
+  ## == Network ==
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -33,7 +37,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # Enable wireguard VPN
   networking.wireguard.enable = true;
+
+  ## == Locales ==
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -52,6 +59,8 @@
     LC_TELEPHONE = "fr_FR.UTF-8";
     LC_TIME = "fr_FR.UTF-8";
   };
+
+  ## == Graphical Settings ==
 
   # Enable the KDE Plasma Desktop Environment.
    #  services.displayManager.sddm.enable = true;
@@ -111,20 +120,19 @@
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
       persistencedSha256 = lib.fakeSha256;
     }; 
+
+    # Value of package if you want to get back to stable branch
     # config.boot.kernelPackages.nvidiaPackages.beta;
 
     prime = {
-#      offload = {
-#        enable = true;
-#        enableOffloadCmd = true;
-#      };
-#
       reverseSync.enable = true;
-#
+
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:60:0:0";
     };
   };
+
+  ## == Audio ==
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -148,6 +156,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  ## == Users ==
+
   users.users.dymdym.shell = pkgs.fish;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -155,6 +165,8 @@
     isNormalUser = true;
     description = "dymdym";
     extraGroups = [ "networkmanager" "wheel" ]; # "libvirtd" ];
+
+    # User packages
     packages = 
       (with pkgs; [
         # kdePackages.kate
@@ -194,12 +206,20 @@
     user = "dymdym";
   };
 
-  # Install firefox.
+  ## == Programs and Services ==
+
   programs = {
     firefox.enable = true;
     fish.enable = true;
     hyprland.enable = true;
+    gamemode.enable = true;
+    nm-applet.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
   };
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -208,66 +228,75 @@
   # $ nix search wget
   environment.systemPackages = 
     (with pkgs; [
-	    git
-	    neovim
+
+      # Fish 
 	    fishPlugins.done
 	    fishPlugins.fzf-fish
 	    fishPlugins.forgit
 	    fishPlugins.hydro
-	    fzf
 	    fishPlugins.grc
+
+      # Terminal
+	    git
+	    neovim
+	    fzf
 	    grc
 	    starship
 	    alacritty
+	    btop
+	    tealdeer
+	    eza
+	    ripgrep
+
+      # Window Manager
 	    wofi
 	    waybar
+	    swaybg
+	    waypaper
+	    wttrbar
+	    wlogout
+	    hyprlock
+	    sway-contrib.grimshot
+
+      # File explorers
+	    pcmanfm
+	    gnome.nautilus
+	    kio-admin
+
+      # Fonts (and TeX)
 	    fira-code-nerdfont
 	    font-awesome
 	    texliveFull
-	    swaybg
-	    # swayosd
-	    waypaper
-	    wttrbar
+
+      # Browsers
 	    librewolf
 	    qutebrowser
+
+      # Media
 	    jellyfin-media-player
-	    pavucontrol
-	    lxappearance
-	    pcmanfm
-	    blueberry
-	    btop
-	    discord
 	    mpv
+
+      # Sound
+	    pavucontrol
+	    blueberry
+
+      # Misc
 	    thunderbird
 	    mangohud
 	    heroic
-	    gnome.nautilus
-	    kio-admin
-	    tealdeer
-	    wlogout
-	    hyprlock
-	    eza
-	    ripgrep
-	    sway-contrib.grimshot
+	    discord
 	    protonup
     ])
     ++
     (with pkgs-unstable; [
     ]);
 
+
+  ## == Environment Variables ==
+
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/dymdym/.steam/root/compatibilitytools.d";
   };
-
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
-
-
-  programs.gamemode.enable = true;
-
-  programs.nm-applet.enable = true;
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;
@@ -286,15 +315,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-#  services.fprintd = {
-#    enable = true;
-#    package = pkgs.fprintd-tod;
-#    tod = {
-#      enable = true;
-#      driver = pkgs.libfprint-2-tod1-vfs0090;
-#    };
-#  };
 
   systemd = {
 	  user.services.polkit-gnome-authentication-agent-1 = {
@@ -329,6 +349,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  ## == Updates ==
 
   #Garbage colector
   nix.gc = {
