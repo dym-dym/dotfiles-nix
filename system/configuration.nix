@@ -194,6 +194,7 @@
         winetricks
         wlsunset
         zoxide
+        fd
       ])
 
       ++ 

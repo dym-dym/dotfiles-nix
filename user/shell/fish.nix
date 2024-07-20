@@ -25,6 +25,7 @@
     shellAliases = {
       "ls" = "eza -1l --icons";
       "grep" = "rg";
+      "find" = "fd";
       # "cd" = "z";
     };
   };
