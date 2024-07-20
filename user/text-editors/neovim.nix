@@ -104,7 +104,16 @@
         plugin = which-key-nvim;
         config = toLuaFile ./nvim/plugin/which-key.lua;
       }
-      nvim-tree-lua
+
+      {
+        plugin = neo-tree-nvim;
+        config = toLuaFile ./nvim/plugin/neo-tree-nvim.lua;
+      }
+
+      {
+        plugin = mini-nvim;
+        config = toLuaFile ./nvim/plugin/mini.lua;
+      }
     ];
 
     extraLuaConfig = ''
