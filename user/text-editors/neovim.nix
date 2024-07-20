@@ -104,7 +104,7 @@
         plugin = which-key-nvim;
         config = toLuaFile ./nvim/plugin/which-key.lua;
       }
-
+      nvim-tree-lua
     ];
 
     extraLuaConfig = ''
