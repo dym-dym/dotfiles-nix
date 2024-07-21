@@ -18,7 +18,7 @@
     systemd.enable = true;
   };
 
-  
+
   wayland.windowManager.hyprland.systemd.variables = ["--all"];
 
   wayland.windowManager.hyprland.settings = {
@@ -26,7 +26,7 @@
     monitor = "eDP-1,1920x1080@60,0x0,1";
 
     source = "~/.config/hypr/mocha.conf";
-    
+
     input = {
       follow_mouse = "1";
       kb_layout = "us";
@@ -66,9 +66,10 @@
       enabled = "yes";
 
       bezier = "myBezier, 0.05, 0.9, 0.1, 1.0";
+
       animation = [
-        "windows, 1, 5, myBezier"
-        "windowsOut, 1, 5, default, popin 80%"
+        "windows, 1, 5, myBezier,slide bottom"
+        "windowsOut, 1, 5, default, popin 90%"
 	      "border, 1, 10, default"
 	      "borderangle, 1, 8, default"
 	      "fade, 1, 7, default"
@@ -78,6 +79,7 @@
 
     dwindle = {
       pseudotile = "1";
+      preserve_split = true;
     };
 
     master = {
@@ -194,6 +196,7 @@
           )
           10)
       );
+
     bindm = [
       "SUPER, mouse:272, movewindow"
       "SUPER, mouse:273, resizewindow"
