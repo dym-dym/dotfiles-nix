@@ -195,6 +195,7 @@
         wlsunset
         zoxide
         fd
+        blueman
       ])
 
       ++ 
@@ -346,23 +347,23 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-#   networking.wg-quick.interfaces = {
-#     wg0 = {
-#       address = [ "10.192.1.2/24" ];
-#       dns = [ "10.192.1.1" "9.9.9.9" ];
-#       privateKeyFile = "/home/dymdym/.ssh/privatekey_dymwork";
-#       
-#       peers = [
-#         {
-#           publicKey = "hN8vhr7WahPF+VsrIlEXAsB+QD3JXQmu1IJOnB6MhyQ=";
-#           presharedKeyFile = "/home/dymdym/.ssh/presharedkey_dymwork";
-#           allowedIPs = [ "0.0.0.0/0" ];
-#           endpoint = "vpn.dylanbettendroffer.fr:51820";
-#           persistentKeepalive = 25;
-#         }
-#       ];
-#     };
-#   };
+  # networking.wg-quick.interfaces = {
+  #   wg_home = {
+  #     address = [ "10.192.1.2/24" ];
+  #     dns = [ "10.192.1.1" "9.9.9.9" ];
+  #     privateKeyFile = "/home/dymdym/.ssh/privatekey_dymwork";
+  #
+  #     peers = [
+  #       {
+  #         publicKey = "hN8vhr7WahPF+VsrIlEXAsB+QD3JXQmu1IJOnB6MhyQ=";
+  #         presharedKeyFile = "/home/dymdym/.ssh/presharedkey_dymwork";
+  #         allowedIPs = [ "0.0.0.0/0" ];
+  #         endpoint = "vpn.dylanbettendroffer.fr:51820";
+  #         persistentKeepalive = 25;
+  #       }
+  #     ];
+  #   };
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
