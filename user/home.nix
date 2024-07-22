@@ -124,6 +124,12 @@
   programs.eza.enable = true;
   programs.ripgrep.enable = true;
 
+  programs.git = {
+    enable = true;
+    userName = "Dylan Bettendroffer";
+    userEmail = "dylan.bettendroffer@gmail.com";
+  };
+
   services.udiskie.enable = true;
 
   # Let Home Manager install and manage itself.
