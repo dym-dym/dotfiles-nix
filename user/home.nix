@@ -128,6 +128,9 @@
     enable = true;
     userName = "Dylan Bettendroffer";
     userEmail = "dylan.bettendroffer@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 
   services.udiskie.enable = true;
