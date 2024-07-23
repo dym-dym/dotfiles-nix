@@ -11,6 +11,8 @@
       ./hardware-configuration.nix
       # Login Manager
       ./sddm.nix
+      # VPN
+      # ./wireguard.nix
     ];
 
   # Bootloader.
@@ -37,8 +39,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # Enable wireguard VPN
-  networking.wireguard.enable = true;
 
   # Setup DNS
   networking.nameservers = [ "9.9.9.9" ];
@@ -196,9 +196,10 @@
         zoxide
         fd
         blueman
+        anki
       ])
 
-      ++ 
+      ++
 
       (with pkgs-unstable; [
       ]);
@@ -343,27 +344,9 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [ 51820 ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # networking.wg-quick.interfaces = {
-  #   wg_home = {
-  #     address = [ "10.192.1.2/24" ];
-  #     dns = [ "10.192.1.1" "9.9.9.9" ];
-  #     privateKeyFile = "/home/dymdym/.ssh/privatekey_dymwork";
-  #
-  #     peers = [
-  #       {
-  #         publicKey = "hN8vhr7WahPF+VsrIlEXAsB+QD3JXQmu1IJOnB6MhyQ=";
-  #         presharedKeyFile = "/home/dymdym/.ssh/presharedkey_dymwork";
-  #         allowedIPs = [ "0.0.0.0/0" ];
-  #         endpoint = "vpn.dylanbettendroffer.fr:51820";
-  #         persistentKeepalive = 25;
-  #       }
-  #     ];
-  #   };
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
