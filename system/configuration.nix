@@ -182,7 +182,7 @@
         android-tools
         neofetch
         lshw
-        atuin
+        # atuin
         spotify
         # support 64-bit only
         (wine.override { wineBuild = "wine64"; })
@@ -214,7 +214,7 @@
   ## == Programs and Services ==
 
   programs = {
-    firefox.enable = true;
+    # firefox.enable = true;
     fish.enable = true;
     hyprland.enable = true;
     gamemode.enable = true;
@@ -243,24 +243,24 @@
 
       # Terminal
 	    git
-	    neovim
+      # neovim
 	    fzf
 	    grc
-	    starship
-	    alacritty
+      # starship
+      # alacritty
 	    btop
 	    tealdeer
 	    eza
 	    ripgrep
 
       # Window Manager
-	    wofi
-	    waybar
+      # wofi
+      # waybar
 	    swaybg
 	    waypaper
 	    wttrbar
-	    wlogout
-	    hyprlock
+      # wlogout
+      # hyprlock
 	    sway-contrib.grimshot
 
       # File explorers
@@ -274,7 +274,7 @@
 	    texliveFull
 
       # Browsers
-	    librewolf
+      # librewolf
 	    qutebrowser
 
       # Media

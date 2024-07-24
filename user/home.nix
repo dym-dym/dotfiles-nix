@@ -15,22 +15,11 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  imports = [ 
-     ./wm/hypr/hyprland.nix 
-     ./wm/hypr/hyprlock.nix 
-     ./wm/wofi/wofi.nix
-     ./wm/wlogout
-     # ./wm/global_theme/theme.nix
-     ./shell/fish.nix
-     ./shell/starship.nix
-     ./terminal/alacritty.nix
-     ./bar/waybar/waybar.nix
-     ./notifications/dunst.nix
-     ./text-editors/neovim.nix
-     ./atuin/atuin.nix
-     ./browser/librewolf/librewolf.nix
+  imports = [
+     ../modules
   ];
-# The home.packages option allows you to install Nix packages into your
+
+  # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -57,30 +46,11 @@
         <dead_acute> <C> : "Ç"
         <dead_acute> <c> : "ç"
     '';
-#    ".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
-   
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/dymdym/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
      EDITOR = "nvim";
   };
-
 
 
   stylix = {

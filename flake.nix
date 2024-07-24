@@ -14,6 +14,11 @@
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }@inputs:
@@ -26,10 +31,16 @@
     {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+          };
+
 	        inherit system;
-          modules = [ 
-            ./system/configuration.nix 
+
+          modules = [
+            ./system/configuration.nix
             # nixos-hardware.nixosModules.lenovo-thinkpad-t590
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {
@@ -41,20 +52,24 @@
             }
             # inputs.stylix.nixosModules.stylix
           ];
-          specialArgs = {
-            inherit pkgs-unstable;
-          };
+
+          # specialArgs = {
+          #   inherit pkgs-unstable;
+          # };
         };
       };
 
       homeConfigurations = {
         dymdym = home-manager.lib.homeManagerConfiguration {
 	        inherit pkgs;
-          modules = [ 
-            ./user/home.nix 
+
+          extraSpecialArgs = { inherit inputs; };
+
+          modules = [
+            ./user/home.nix
             inputs.stylix.homeManagerModules.stylix
           ];
-        };       
+        };
       };
     };
 }
