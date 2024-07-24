@@ -6,7 +6,7 @@
     neovim.enable = lib.mkEnableOption "enable neovim";
   };
 
-  config = lib.mkIf config.enable.neovim {
+  config = lib.mkIf config.neovim.enable {
     programs.neovim =
     let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
