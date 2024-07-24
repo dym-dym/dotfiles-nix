@@ -1,20 +1,16 @@
 { config, lib, pkgs, ... }:
 
+let
+  randombackground = ./scripts/randombackground;
+  wofi-script = ./scripts/wofi;
+in
 {
   options = {
     hyprland.enable = lib.mkEnableOption "enable hyprland";
   };
 
   config = lib.mkIf config.hyprland.enable {
-	  # imports = [
-	  #   ../../modules
-	  # ];
-	  # swayosd.enable = true;
-	  #
-	  # wlsunset.enable = true;
-	  #
-	  # wlogout.enable = true;
-	  #
+
 	  wayland.windowManager.hyprland = {
 	    enable = true;
 	    package = pkgs.hyprland;
@@ -149,7 +145,7 @@
 	    ];
 
 	    exec = [
-	      "/home/dymdym/.config/hypr/scripts/randombackground"
+        "${randombackground}"
 	    ];
 
 	    "$mod" = "SUPER";
@@ -158,7 +154,7 @@
 	      [
 	        "$mod, B, exec, librewolf"
 	        "$mod, Return, exec, alacritty"
-		      "$mod SHIFT, Return, exec, wofi"
+          "$mod SHIFT, Return, exec, ${wofi-script}"
 	        "$mod SHIFT,T,togglefloating"
 		      "$mod, C, killactive"
 					"$mod, Space, fullscreen, 0"
