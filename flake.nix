@@ -10,6 +10,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     stylix.url = "github:danth/stylix";
+
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,20 +43,9 @@
           modules = [
             ./system/configuration.nix
             # nixos-hardware.nixosModules.lenovo-thinkpad-t590
-            inputs.sddm-sugar-candy-nix.nixosModules.default
-            {
-              nixpkgs = {
-                overlays = [
-                  inputs.sddm-sugar-candy-nix.overlays.default
-                ];
-              };
-            }
             # inputs.stylix.nixosModules.stylix
+            inputs.sddm-sugar-candy-nix.nixosModules.default
           ];
-
-          # specialArgs = {
-          #   inherit pkgs-unstable;
-          # };
         };
       };
 

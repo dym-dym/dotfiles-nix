@@ -346,6 +346,41 @@
 	  };
 	};
 
+  # stylix = {
+  #   enable = true;
+  #   polarity = "dark";
+  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  #   image = ../user/wallpapers/Cloudsnight.jpg;
+  #
+  #   cursor.package = pkgs.simp1e-cursors;
+  #   cursor.name = "Simp1e-Catppuccin-Mocha";
+  #   cursor.size = 25;
+  #
+  #   targets = {
+  #     fish.enable = false;
+  #   };
+  #
+  #  fonts = {
+  #
+  #    monospace = {
+  #       package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+  #      name = "FiraCode Nerd Font Mono";
+  #    };
+  #    sansSerif = {
+  #       package = pkgs.dejavu_fonts;
+  #       name = "DejaVu Sans";
+  #    };
+  #    serif = {
+  #      package = pkgs.dejavu_fonts;
+  #      name = "DejaVu Serif";
+  #    };
+  #     emoji = {
+  #       package = pkgs.noto-fonts-emoji;
+  #       name = "Noto Color Emoji";
+  #     };
+  #   };
+  # };
+
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
 
