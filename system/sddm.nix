@@ -23,7 +23,6 @@
 
     wayland = { 
       enable = true;
-      # compositor = "weston";
     }; 
 
     theme = "catppuccin-mocha";

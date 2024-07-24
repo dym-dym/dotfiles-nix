@@ -1,4 +1,18 @@
 { config, pkgs, lib, ... }:
+let
+  lock = ./lock.png;
+  lock-hover = ./lock-hover.png;
+  logout = ./logout.png;
+  logout-hover = ./logout-hover.png;
+  sleep = ./sleep.png;
+  sleep-hover = ./sleep-hover.png;
+  power = ./power.png;
+  power-hover = ./power-hover.png;
+  restart = ./restart.png;
+  restart-hover = ./restart-hover.png;
+  hibernate = ./hibernate.png;
+  hibernate-hover = ./hibernate-hover.png;
+in
 {
   options = {
     wlogout.enable = lib.mkEnableOption "enable wlogout";
@@ -73,44 +87,44 @@
 				}
 
 				#lock {
-				    background-image: image(url("./lock.png"));
+				    background-image: image(url("${lock}"));
 				}
 				#lock:focus {
-				    background-image: image(url("./lock-hover.png"));
+				    background-image: image(url("${lock-hover}"));
 				}
 
 				#logout {
-				    background-image: image(url("./logout.png"));
+				    background-image: image(url("${logout}"));
 				}
 				#logout:focus {
-				    background-image: image(url("./logout-hover.png"));
+				    background-image: image(url("${logout-hover}"));
 				}
 
 				#suspend {
-				    background-image: image(url("./sleep.png"));
+				    background-image: image(url("${sleep}"));
 				}
 				#suspend:focus {
-				    background-image: image(url("./sleep-hover.png"));
+				    background-image: image(url("${sleep-hover}"));
 				}
 
 				#shutdown {
-				    background-image: image(url("./power.png"));
+				    background-image: image(url("${power}"));
 				}
 				#shutdown:focus {
-				    background-image: image(url("./power-hover.png"));
+				    background-image: image(url("${power-hover}"));
 				}
 
 				#reboot {
-				    background-image: image(url("./restart.png"));
+				    background-image: image(url("${restart}"));
 				}
 				#reboot:focus {
-				    background-image: image(url("./restart-hover.png"));
+				    background-image: image(url("${restart-hover}"));
 				}
 				#hibernate {
-				    background-image: image(url("./hibernate.png"));
+				    background-image: image(url("${hibernate}"));
 				}
 				#hibernate:focus {
-				    background-image: image(url("./hibernate-hover.png"));
+				    background-image: image(url("${hibernate-hover}"));
 				}
 	    '';
 	  };
