@@ -34,6 +34,11 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+	    fira-code-nerdfont
+	    font-awesome
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-emoji
       swayosd
   ];
 
@@ -51,8 +56,6 @@
   home.sessionVariables = {
      EDITOR = "nvim";
   };
-
-
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -77,14 +80,14 @@
 	      name = "FiraCode Nerd Font Mono";
 	    };
 	    sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+	       package = pkgs.dejavu_fonts;
+	       name = "DejaVu Sans";
 	    };
 	    serif = {
 	      package = pkgs.dejavu_fonts;
 	      name = "DejaVu Serif";
 	    };
-       emoji = {
+      emoji = {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };

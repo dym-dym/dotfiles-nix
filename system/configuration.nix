@@ -270,8 +270,11 @@
 	    kio-admin
 
       # Fonts (and TeX)
-	    fira-code-nerdfont
-	    font-awesome
+
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-emoji
+
 	    texliveFull
 
       # Browsers
