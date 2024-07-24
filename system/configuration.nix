@@ -73,7 +73,6 @@
 
   # Configure keymap in X11
   services.xserver = {
-    # enable = true;
     xkb = {
       layout = "us";
       variant = "intl";
@@ -123,7 +122,7 @@
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
       persistencedSha256 = lib.fakeSha256;
-    }; 
+    };
 
     # Value of package if you want to get back to stable branch
     # config.boot.kernelPackages.nvidiaPackages.beta;
