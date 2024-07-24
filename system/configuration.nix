@@ -271,6 +271,10 @@
 
       # Fonts (and TeX)
 
+      nerdfonts
+      jetbrains-mono
+	    fira-code-nerdfont
+	    font-awesome
       noto-fonts
       noto-fonts-extra
       noto-fonts-emoji
