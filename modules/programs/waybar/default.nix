@@ -225,7 +225,7 @@
 	    * {
 			  padding: 0;
 			  margin: 0;
-			  font-family: JetBrainsMono Nerd Font;
+        font-family: Ubuntu Nerd Font;
 			  font-size: 16px;
 			}
 

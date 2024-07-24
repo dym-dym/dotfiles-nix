@@ -34,6 +34,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+      nerdfonts
+      jetbrains-mono
 	    fira-code-nerdfont
 	    font-awesome
       noto-fonts
