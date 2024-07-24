@@ -275,7 +275,7 @@
 
       # Browsers
       # librewolf
-	    qutebrowser
+      # qutebrowser
 
       # Media
 	    jellyfin-media-player
