@@ -79,13 +79,13 @@
     };
   };
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = lib.mkForce "Materia-dark";
-      package = lib.mkForce pkgs.materia-theme;
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = lib.mkForce "Materia-dark";
+  #     package = lib.mkForce pkgs.materia-theme;
+  #   };
+  # };
 
   qt = {
     enable = true;
