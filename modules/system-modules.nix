@@ -5,5 +5,4 @@
   ];
 
 	sddm.enable = true;
-
 }

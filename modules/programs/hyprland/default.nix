@@ -122,18 +122,31 @@ in
 	      "float, title:^(Save As)$"
 	      "float, title:^(Confirm to replace files)$"
 	      "float, title:^(File Operation Progress)$"
+	      "opaque, title:^(Open)$"
+	      "opaque, title:^(Choose Files)$"
+	      "opaque, title:^(Save As)$"
+	      "opaque, title:^(Confirm to replace files)$"
+	      "opaque, title:^(File Operation Progress)$"
 	      "center, pavucontrol"
 	      "float, pavucontrol"
 	      "idleinhibit fullscreen, firefox"
 	      "idleinhibit fullscreen, mpv"
 	      "idleinhibit fullscreen, librewolf"
+        "opaque, firefox"
+	      "opaque, mpv"
+	      "opaque, librewolf"
+
 	    ];
 
 	    windowrulev2 = [
 	      "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
 	      "noanim,class:^(xwaylandvideobridge)$"
 	      "noanim,class:^(ueberzugpp.*)$"
-	      "noanim,title:^(ueberzugpp.*)$"
+	      "noshadow,title:^(ueberzugpp.*)$"
+	      "noshadow,class:^(ueberzugpp.*)$"
+	      "opaque,title:^(ueberzugpp.*)$"
+	      "opaque,class:^(ueberzugpp.*)$"
+
 	      "noinitialfocus,class:^(xwaylandvideobridge)$"
 	      "maxsize 1 1,class:^(xwaylandvideobridge)$"
 	      "noblur,class:^(xwaylandvideobridge)$"
