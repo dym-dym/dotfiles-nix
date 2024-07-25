@@ -14,6 +14,7 @@
     ./programs/wlogout
     ./programs/wofi
     ./programs/waybar
+    ./programs/yazi
     ./programs/zathura
 
     ./services/swayosd
@@ -38,5 +39,6 @@
   wlogout.enable = lib.mkDefault true;
   wofi.enable = lib.mkDefault true;
   waybar.enable = lib.mkDefault true;
+  yazi.enable = lib.mkDefault true;
   zathura.enable = lib.mkDefault true;
 }

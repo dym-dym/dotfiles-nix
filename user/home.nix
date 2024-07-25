@@ -28,6 +28,9 @@
       noto-fonts-extra
       noto-fonts-emoji
       swayosd
+      ueberzugpp
+      ffmpegthumbnailer
+      unar
   ];
 
   home.file = {
