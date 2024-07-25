@@ -135,7 +135,6 @@ in
         "opaque, firefox"
 	      "opaque, mpv"
 	      "opaque, librewolf"
-
 	    ];
 
 	    windowrulev2 = [
@@ -144,9 +143,10 @@ in
 	      "noanim,class:^(ueberzugpp.*)$"
 	      "noshadow,title:^(ueberzugpp.*)$"
 	      "noshadow,class:^(ueberzugpp.*)$"
+	      "noborder,title:^(ueberzugpp.*)$"
+	      "noborder,class:^(ueberzugpp.*)$"
 	      "opaque,title:^(ueberzugpp.*)$"
 	      "opaque,class:^(ueberzugpp.*)$"
-
 	      "noinitialfocus,class:^(xwaylandvideobridge)$"
 	      "maxsize 1 1,class:^(xwaylandvideobridge)$"
 	      "noblur,class:^(xwaylandvideobridge)$"
