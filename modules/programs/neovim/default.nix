@@ -1,12 +1,23 @@
 { config, lib, pkgs, ... }:
 
+let
+  coq-lsp = pkgs.vimUtils.buildVimPlugin {
+    name = "coq-lsp";
+    src = pkgs.fetchFromGitHub {
+      owner = "tomtomjhj";
+      repo = "coq-lsp.nvim";
+      rev = "e8f8edd56bde52e64f98824d0737127356b8bd4e";
+      sha256 = "1lblzp8vdz7lfipbxgvvax4pg7c4x3nm2rlfdfcpf3s55n1g86l4";
+    };
+  };
+in
 {
-
   options = {
     neovim.enable = lib.mkEnableOption "enable neovim";
   };
 
   config = lib.mkIf config.neovim.enable {
+
     programs.neovim =
     let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
@@ -27,6 +38,8 @@
 
         luarocks-nix
         nodejs
+        coqPackages.coq-lsp
+        coq
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -118,6 +131,18 @@
           plugin = mini-nvim;
           config = toLuaFile ./nvim/plugin/mini.lua;
         }
+
+        Coqtail
+        {
+          plugin = coq-lsp;
+          config = toLuaFile ./nvim/plugin/coqtail.lua;
+        }
+
+        {
+          plugin = indent-blankline-nvim;
+          config = toLua ''require("ibl").setup()'';
+        }
+
         # {
         #   plugin = coc-nvim;
         #   config = toLuaFile ./nvim/plugin/coc.lua;

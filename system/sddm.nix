@@ -16,14 +16,14 @@
       x = 1920;
       y = 1080;
     }
-  ]; 
+  ];
 
   services.displayManager.sddm = {
     enable = true; # Enable SDDM.
 
-    wayland = { 
+    wayland = {
       enable = true;
-    }; 
+    };
 
     theme = "catppuccin-mocha";
     enableHidpi = true;
