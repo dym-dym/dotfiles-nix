@@ -58,7 +58,7 @@
     cursor.size = 25;
 
     targets = {
-      fish.enable = false;
+      fish.enable = true;
       waybar.enable = false;
     };
 

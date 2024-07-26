@@ -26,6 +26,7 @@
         wl-clipboard
 
         luarocks-nix
+        nodejs
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -100,6 +101,8 @@
           plugin = mason-nvim;
           config = toLuaFile ./nvim/plugin/mason.lua;
         }
+        mason-lspconfig-nvim
+        mason-tool-installer-nvim
 
         {
           plugin = which-key-nvim;
@@ -115,6 +118,10 @@
           plugin = mini-nvim;
           config = toLuaFile ./nvim/plugin/mini.lua;
         }
+        # {
+        #   plugin = coc-nvim;
+        #   config = toLuaFile ./nvim/plugin/coc.lua;
+        # }
       ];
 
       extraLuaConfig = ''
