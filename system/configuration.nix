@@ -299,6 +299,7 @@
 	    heroic
 	    discord
 	    protonup
+      networkmanagerapplet
     ])
     ++
     (with pkgs-unstable; [

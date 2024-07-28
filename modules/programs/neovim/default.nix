@@ -40,6 +40,7 @@ in
         nodejs
         coqPackages.coq-lsp
         coq
+        python312Packages.pynvim
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -133,9 +134,50 @@ in
         }
 
         Coqtail
+          # config = ''
+          #   " Don't load Coqtail
+          #   let g:loaded_coqtail = 1
+          #   let g:coqtail#supported = 0
+          #
+          #   " Setup coq-lsp.nvim
+          #   lua require'coq-lsp'.setup()
+          # '';
         {
           plugin = coq-lsp;
-          config = toLuaFile ./nvim/plugin/coqtail.lua;
+          # config = toLuaFile ./nvim/plugin/coqtail.lua;
+          config = ''
+            " Don't load Coqtail
+            let g:loaded_coqtail = 1
+            let g:coqtail#supported = 0
+
+            " Setup coq-lsp.nvim
+            lua require'coq-lsp'.setup()
+
+            function CoqtailHookDefineMappings()
+              imap <buffer> <S-Down> <Plug>CoqNext
+              imap <buffer> <S-Left> <Plug>CoqToLine
+              imap <buffer> <S-Up> <Plug>CoqUndo
+              nmap <buffer> <S-Down> <Plug>CoqNext
+              nmap <buffer> <S-Left> <Plug>CoqToLine
+              nmap <buffer> <S-Up> <Plug>CoqUndo
+            endfunction
+
+            if &t_Co > 16
+              if &background ==# 'dark'
+                hi def CoqtailChecked ctermbg=17 guibg=#113311
+                hi def CoqtailSent    ctermbg=60 guibg=#007630
+              else
+                hi def CoqtailChecked ctermbg=17 guibg=LightGreen
+                hi def CoqtailSent    ctermbg=60 guibg=LimeGreen
+              endif
+            else
+              hi def CoqtailChecked ctermbg=4 guibg=LightGreen
+              hi def CoqtailSent    ctermbg=7 guibg=LimeGreen
+            endif
+            hi def link CoqtailError Error
+            hi def link CoqtailOmitted coqProofAdmit
+          '';
+
         }
 
         {

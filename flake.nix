@@ -43,7 +43,7 @@
 
           modules = [
             ./system/configuration.nix
-            # nixos-hardware.nixosModules.lenovo-thinkpad-t590
+            nixos-hardware.nixosModules.lenovo-thinkpad-t590
             # inputs.stylix.nixosModules.stylix
             inputs.sddm-sugar-candy-nix.nixosModules.default
           ];

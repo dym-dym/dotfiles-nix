@@ -42,3 +42,8 @@ require'lspconfig'.ocamllsp.setup{
     on_attach = on_attach,
     capabilities = capabilities,
 }
+
+require('coq-lsp').setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}

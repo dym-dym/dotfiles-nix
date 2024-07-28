@@ -26,7 +26,7 @@
   alacritty.enable = lib.mkDefault true;
   atuin.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault true;
-  firefox.enable = lib.mkDefault false;
+  firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
   hyprlock.enable = lib.mkDefault true;

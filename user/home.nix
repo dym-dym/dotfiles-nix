@@ -31,6 +31,8 @@
       ueberzugpp
       ffmpegthumbnailer
       unar
+      coq
+      coqPackages.coq-lsp
   ];
 
   home.file = {
@@ -89,6 +91,16 @@
   #     package = lib.mkForce pkgs.materia-theme;
   #   };
   # };
+
+  gtk.iconTheme = {
+    # package = pkgs.gnome.adwaita-icon-theme;
+    # name = "adwaita-icon-theme";
+    # package = pkgs.pop-icon-theme;
+    # name = "pop-icon-theme";
+    package = pkgs.flat-remix-icon-theme;
+    name = "Flat-Remix-Teal-Dark";
+
+  };
 
   qt = {
     enable = true;

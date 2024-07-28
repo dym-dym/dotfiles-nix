@@ -183,6 +183,11 @@ in
 					"$mod SHIFT, j, movewindow, d"
 	        "$mod SHIFT, r, exec, hyprctl reload"
 
+          "$mod CTRL, h, resizeactive, -10 0"
+          "$mod CTRL, j, resizeactive, 0 10"
+          "$mod CTRL, l, resizeactive, 10 0"
+          "$mod CTRL, k, resizeactive, 0 -10"
+
 					",XF86MonBrightnessUp,exec,swayosd-client --brightness raise"
 					",XF86MonBrightnessDown,exec,swayosd-client --brightness lower"
 					",XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise"
