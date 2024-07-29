@@ -97,9 +97,12 @@
     # name = "adwaita-icon-theme";
     # package = pkgs.pop-icon-theme;
     # name = "pop-icon-theme";
-    package = pkgs.flat-remix-icon-theme;
-    name = "Flat-Remix-Teal-Dark";
-
+    # package = pkgs.flat-remix-icon-theme;
+    # name = "Flat-Remix-Teal-Dark";
+    package = pkgs.dracula-icon-theme;
+    name = "Dracula";
+    # package = pkgs.kanagawa-icon-theme;
+    # name = "Kanagawa";
   };
 
   qt = {

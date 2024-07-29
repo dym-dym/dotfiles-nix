@@ -3,6 +3,7 @@
   imports = [
     ./programs/alacritty
     ./programs/atuin
+    ./programs/cava
     ./programs/firefox
     ./programs/fish
     ./programs/hyprland
@@ -25,6 +26,7 @@
 
   alacritty.enable = lib.mkDefault true;
   atuin.enable = lib.mkDefault true;
+  cava.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault true;
