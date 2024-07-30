@@ -84,14 +84,6 @@
     };
   };
 
-  # gtk = {
-  #   enable = true;
-  #   theme = {
-  #     name = lib.mkForce "Materia-dark";
-  #     package = lib.mkForce pkgs.materia-theme;
-  #   };
-  # };
-
   gtk.iconTheme = {
     # package = pkgs.gnome.adwaita-icon-theme;
     # name = "adwaita-icon-theme";
@@ -123,6 +115,8 @@
       init.defaultBranch = "main";
     };
   };
+
+  texlive.enable = true;
 
   services.udiskie.enable = true;
 

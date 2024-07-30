@@ -278,7 +278,7 @@
       noto-fonts-extra
       noto-fonts-emoji
 
-	    texliveFull
+      # texliveFull
 
       # Browsers
       # librewolf

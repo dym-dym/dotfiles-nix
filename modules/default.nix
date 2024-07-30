@@ -12,6 +12,7 @@
     ./programs/neovim
     ./programs/qutebrowser
     ./programs/starship
+    ./programs/texlive
     ./programs/wlogout
     ./programs/wofi
     ./programs/waybar
@@ -37,6 +38,7 @@
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
   swayosd.enable = lib.mkDefault true;
+  texlive.enable = lib.mkDefault false;
   wlsunset.enable = lib.mkDefault true;
   wlogout.enable = lib.mkDefault true;
   wofi.enable = lib.mkDefault true;
