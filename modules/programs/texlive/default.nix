@@ -7,7 +7,7 @@
   config = lib.mkIf config.texlive.enable {
     programs.texlive = {
       enable = true;
-      package = pkgs.texliveFull;
+      # package = pkgs.texliveFull;
 
     };
   };
