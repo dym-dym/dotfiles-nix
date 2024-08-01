@@ -17,10 +17,10 @@
     ];
 
   # Bootloader.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
   boot.loader = {
     systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 5;
+    systemd-boot.configurationLimit = 20;
     # systemd-boot.device = "/dev/nvme0n1p3";
     # grub = {
       # enable = false;
@@ -28,6 +28,8 @@
       # device = "/dev/nvme0n1p3";
     # };
   };
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11_beta ];
+  boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
 
   ## == Network ==
 
@@ -93,10 +95,10 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
-        vaapiIntel
-        libvdpau-va-gl
-        intel-media-driver
+#        vaapiVdpau
+#        vaapiIntel
+#        libvdpau-va-gl
+#        intel-media-driver
       ];
     };
   };
@@ -114,26 +116,19 @@
     powerManagement.finegrained = false;
 
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "555.58";
-
-      sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
-      sha256_aarch64 = lib.fakeSha256;
-      openSha256 = lib.fakeSha256;
-      settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
-      persistencedSha256 = lib.fakeSha256;
-    };
+    # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    #   version = "555.58";
+    #
+    #   sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
+    #   sha256_aarch64 = lib.fakeSha256;
+    #   openSha256 = lib.fakeSha256;
+    #   settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
+    #   persistencedSha256 = lib.fakeSha256;
+    # };
 
     # Value of package if you want to get back to stable branch
-    # config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
 
-    prime = {
-      reverseSync.enable = true;
-      # sync.enable = true;
-
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:60:0:0";
-    };
   };
 
   ## == Audio ==
@@ -141,7 +136,7 @@
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
 
-  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -272,8 +267,8 @@
 
       nerdfonts
       jetbrains-mono
-	    fira-code-nerdfont
-	    font-awesome
+	    # fira-code-nerdfont
+      font-awesome
       noto-fonts
       noto-fonts-extra
       noto-fonts-emoji
@@ -303,6 +298,7 @@
     ])
     ++
     (with pkgs-unstable; [
+      # linuxPackages.nvidia_x11_beta
     ]);
 
 
@@ -346,40 +342,6 @@
 	  };
 	};
 
-  # stylix = {
-  #   enable = true;
-  #   polarity = "dark";
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  #   image = ../user/wallpapers/Cloudsnight.jpg;
-  #
-  #   cursor.package = pkgs.simp1e-cursors;
-  #   cursor.name = "Simp1e-Catppuccin-Mocha";
-  #   cursor.size = 25;
-  #
-  #   targets = {
-  #     fish.enable = false;
-  #   };
-  #
-  #  fonts = {
-  #
-  #    monospace = {
-  #       package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-  #      name = "FiraCode Nerd Font Mono";
-  #    };
-  #    sansSerif = {
-  #       package = pkgs.dejavu_fonts;
-  #       name = "DejaVu Sans";
-  #    };
-  #    serif = {
-  #      package = pkgs.dejavu_fonts;
-  #      name = "DejaVu Serif";
-  #    };
-  #     emoji = {
-  #       package = pkgs.noto-fonts-emoji;
-  #       name = "Noto Color Emoji";
-  #     };
-  #   };
-  # };
 
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
@@ -414,5 +376,4 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 }

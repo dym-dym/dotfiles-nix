@@ -43,9 +43,20 @@
 
           modules = [
             ./system/configuration.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-t590
+            nixos-hardware.nixosModules.gigabyte-b550
             # inputs.stylix.nixosModules.stylix
             inputs.sddm-sugar-candy-nix.nixosModules.default
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    inherit system;
+                    config.allowUnfree = true;
+                    # legacyPackages.${prev.system};
+                  };
+                })
+              ];
+            }
           ];
         };
       };
