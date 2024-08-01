@@ -10,7 +10,7 @@
 
 	  programs.waybar.settings.mainBar = {
 
-	    # include = "/home/dymdym/.config/waybar/configs/custom_modules/modules";
+      output = "DP-1";
 	    layer = "top";
 	    height = 30;
 	    margin-top = 4;

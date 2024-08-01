@@ -22,7 +22,10 @@ in
 
 	  wayland.windowManager.hyprland.settings = {
 
-	    monitor = "eDP-1,1920x1080@60,0x0,1";
+	    monitor = [
+	                "HDMI-A-2,1680x1050@59.85200,0x0,1,transform,1"
+                  "DP-1,1920x1080@144,1050x300,1"
+                ];
 
 	    source = "~/.config/hypr/mocha.conf";
 
