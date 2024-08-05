@@ -375,5 +375,11 @@
    channel = "https://nixos.org/channels/nixos-24.05";
   };
 
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = [ "/" ];
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
