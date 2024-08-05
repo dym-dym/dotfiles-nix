@@ -241,6 +241,7 @@
 			  padding: 0px 15px 0px 15px;
 			}
 
+			#pulseaudio,
 			#cpu,
 			#memory,
 			#temperature,
@@ -264,6 +265,7 @@
 			  font-size: 14px;
 			}
 
+			#pulseaudio,
 			#clock,
 			#custom-window-name,
 			#modules-right,
@@ -346,7 +348,7 @@
 			  margin: 0px 8px;
 			}
 
-			#pulseaudio,
+			/*#pulseaudio,*/
 			#backlight,
 			#battery
 			{
@@ -368,8 +370,8 @@
 
 			#pulseaudio {
 			  color: #91d7e3;
-			  padding: 0px 10px 0px 0px;
-			  border-radius: 0px 8px 8px 0px;
+			  padding: 0px 10px 0px 10px;
+			  border-radius: 8px 8px 8px 8px;
 			}
 
 			#custom-right-arr {
