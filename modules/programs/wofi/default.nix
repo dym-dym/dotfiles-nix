@@ -22,7 +22,7 @@
 	      columns           = 1;
 	    };
 
-	    style = ''
+	    style = lib.mkDefault ''
 	      @define-color	rosewater  #f5e0dc;
 				@define-color	rosewater-rgb  rgb(245, 224, 220);
 				@define-color	flamingo  #f2cdcd;
