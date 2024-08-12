@@ -33,6 +33,7 @@
       unar
       coq
       coqPackages.coq-lsp
+      gimp
   ];
 
   home.file = {
