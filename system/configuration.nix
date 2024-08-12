@@ -42,7 +42,7 @@
   networking.networkmanager.enable = true;
 
   # Setup DNS
-  networking.nameservers = [ "9.9.9.9" ];
+  networking.nameservers = [ "9.9.9.9" "1.1.1.1" ];
 
   ## == Locales ==
 
@@ -197,6 +197,7 @@
         fd
         blueman
         anki
+        usbimager
       ])
 
       ++
@@ -329,6 +330,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = true;
 
   systemd = {
 	  user.services.polkit-gnome-authentication-agent-1 = {
