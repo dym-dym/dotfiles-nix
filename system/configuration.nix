@@ -40,6 +40,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  #networking.networkmanager.ensureProfiles.profiles.ipv4.ignore-auto-dns = true;
+  networking.dhcpcd.extraConfig = ''
+    nohook resolv.conf
+  '';
 
   # Setup DNS
   networking.nameservers = [ "9.9.9.9" "1.1.1.1" ];
