@@ -19,6 +19,7 @@
     ./programs/yazi
     ./programs/zathura
 
+    ./services/swayosd
     ./services/wlsunset
     ./services/dunst
   ];
@@ -36,6 +37,7 @@
   neovim.enable = lib.mkDefault true;
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
+  swayosd.enable = lib.mkDefault true;
   texlive.enable = lib.mkDefault false;
   wlsunset.enable = lib.mkDefault true;
   wlogout.enable = lib.mkDefault true;
