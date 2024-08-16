@@ -202,6 +202,7 @@
         blueman
         anki
         usbimager
+        jellyfin-mpv-shim
       ])
 
       ++
