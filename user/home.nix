@@ -35,6 +35,7 @@
       coqPackages.coq-lsp
       gimp
       irssi
+      hexchat
   ];
 
   home.file = {
