@@ -34,6 +34,7 @@
       coq
       coqPackages.coq-lsp
       gimp
+      irssi
   ];
 
   home.file = {
