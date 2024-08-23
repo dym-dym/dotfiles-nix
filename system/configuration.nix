@@ -417,7 +417,9 @@
 
   system.autoUpgrade = {
    enable = true;
-   channel = "https://nixos.org/channels/nixos-24.05";
+   # channel = "https://nixos.org/channels/nixos-24.05";
+   flake = "github:dym-dym/dotfiles-nix";
+   dates = "daily";
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
