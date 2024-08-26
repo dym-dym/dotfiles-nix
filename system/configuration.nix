@@ -203,6 +203,7 @@
         anki
         usbimager
         jellyfin-mpv-shim
+        gnumake
       ])
 
       ++
@@ -284,7 +285,7 @@
       noto-fonts-extra
       noto-fonts-emoji
 
-      # texliveFull
+      texliveFull
 
       # Browsers
       # librewolf
@@ -418,7 +419,7 @@
   system.autoUpgrade = {
    enable = true;
    # channel = "https://nixos.org/channels/nixos-24.05";
-   flake = "github:dym-dym/dotfiles-nix";
+   flake = "github:dym-dym/dotfiles-nix/laptop";
    dates = "daily";
   };
 
