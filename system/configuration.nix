@@ -281,6 +281,7 @@
 
       # Media
 	    jellyfin-media-player
+      jellyfin-mpv-shim
 	    mpv
       obs-studio
 
