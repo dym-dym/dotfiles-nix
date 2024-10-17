@@ -81,7 +81,7 @@
       layout = "us";
       variant = "intl";
     };
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "displaylink#6.0.0" "nvidia" ];
   };
 
   # Configure console keymap
@@ -97,10 +97,10 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
-        vaapiIntel
-        libvdpau-va-gl
-        intel-media-driver
+        # vaapiVdpau
+        # vaapiIntel
+        # libvdpau-va-gl
+        # intel-media-driver
       ];
     };
   };
@@ -183,6 +183,7 @@
         element-desktop
         signal-desktop
         whatsapp-for-linux
+        skypeforlinux
         android-tools
         neofetch
         lshw

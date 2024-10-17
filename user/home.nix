@@ -33,7 +33,7 @@
       unar
       coq
       coqPackages.coq-lsp
-      gimp
+      # gimp
       irssi
       hexchat
   ];
@@ -122,6 +122,28 @@
   texlive.enable = true;
 
   services.udiskie.enable = true;
+
+  xdg = {
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = ["pcmanfm.desktop"]; # Directories
+        "text/plain" = ["neovim.desktop"]; # Plain text
+        # "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"]; # .docx
+        # "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"]; # .pptx
+        "application/pdf" = ["zathura.desktop"]; # .pdf
+        "application/zip" = ["xarchiver.desktop"];
+        "text/*" = ["neovim.desktop"]; # Any text files
+        "video/*" = ["mpv.desktop"]; # Any video files
+        "x-scheme-handler/https" = ["librewolf.desktop"]; # Links
+        "x-scheme-handler/http" = ["librewolf.desktop"]; # Links
+        "x-scheme-handler/mailto" = ["librewolf.desktop"]; # Links
+        "image/*" = ["feh.desktop"]; # Images
+        "image/png" = ["feh.desktop"];
+        "image/jpeg" = ["feh.desktop"];
+      };
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
