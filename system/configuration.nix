@@ -129,7 +129,7 @@
     };
 
     # Value of package if you want to get back to stable branch
-    # config.boot.kernelPackages.nvidiaPackages.beta;
+    # package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
       reverseSync.enable = true;
