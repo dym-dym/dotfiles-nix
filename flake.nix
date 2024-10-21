@@ -7,7 +7,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     stylix.url = "github:danth/stylix";
 
@@ -23,7 +23,7 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: # nixos-hardware, 
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -43,7 +43,7 @@
 
           modules = [
             ./system/configuration.nix
-            nixos-hardware.nixosModules.gigabyte-b550
+            # nixos-hardware.nixosModules.gigabyte-b550
             # inputs.stylix.nixosModules.stylix
             inputs.sddm-sugar-candy-nix.nixosModules.default
             {

@@ -17,7 +17,8 @@
     ];
 
   # Bootloader.
-  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_10;
   boot.loader = {
     systemd-boot.enable = true;
     systemd-boot.configurationLimit = 20;
@@ -28,7 +29,7 @@
       # device = "/dev/nvme0n1p3";
     # };
   };
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11_beta ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11_beta ];
   boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
 
   ## == Network ==
@@ -90,15 +91,19 @@
 
   #NvidiaConfig
   hardware = {
+    # graphics.enable = true;
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-#        vaapiVdpau
-#        vaapiIntel
-#        libvdpau-va-gl
-#        intel-media-driver
+        vaapiVdpau
+        libvdpau
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+        vdpauinfo
+        libva
+        libva-utils
       ];
     };
   };
@@ -116,6 +121,16 @@
     powerManagement.finegrained = false;
 
     nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "560.31.02";
+
+      sha256_64bit = "sha256-0cwgejoFsefl2M6jdWZC+CKc58CqOXDjSi4saVPNKY0=";
+      sha256_aarch64 = lib.fakeSha256;
+      openSha256 = lib.fakeSha256;
+      settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
+      persistencedSha256 = lib.fakeSha256;
+    };
+
     # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
     #   version = "555.58";
     #
@@ -127,7 +142,8 @@
     # };
 
     # Value of package if you want to get back to stable branch
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    # package = config.boot.kernelPackages.nvidiaPackages.beta;
+    # package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   };
 
@@ -294,8 +310,11 @@
 	    mangohud
 	    heroic
 	    discord
+      webcord
+
 	    protonup
       networkmanagerapplet
+      egl-wayland
     ])
     ++
     (with pkgs-unstable; [
@@ -343,6 +362,17 @@
 	  };
 	};
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = false;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+  };
 
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
