@@ -56,7 +56,8 @@
     polarity = "dark";
     autoEnable = true;
 
-    image = ./wallpapers/Cloudsnight.jpg;
+    # image = ./wallpapers/Cloudsnight.jpg;
+    image = ./wallpapers/forrest.png;
 
     cursor.package = pkgs.simp1e-cursors;
     cursor.name = "Simp1e-Catppuccin-Mocha";
