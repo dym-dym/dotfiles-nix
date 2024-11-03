@@ -18,7 +18,9 @@
 
   # Bootloader.
   # boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_10;
+  boot.kernelPackages = pkgs.unstable.linuxPackages;
+  # boot.kernelPackages = pkgs.linuxPackages_6_10;
+
   boot.loader = {
     systemd-boot.enable = true;
     systemd-boot.configurationLimit = 20;
