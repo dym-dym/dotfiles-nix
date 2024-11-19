@@ -35,6 +35,10 @@ in
 	      kb_variant = "intl";
 	    };
 
+      debug = {
+        suppress_errors = true;
+      };
+
 	    general = {
 	      sensitivity = "1";
 	      gaps_in = "5";
@@ -61,7 +65,7 @@ in
 	      drop_shadow = "yes";
 	      shadow_range = "12";
 	      shadow_render_power = "3";
-	      # "col.shadow" = "rgba(00000090)";
+        # shadow.color = "rgba(00000090)";
 	    };
 
 	    animations = {

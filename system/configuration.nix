@@ -93,6 +93,7 @@
 
   #NvidiaConfig
   hardware = {
+    keyboard.qmk.enable = true;
     # graphics.enable = true;
     opengl = {
       enable = true;
@@ -210,6 +211,7 @@
         fd
         blueman
         anki
+        qmk
       ])
 
       ++
