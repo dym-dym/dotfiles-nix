@@ -234,6 +234,7 @@
     hyprland.enable = true;
     gamemode.enable = true;
     nm-applet.enable = true;
+    appimage.enable = true;
     steam = {
       enable = true;
       gamescopeSession.enable = true;
