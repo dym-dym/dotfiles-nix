@@ -26,6 +26,10 @@ in
 
 	    source = "~/.config/hypr/mocha.conf";
 
+      debug = {
+        suppress_errors = true;
+      };
+
 	    input = {
 	      follow_mouse = "1";
 	      kb_layout = "us";

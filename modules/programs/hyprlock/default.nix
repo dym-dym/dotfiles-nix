@@ -5,6 +5,9 @@
   };
 
   config = lib.mkIf config.hyprlock.enable {
+
+    stylix.targets.hyprlock.enable = false;
+
 	  programs.hyprlock = {
 	    enable = true;
 	    settings = {
