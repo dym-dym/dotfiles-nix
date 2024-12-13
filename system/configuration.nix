@@ -317,6 +317,7 @@
 	    mangohud
 	    heroic
 	    discord
+      discord-canary
       webcord
 
 	    protonup
