@@ -17,6 +17,7 @@
     ];
 
   # Bootloader.
+  # boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     systemd-boot.enable = true;
@@ -119,14 +120,24 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "555.58";
+      version = "565.77";
 
-      sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
+      sha256_64bit = "sha256-CnqnQsRrzzTXZpgkAtF7PbH9s7wbiTRNcM0SPByzFHw=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
       persistencedSha256 = lib.fakeSha256;
     };
+
+    # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    #   version = "555.58";
+    #
+    #   sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
+    #   sha256_aarch64 = lib.fakeSha256;
+    #   openSha256 = lib.fakeSha256;
+    #   settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
+    #   persistencedSha256 = lib.fakeSha256;
+    # };
 
     # Value of package if you want to get back to stable branch
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
