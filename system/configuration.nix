@@ -316,7 +316,7 @@
 	    thunderbird
 	    mangohud
 	    heroic
-	    discord
+	    discord-canary
 	    protonup
       networkmanagerapplet
     ])
