@@ -8,7 +8,7 @@
     ./programs/fish
     ./programs/hyprland
     ./programs/hyprlock
-    ./programs/librewolf
+    # ./programs/librewolf
     ./programs/neovim
     ./programs/qutebrowser
     ./programs/starship
@@ -33,7 +33,7 @@
   fish.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
   hyprlock.enable = lib.mkDefault true;
-  librewolf.enable = lib.mkDefault true;
+  # librewolf.enable = lib.mkDefault false;
   neovim.enable = lib.mkDefault true;
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;

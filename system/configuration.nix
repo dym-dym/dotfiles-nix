@@ -300,7 +300,7 @@
       texliveFull
 
       # Browsers
-      # librewolf
+      librewolf
       # qutebrowser
 
       # Media
