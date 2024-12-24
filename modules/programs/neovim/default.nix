@@ -177,10 +177,10 @@ in
           config = toLua ''require("ibl").setup()'';
         }
 
-        {
-          plugin = snack-nvim;
-          config = toLuaFile ./nvim/plugin/snacks.lua;
-        }
+        # {
+        #   plugin = snack-nvim;
+        #   config = toLuaFile ./nvim/plugin/snacks.lua;
+        # }
 
         # {
         #   plugin = coc-nvim;

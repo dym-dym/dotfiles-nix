@@ -65,6 +65,7 @@
 
     targets = {
       fish.enable = true;
+      alacritty.enable = true;
       waybar.enable = false;
     };
 

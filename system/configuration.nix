@@ -93,10 +93,19 @@
 
   #NvidiaConfig
   hardware = {
-    opengl = {
+
+    sane = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+
+      extraBackends = [
+        pkgs.sane-airscan
+        pkgs.hplipWithPlugin
+      ];
+    };
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         # vaapiVdpau
         # vaapiIntel
@@ -183,7 +192,7 @@
   users.users.dymdym = {
     isNormalUser = true;
     description = "dymdym";
-    extraGroups = [ "networkmanager" "wheel" ]; # "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ]; # "libvirtd" ];
 
     # User packages
     packages = 
@@ -229,6 +238,9 @@
     enable = false;
     user = "dymdym";
   };
+
+  services.avahi.enable = true;
+  services.avahi.nssmdns4 = true;
 
   ## == Programs and Services ==
 
@@ -284,7 +296,7 @@
 
       # File explorers
 	    pcmanfm
-	    gnome.nautilus
+	    nautilus
 	    kio-admin
 
       # Fonts (and TeX)
@@ -319,11 +331,11 @@
 	    discord-canary
 	    protonup
       networkmanagerapplet
+      simple-scan
     ])
     ++
     (with pkgs-unstable; [
     ]);
-
 
   ## == Environment Variables ==
 
