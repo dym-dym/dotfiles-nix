@@ -250,6 +250,7 @@
     hyprland.enable = true;
     gamemode.enable = true;
     nm-applet.enable = true;
+    pay-respects.enable = true;
     steam = {
       enable = true;
       gamescopeSession.enable = true;

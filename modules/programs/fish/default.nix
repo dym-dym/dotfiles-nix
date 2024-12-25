@@ -24,13 +24,14 @@
       functions = {
         fish_greeting = {
           body = "";
-        }; 
+        };
       };
 
       shellAliases = {
         "ls" = "eza -1l --icons";
         "grep" = "rg";
         "find" = "fd";
+        "v" = "nvim";
         # "cd" = "z";
       };
     };
