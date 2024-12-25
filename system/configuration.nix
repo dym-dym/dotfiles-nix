@@ -22,12 +22,6 @@
   boot.loader = {
     systemd-boot.enable = true;
     systemd-boot.configurationLimit = 5;
-    # systemd-boot.device = "/dev/nvme0n1p3";
-    # grub = {
-      # enable = false;
-      # useOSProber = true;
-      # device = "/dev/nvme0n1p3";
-    # };
   };
 
   ## == Network ==
@@ -138,19 +132,6 @@
       persistencedSha256 = lib.fakeSha256;
     };
 
-    # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-    #   version = "555.58";
-    #
-    #   sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
-    #   sha256_aarch64 = lib.fakeSha256;
-    #   openSha256 = lib.fakeSha256;
-    #   settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
-    #   persistencedSha256 = lib.fakeSha256;
-    # };
-
-    # Value of package if you want to get back to stable branch
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
-
     prime = {
       reverseSync.enable = true;
       # sync.enable = true;
@@ -173,12 +154,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -195,7 +170,7 @@
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ]; # "libvirtd" ];
 
     # User packages
-    packages = 
+    packages =
       (with pkgs; [
         # kdePackages.kate
         # thunderbird
@@ -234,7 +209,7 @@
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin = { 
+  services.displayManager.autoLogin = {
     enable = false;
     user = "dymdym";
   };
@@ -245,7 +220,6 @@
   ## == Programs and Services ==
 
   programs = {
-    # firefox.enable = true;
     fish.enable = true;
     hyprland.enable = true;
     gamemode.enable = true;
@@ -263,10 +237,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = 
+  environment.systemPackages =
     (with pkgs; [
 
-      # Fish 
+      # Fish
 	    fishPlugins.done
 	    fishPlugins.fzf-fish
 	    fishPlugins.forgit
@@ -275,24 +249,17 @@
 
       # Terminal
 	    git
-      # neovim
 	    fzf
 	    grc
-      # starship
-      # alacritty
 	    btop
 	    tealdeer
 	    eza
 	    ripgrep
 
       # Window Manager
-      # wofi
-      # waybar
 	    swaybg
 	    waypaper
 	    wttrbar
-      # wlogout
-      # hyprlock
 	    sway-contrib.grimshot
 
       # File explorers
@@ -314,7 +281,6 @@
 
       # Browsers
       librewolf
-      # qutebrowser
 
       # Media
 	    jellyfin-media-player
@@ -378,41 +344,6 @@
 	      };
 	  };
 	};
-
-  # stylix = {
-  #   enable = true;
-  #   polarity = "dark";
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  #   image = ../user/wallpapers/Cloudsnight.jpg;
-  #
-  #   cursor.package = pkgs.simp1e-cursors;
-  #   cursor.name = "Simp1e-Catppuccin-Mocha";
-  #   cursor.size = 25;
-  #
-  #   targets = {
-  #     fish.enable = false;
-  #   };
-  #
-  #  fonts = {
-  #
-  #    monospace = {
-  #       package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-  #      name = "FiraCode Nerd Font Mono";
-  #    };
-  #    sansSerif = {
-  #       package = pkgs.dejavu_fonts;
-  #       name = "DejaVu Sans";
-  #    };
-  #    serif = {
-  #      package = pkgs.dejavu_fonts;
-  #      name = "DejaVu Serif";
-  #    };
-  #     emoji = {
-  #       package = pkgs.noto-fonts-emoji;
-  #       name = "Noto Color Emoji";
-  #     };
-  #   };
-  # };
 
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
