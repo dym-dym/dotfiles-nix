@@ -162,6 +162,7 @@
   ## == Users ==
 
   # users.users.dymdym.shell = pkgs.fish;
+  users.defaultUserShell = pkgs.nushell;
   users.users.dymdym.shell = pkgs.nushell;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -201,6 +202,7 @@
         usbimager
         jellyfin-mpv-shim
         gnumake
+        bat
       ])
 
       ++
@@ -222,6 +224,7 @@
 
   programs = {
     fish.enable = true;
+    # nushell.enable = true;
     hyprland.enable = true;
     gamemode.enable = true;
     nm-applet.enable = true;
@@ -242,11 +245,11 @@
     (with pkgs; [
 
       # Fish
-	    fishPlugins.done
-	    fishPlugins.fzf-fish
-	    fishPlugins.forgit
-	    fishPlugins.hydro
-	    fishPlugins.grc
+	    # fishPlugins.done
+	    # fishPlugins.fzf-fish
+	    # fishPlugins.forgit
+	    # fishPlugins.hydro
+	    # fishPlugins.grc
 
       # Terminal
 	    git
