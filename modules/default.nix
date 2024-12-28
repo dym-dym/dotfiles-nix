@@ -10,6 +10,7 @@
     ./programs/hyprlock
     ./programs/librewolf
     ./programs/neovim
+    ./programs/nushell
     ./programs/qutebrowser
     ./programs/starship
     ./programs/texlive
@@ -30,7 +31,8 @@
   cava.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
-  fish.enable = lib.mkDefault true;
+  fish.enable = lib.mkDefault false;
+  nushell.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
   hyprlock.enable = lib.mkDefault true;
   librewolf.enable = lib.mkDefault true;
