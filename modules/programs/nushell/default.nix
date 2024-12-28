@@ -2,10 +2,10 @@
 {
 
   options ={
-    fish.enable = lib.mkEnableOption "enable fish";
+    nushell.enable = lib.mkEnableOption "enable nushell";
   };
 
-  config = lib.mkIf config.fish.enable {
+  config = lib.mkIf config.nushell.enable {
 
     programs = {
       nushell.enable = true;
