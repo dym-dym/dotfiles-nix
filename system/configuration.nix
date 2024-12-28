@@ -161,7 +161,8 @@
 
   ## == Users ==
 
-  users.users.dymdym.shell = pkgs.fish;
+  # users.users.dymdym.shell = pkgs.fish;
+  users.users.dymdym.shell = pkgs.nushell;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dymdym = {

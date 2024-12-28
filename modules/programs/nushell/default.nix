@@ -8,7 +8,16 @@
   config = lib.mkIf config.nushell.enable {
 
     programs = {
-      nushell.enable = true;
+      nushell = {
+        enable = true;
+        configFile = {
+          text = ''
+            let $config = {
+              edit_mode : vi
+            }
+          '';
+        };
+      };
 
       zoxide = {
         enable = true;
