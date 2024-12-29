@@ -67,6 +67,7 @@
       # fish.enable = true;
       alacritty.enable = true;
       waybar.enable = false;
+      swaync.enable = false;
     };
 
 	  fonts = {
