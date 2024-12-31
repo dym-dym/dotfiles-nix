@@ -14,6 +14,7 @@
 		      decorations = "none";
 		      startup_mode = "Maximized";
 		      dynamic_title = true;
+          opacity = lib.mkDefault 0.9;
 	      };
 
 	      font = {
