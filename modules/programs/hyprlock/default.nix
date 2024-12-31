@@ -14,7 +14,7 @@
 	      background = [
 	        {
 	          path = "screenshot";
-	          color = "rgba(25, 20, 20, 1.0)";
+	          color = "${config.lib.stylix.colors.withHashtag.base02}";
 	          blur_passes = 3;
 	          blur_size = 8;
 	          noise = 0.0117;
@@ -28,7 +28,7 @@
 	      label = [
 	        {
 	          text = "";
-	          color = "rgba(200, 200, 200, 1.0)";
+	          color = "${config.lib.stylix.colors.withHashtag.base05}";
 	          font_size = 25;
 	          font_family = "FiraCode Nerd Font";
 	          position = "0, 80";

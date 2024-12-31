@@ -197,15 +197,15 @@
 
 	    "custom/window-icon" = {};
 
-	    "custom/weatherNancy" = {
+	    "custom/weather-1" = {
 	      format = "{}";
 	      tooltip = true;
 	      interval = 3600;
-	      exec = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Nancy ";
+	      exec = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Brighton ";
 	      return-type = "json";
 	    };
 
-	    "custom/weatherMontpellier" = {
+	    "custom/weather-2" = {
 	      format = "{}";
 	      tooltip = true;
 	      interval = 3600;
@@ -376,23 +376,23 @@
 			#battery
 			{
 			  font-size: 14px;
-			  background: #${config.lib.stylix.colors.base02};
+			  background: ${config.lib.stylix.colors.withHashtag.base02};
 			  margin: 5px 0px 5px 0px;
 			}
 
 			#battery {
-			  color: #${config.lib.stylix.colors.base0A};
+			  color: ${config.lib.stylix.colors.withHashtag.base0A};
 			  padding: 0px 10px 0px 0px;
 			}
 
 			#backlight {
-			  color: #${config.lib.stylix.colors.base0B};
+			  color: ${config.lib.stylix.colors.withHashtag.base0B};
 			  padding: 0px 10px 0px 10px;
 			  border-radius: 8px 0px 0px 8px;
 			}
 
 			#pulseaudio {
-			  color: #${config.lib.stylix.colors.base0D};
+			  color: ${config.lib.stylix.colors.withHashtag.base0D};
 			  padding: 0px 10px 0px 0px;
 			  border-radius: 0px 8px 8px 0px;
 			}
@@ -412,6 +412,11 @@
 			#custom-dot-alt {
 			  color: #a5adcb;
 			}
+
+      #custom-weather-2
+      #custom-weather-1 {
+        color: ${config.lib.stylix.colors.withHashtag.base05}
+      }
 
 			/*# sourceMappingURL=style.css.map */
 		'';
