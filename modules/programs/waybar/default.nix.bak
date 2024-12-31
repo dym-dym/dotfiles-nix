@@ -259,7 +259,7 @@
 			*/
 			#custom-launcher {
 			  font-size: 20px;
-			  color: #${config.lib.stylix.colors.base0D}; /* deepskyblue */
+			  color: #00bfff; /* deepskyblue */
 			  padding: 0px 15px 0px 15px;
 			}
 
@@ -276,7 +276,7 @@
       #custom-notification
 			{
 			  font-size:14px;
-			  background: #${config.lib.stylix.colors.base02};
+			  background: #363a4f;
 			  margin: 5px 0px 5px 0px;
 			}
 
@@ -296,7 +296,6 @@
 			  margin: 0px 5px 0px 0px;
 			  padding: 0px 10px 0px 12px;
 			  border-radius: 8px 8px 8px 8px;
-        color: #${config.lib.stylix.colors.base05};
 			}
 
 			#cpu,
@@ -308,18 +307,18 @@
 
 			#cpu
 			{
-			  color: #${config.lib.stylix.colors.base0A};
+			  color: #eed49f;
 			  padding: 5px 10px 0px 12px;
 			}
 
 			#memory {
-			  color: #${config.lib.stylix.colors.base0B};
+			  color: #a6da95;
 			  padding: 0px 10px 0px 0px;
 			}
 
 			#temperature
 			{
-			  color: #${config.lib.stylix.colors.base0D};
+			  color: #8aadf4;
 			}
 
 			#temperature,
@@ -376,23 +375,23 @@
 			#battery
 			{
 			  font-size: 14px;
-			  background: #${config.lib.stylix.colors.base02};
+			  background: #363a4f;
 			  margin: 5px 0px 5px 0px;
 			}
 
 			#battery {
-			  color: #${config.lib.stylix.colors.base0A};
+			  color: #a6da95;
 			  padding: 0px 10px 0px 0px;
 			}
 
 			#backlight {
-			  color: #${config.lib.stylix.colors.base0B};
+			  color: #eed49f;
 			  padding: 0px 10px 0px 10px;
 			  border-radius: 8px 0px 0px 8px;
 			}
 
 			#pulseaudio {
-			  color: #${config.lib.stylix.colors.base0D};
+			  color: #91d7e3;
 			  padding: 0px 10px 0px 0px;
 			  border-radius: 0px 8px 8px 0px;
 			}
