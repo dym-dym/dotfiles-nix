@@ -203,6 +203,7 @@
         jellyfin-mpv-shim
         gnumake
         bat
+        swww
       ])
 
       ++

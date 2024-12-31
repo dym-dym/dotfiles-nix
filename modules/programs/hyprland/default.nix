@@ -157,10 +157,11 @@ in
 	    ];
 
 	    exec-once = [
-	      "dunst"
+        # "dunst"
 	      # "waypaper --restore"
-	      "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
 	      "swayosd-server &"
+        "sleep 2 && swww-daemon && swww restore &"
+	      "killall -q waybar; sleep .5 && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css"
 	    ];
 
 	    exec = [
