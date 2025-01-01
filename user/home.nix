@@ -1,5 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
-
+let
+  system = "x86_64-linux";
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -36,6 +38,7 @@
       # gimp
       irssi
       hexchat
+      inputs.zen-browser.packages."${system}".default
   ];
 
   home.file = {
