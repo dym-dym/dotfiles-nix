@@ -17,7 +17,6 @@
     ];
 
   # Bootloader.
-  # boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     systemd-boot.enable = true;
@@ -64,11 +63,6 @@
   };
 
   ## == Graphical Settings ==
-
-  # Enable the KDE Plasma Desktop Environment.
-   #  services.displayManager.sddm.enable = true;
-   # services.displayManager.sddm.wayland.enable = true;
-  # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -155,9 +149,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   ## == Users ==
 
@@ -304,6 +295,7 @@
 	    protonup
       networkmanagerapplet
       simple-scan
+      tailscale
     ])
     ++
     (with pkgs-unstable; [
@@ -318,6 +310,10 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.devmon.enable = true;
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
