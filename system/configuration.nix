@@ -40,7 +40,7 @@
   '';
 
   # Setup DNS
-  networking.nameservers = [ "9.9.9.9" "1.1.1.1" ];
+  networking.nameservers = [ "100.100.100.100" "9.9.9.9" "1.1.1.1" ];
 
   ## == Locales ==
 
