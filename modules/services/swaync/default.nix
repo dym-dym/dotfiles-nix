@@ -624,6 +624,31 @@
         .widget-inhibitors > button:hover {
           background: @noti-bg-hover;
         }
+
+        .widget-buttons-grid {
+          font-size: x-large;
+          padding: 5px;
+          margin: 10px 10px 5px 10px;
+          border-radius: 0px;
+          background: @noti-bg-darker;
+        }
+
+        .widget-buttons-grid > flowbox > flowboxchild > button {
+          margin: 3px;
+          background: @cc-bg;
+          border-radius: 0px;
+          color: @text-color;
+        }
+
+        .widget-buttons-grid > flowbox > flowboxchild > button:hover {
+          background: rgba(122, 162, 247, 1);
+          color: @cc-bg;
+        }
+
+        .widget-buttons-grid > flowbox > flowboxchild > button:checked {
+          background: rgb(158, 206, 106);
+          color: @cc-bg;
+        }
     '';
 
     settings = {
@@ -634,7 +659,7 @@
       layer-shell = true;
       cssPriority = "user";
       control-center-margin-top = 5;
-      control-center-margin-bottom = 5;
+      control-center-margin-bottom = 100;
       control-center-margin-right = 5;
       control-center-margin-left = 0;
       notification-2fa-action = true;
@@ -663,8 +688,9 @@
         "dnd"
         "mpris"
         "notifications"
-        # "volume"
-        # "backlight"
+        "volume"
+        "backlight"
+        "buttons-grid"
       ];
 
       widget-config = {
@@ -690,38 +716,73 @@
           image-radius = 12;
         };
 
-        # "volume": {
-        #   "text": "Volume",
-        #   "slider": true,
-        #   "min": 0,
-        #   "max": 100,
-        #   "step": 1,
-        #   "action-increase": "sh ~/.config/swaync/volume.sh increase",
-        #   "action-decrease": "sh ~/.config/swaync/volume.sh decrease",
-        #   "action-mute": "sh ~/.config/swaync/volume.sh mute"
-        # },
-        # "backlight": {
-        #   "device": "nvidia_0",
-        #   "text": "Brightness",
-        #   "slider": true,
-        #   "min": 5,
-        #   "max": 100,
-        #   "step": 10,
-        #   "action-increase": "brightnessctl set 1%+",
-        #   "action-decrease": "brightnessctl set 1%-"
-        # },
-        # "buttons-grid" = {
-        #   "actions" = [
-        #     {
-        #       "label" = "直";
-        #       "type" = "toggle";
-        #       "active" = true;
-        #       "command" = "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'";
-        #       "update_command" = "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
-        #     };
-        #   ];
-        # };
+        volume = {
+          "text" = "Volume";
+          "slider" = true;
+          "min" = 0;
+          "max" = 100;
+          "step" = 1;
+          "action-increase" = "sh ~/.config/swaync/volume.sh increase";
+          "action-decrease" = "sh ~/.config/swaync/volume.sh decrease";
+          "action-mute" = "sh ~/.config/swaync/volume.sh mute";
         };
+        backlight = {
+          "device" = "nvidia_0";
+          "text" = "Brightness";
+          "slider" = true;
+          "min" = 5;
+          "max" = 100;
+          "step" = 10;
+          "action-increase" = "brightnessctl set 1%+";
+          "action-decrease" = "brightnessctl set 1%-";
+        };
+        buttons-grid = {
+          actions = [
+            {
+              "label" = "󰐥";
+              "command" = "systemctl poweroff";
+            }
+            {
+              "label" = "󰜉";
+              "command" = "systemctl reboot";
+            }
+            {
+              "label" = "󰌾";
+              "command" = "swaylock-corrupter";
+            }
+            {
+              "label" = "󰍃";
+              "command" = "swaymsg exit";
+            }
+            {
+              "label" = "󰆴";
+              "command" = "swaync-client -C";
+            }
+            {
+              "label" = "󰕾";
+              "command" = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+              "type" = "toggle";
+            }
+            {
+              "label" = "󰍬";
+              "command" = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+              "type" = "toggle";
+            }
+            {
+              "label" = "󰖩";
+              "command" = "iwgtk";
+            }
+            {
+              "label" = "󰂯";
+              "command" = "blueman-manager";
+            }
+            {
+              "label" = "";
+              "command" = "kooha";
+            }
+          ];
+        };
+      };
       };
     };
   };
