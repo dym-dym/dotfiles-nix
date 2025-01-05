@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }:
+let
+  rounding = "5";
+in
 {
 
   options = {
@@ -295,14 +298,14 @@
 			{
 			  margin: 0px 5px 0px 0px;
 			  padding: 0px 10px 0px 12px;
-			  border-radius: 8px 8px 8px 8px;
+			  border-radius: ${rounding}px ${rounding}px ${rounding}px ${rounding}px;
         color: #${config.lib.stylix.colors.base05};
 			}
 
 			#cpu,
 			#custom-wrap-left
 			{
-			  border-radius: 8px 0px 0px 8px;
+			  border-radius: ${rounding}px 0px 0px ${rounding}px;
 			  padding: 0px 0px 0px 12px;
 			}
 
@@ -326,7 +329,7 @@
 			#custom-wrap-right
 			{
 			  padding: 0px 12px 0px 0px;
-			  border-radius: 0px 8px 8px 0px;
+			  border-radius: 0px ${rounding}px ${rounding}px 0px;
 			}
 
 			#custom-wrap-left {
@@ -388,13 +391,13 @@
 			#backlight {
 			  color: ${config.lib.stylix.colors.withHashtag.base0B};
 			  padding: 0px 10px 0px 10px;
-			  border-radius: 8px 0px 0px 8px;
+			  border-radius: ${rounding}px 0px 0px ${rounding}px;
 			}
 
 			#pulseaudio {
 			  color: ${config.lib.stylix.colors.withHashtag.base0D};
 			  padding: 0px 10px 0px 0px;
-			  border-radius: 0px 8px 8px 0px;
+			  border-radius: 0px ${rounding}px ${rounding}px 0px;
 			}
 
 			#custom-right-arr {
