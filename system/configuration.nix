@@ -173,7 +173,7 @@
         whatsapp-for-linux
         skypeforlinux
         android-tools
-        fastfetch
+        # fastfetch
         lshw
         # atuin
         spotify

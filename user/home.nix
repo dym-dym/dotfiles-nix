@@ -42,6 +42,7 @@ in
       irssi
       hexchat
       inputs.zen-browser.packages."${system}".default
+      fastfetch
   ];
 
   home.file = {
