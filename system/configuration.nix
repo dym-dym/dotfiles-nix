@@ -296,6 +296,7 @@
       networkmanagerapplet
       simple-scan
       tailscale
+      libreoffice
     ])
     ++
     (with pkgs-unstable; [
