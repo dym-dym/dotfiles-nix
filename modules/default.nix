@@ -1,5 +1,8 @@
-{ pkgs, lib, ...}:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./programs/alacritty
     ./programs/atuin
@@ -9,7 +12,8 @@
     ./programs/hyprland
     ./programs/hyprlock
     ./programs/librewolf
-    ./programs/neovim
+    # ./programs/neovim
+    ./programs/nvf
     ./programs/nushell
     ./programs/qutebrowser
     ./programs/starship
@@ -27,7 +31,6 @@
     ./services/swaync
   ];
 
-
   alacritty.enable = lib.mkDefault true;
   atuin.enable = lib.mkDefault true;
   cava.enable = lib.mkDefault true;
@@ -40,7 +43,8 @@
   hyprland.enable = lib.mkDefault true;
   hyprlock.enable = lib.mkDefault true;
   librewolf.enable = lib.mkDefault true;
-  neovim.enable = lib.mkDefault true;
+  # neovim.enable = lib.mkDefault true;
+  nvf.enable = lib.mkDefault true;
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
   swayosd.enable = lib.mkDefault true;

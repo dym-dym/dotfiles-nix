@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   coq-lsp = pkgs.vimUtils.buildVimPlugin {
     name = "coq-lsp";
     src = pkgs.fetchFromGitHub {
@@ -10,20 +13,16 @@ let
       sha256 = "1lblzp8vdz7lfipbxgvvax4pg7c4x3nm2rlfdfcpf3s55n1g86l4";
     };
   };
-in
-{
+in {
   options = {
     neovim.enable = lib.mkEnableOption "enable neovim";
   };
 
   config = lib.mkIf config.neovim.enable {
-
-    programs.neovim =
-    let
+    programs.neovim = let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
       toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    in
-    {
+    in {
       enable = true;
 
       viAlias = true;
@@ -44,7 +43,6 @@ in
       ];
 
       plugins = with pkgs.vimPlugins; [
-
         {
           plugin = nvim-lspconfig;
           config = toLuaFile ./nvim/plugin/lsp.lua;
@@ -82,7 +80,6 @@ in
         luasnip
         friendly-snippets
 
-
         {
           plugin = lualine-nvim;
           config = toLuaFile ./nvim/plugin/lualine.lua;
@@ -91,7 +88,7 @@ in
         nvim-web-devicons
 
         {
-          plugin = (nvim-treesitter.withPlugins (p: [
+          plugin = nvim-treesitter.withPlugins (p: [
             p.tree-sitter-nix
             p.tree-sitter-vim
             p.tree-sitter-bash
@@ -100,7 +97,7 @@ in
             p.tree-sitter-json
             p.tree-sitter-ocaml
             p.tree-sitter-rust
-          ]));
+          ]);
           config = toLuaFile ./nvim/plugin/treesitter.lua;
         }
 
@@ -169,7 +166,6 @@ in
             hi def link CoqtailError Error
             hi def link CoqtailOmitted coqProofAdmit
           '';
-
         }
 
         {
