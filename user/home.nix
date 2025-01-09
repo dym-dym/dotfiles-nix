@@ -46,7 +46,7 @@ in
       inputs.zen-browser.packages."${system}".default
       fastfetch
 
-    # jellyfin-tui
+      # jellyfin-tui
   ];
 
   home.file = {
