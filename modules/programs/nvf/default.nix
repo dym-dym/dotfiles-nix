@@ -103,7 +103,7 @@
           theme = {
             enable = true;
             name = "tokyonight";
-            style = "night";
+            style = "moon";
           };
 
           treesitter.indent.enable = true;

@@ -11,6 +11,7 @@
     ./programs/fish
     ./programs/hyprland
     ./programs/hyprlock
+    # ./programs/jellyfin-tui
     ./programs/librewolf
     # ./programs/neovim
     ./programs/nvf

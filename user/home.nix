@@ -4,6 +4,8 @@ let
   theme = "tokyo-night-dark";
   polarity = "dark";
   wallpaper = "forrest.png";
+
+  # jellyfin-tui = pkgs.callPackage ./../modules/programs/jellyfin-tui { };
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -43,6 +45,8 @@ in
       hexchat
       inputs.zen-browser.packages."${system}".default
       fastfetch
+
+    # jellyfin-tui
   ];
 
   home.file = {
