@@ -45,6 +45,7 @@ in
       hexchat
       inputs.zen-browser.packages."${system}".default
       fastfetch
+      komikku
 
       # jellyfin-tui
   ];

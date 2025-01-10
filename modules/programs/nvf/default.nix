@@ -115,17 +115,17 @@
             smartcolumn.enable = true;
           };
 
-          utility = {
-            motion = {
-              leap.enable = true;
-            };
-          };
+          # utility = {
+          #   motion = {
+          #     leap.enable = true;
+          #   };
+          # };
 
-          visuals = {
-            cinnamon-nvim.enable = true;
-            fidget-nvim.enable = true;
-            nvim-cursorline.enable = true;
-          };
+          # visuals = {
+          #   cinnamon-nvim.enable = true;
+          #   fidget-nvim.enable = true;
+          #   nvim-cursorline.enable = true;
+          # };
         };
       };
     };
