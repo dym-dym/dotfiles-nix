@@ -79,7 +79,7 @@ in
       alacritty.enable = true;
       waybar.enable = false;
       swaync.enable = false;
-      # rofi.enable = false;
+      rofi.enable = false;
     };
 
 	  fonts = {

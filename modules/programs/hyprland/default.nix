@@ -141,6 +141,7 @@ in
 	      "opaque, mpv"
 	      "opaque, librewolf"
 	      "opaque, zen-beta"
+        "noblur, rofi"
 	    ];
 
 	    windowrulev2 = [
