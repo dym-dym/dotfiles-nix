@@ -1,10 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
 let
   system = "x86_64-linux";
-  # theme = "tokyo-night-dark";
-  theme = "kanagawa";
+  theme = "tokyo-night-dark";
   polarity = "dark";
-  wallpaper = "forrest.png";
+  wallpaper = "SELInternet.jpg";
 
   # jellyfin-tui = pkgs.callPackage ./../modules/programs/jellyfin-tui { };
 in
@@ -80,6 +79,7 @@ in
       alacritty.enable = true;
       waybar.enable = false;
       swaync.enable = false;
+      # rofi.enable = false;
     };
 
 	  fonts = {
