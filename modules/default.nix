@@ -21,6 +21,7 @@
     ./programs/texlive
     ./programs/wlogout
     ./programs/wofi
+    ./programs/rofi
     ./programs/waybar
     ./programs/yazi
     ./programs/zathura
@@ -53,6 +54,7 @@
   wlsunset.enable = lib.mkDefault true;
   wlogout.enable = lib.mkDefault true;
   wofi.enable = lib.mkDefault true;
+  rofi.enable = lib.mkDefault true;
   waybar.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
   zathura.enable = lib.mkDefault true;
