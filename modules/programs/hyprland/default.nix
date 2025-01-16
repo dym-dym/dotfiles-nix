@@ -133,6 +133,8 @@ in
 	      "opaque, title:^(File Operation Progress)$"
 	      "center, pavucontrol"
 	      "float, pavucontrol"
+	      "center, waypaper"
+	      "float, waypaper"
 	      "idleinhibit fullscreen, firefox"
 	      "idleinhibit fullscreen, mpv"
 	      "idleinhibit fullscreen, librewolf"
