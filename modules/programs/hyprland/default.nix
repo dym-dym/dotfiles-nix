@@ -138,11 +138,11 @@ in
 	      "idleinhibit fullscreen, firefox"
 	      "idleinhibit fullscreen, mpv"
 	      "idleinhibit fullscreen, librewolf"
-	      "idleinhibit fullscreen, zen-beta"
+	      "idleinhibit fullscreen, zen"
         "opaque, firefox"
 	      "opaque, mpv"
 	      "opaque, librewolf"
-	      "opaque, zen-beta"
+	      "opaque, zen"
         "noblur, rofi"
 	    ];
 
