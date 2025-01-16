@@ -173,6 +173,11 @@ in {
           config = toLua ''require("ibl").setup()'';
         }
 
+        {
+          plugin = toggleterm-nvim;
+          config = toLuaFile ./nvim/plugin/toggleterm.lua;
+        }
+
         # {
         #   plugin = snack-nvim;
         #   config = toLuaFile ./nvim/plugin/snacks.lua;
