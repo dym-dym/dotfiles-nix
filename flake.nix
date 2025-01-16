@@ -57,13 +57,15 @@
       dymdym = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit pkgs-unstable;
+        };
 
         modules = [
           ./user/home.nix
           inputs.stylix.homeManagerModules.stylix
           inputs.nvf.homeManagerModules.default
-          # inputs.nixvim.homeManagerModules.nixvim
         ];
       };
     };

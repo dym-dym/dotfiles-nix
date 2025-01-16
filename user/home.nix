@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
 let
   system = "x86_64-linux";
   theme = "tokyo-night-dark";
@@ -26,7 +26,7 @@ in
      ../modules
   ];
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
       nerdfonts
       jetbrains-mono
 	    fira-code-nerdfont
@@ -48,7 +48,13 @@ in
       komikku
 
       # jellyfin-tui
-  ];
+  ])
+    ++
+  (with pkgs-unstable; [
+      supersonic-wayland
+
+  ])
+  ;
 
   home.file = {
     ".XCompose".text = ''
