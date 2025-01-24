@@ -46,7 +46,8 @@
   ## == Locales ==
 
   # Set your time zone.
-  time.timeZone = "Europe/Paris";
+  time.timeZone = "Europe/London";
+  # time.timeZone = "Europe/Paris";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -196,6 +197,7 @@
         gnumake
         bat
         swww
+        gimp
       ])
 
       ++
