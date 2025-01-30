@@ -46,6 +46,7 @@ in
       inputs.zen-browser.packages."${system}".default
       fastfetch
       komikku
+      comma
 
       # jellyfin-tui
   ])
