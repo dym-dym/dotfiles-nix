@@ -662,11 +662,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1738235578,
-        "narHash": "sha256-pyjM6Ak3dVUlAwpjJP1MV+a6ssytht/jIPELutD2KhI=",
+        "lastModified": 1738275588,
+        "narHash": "sha256-u51BeYedYfIIArHDAq5YvpDzhTH201b7Da1DOoSTZcA=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "ee89d9d5bc441dcb5de6068450d53275b852d9e5",
+        "rev": "e5f6aa23ea63dcbf6c918157cf5b9c818286e958",
         "type": "github"
       },
       "original": {
@@ -2392,15 +2392,15 @@
     "plugin-nvim-colorizer-lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1735384185,
-        "narHash": "sha256-quqs3666vQc/4ticc/Z5BHzGxV6UUVE9jVGT07MEMQQ=",
-        "owner": "NvChad",
+        "lastModified": 1738229011,
+        "narHash": "sha256-IEgZnIUeNXRKZ4eV1+KknluyKZj68HBWe1EW+LueuGA=",
+        "owner": "catgoose",
         "repo": "nvim-colorizer.lua",
-        "rev": "8a65c448122fc8fac9c67b2e857b6e830a4afd0b",
+        "rev": "9b5fe0450bfb2521c6cea29391e5ec571f129136",
         "type": "github"
       },
       "original": {
-        "owner": "NvChad",
+        "owner": "catgoose",
         "repo": "nvim-colorizer.lua",
         "type": "github"
       }
@@ -3521,11 +3521,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1738232271,
-        "narHash": "sha256-AeAvRtsZynVS8/FKBc0GsNm91J2zkvCAr3UgqOobc1o=",
+        "lastModified": 1738268302,
+        "narHash": "sha256-nIDWo0hcH0Id4/weABoXbsm3uL3uiRJfR3k97P6741k=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "cf9f5fdb2755617d234f0dc4d85994f3fd20d9cf",
+        "rev": "6836ed3ca2ac1d0a9244cfbe7f21f34a6bb7e00a",
         "type": "github"
       },
       "original": {
