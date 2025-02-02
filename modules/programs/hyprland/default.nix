@@ -135,6 +135,8 @@ in
 	      "float, pavucontrol"
 	      "center, waypaper"
 	      "float, waypaper"
+        "center, blueberry.py"
+	      "float, blueberry.py"
 	      "idleinhibit fullscreen, firefox"
 	      "idleinhibit fullscreen, mpv"
 	      "idleinhibit fullscreen, librewolf"
