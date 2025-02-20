@@ -1,5 +1,11 @@
 { config, lib, pkgs, inputs, ... }:
+let
+  system = "x86_64-linux";
+  theme = "tokyo-night-dark";
+  polarity = "dark";
+  wallpaper = "SELInternet.jpg";
 
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -49,12 +55,12 @@
   };
   stylix = {
     enable = true;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    # polarity = "dark";
+    inherit polarity;
     autoEnable = true;
 
-    image = ./wallpapers/Cloudsnight.jpg;
+    image = ./wallpapers/${wallpaper};
 
     cursor.package = pkgs.simp1e-cursors;
     cursor.name = "Simp1e-Catppuccin-Mocha";
