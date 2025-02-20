@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
-CONFIG="$HOME/.config/hypr/wofi/config/config"
-STYLE="$HOME/.config/hypr/wofi/src/mocha/style.css"
-
-if [[ ! $(pidof wofi) ]]; then
-    wofi  --show drun
-    # wofi --conf "${CONFIG}" --style "${STYLE}" --show drun
+if [[ ! $(pidof rofi) ]]; then
+    rofi -show drun
 else
-    pkill wofi
+    pkill rofi
 fi

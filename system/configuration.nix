@@ -18,7 +18,7 @@
 
   # Bootloader.
   # boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
-  boot.kernelPackages = pkgs.unstable.linuxPackages;
+  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_6_10;
 
   boot.loader = {
@@ -95,10 +95,10 @@
   hardware = {
     keyboard.qmk.enable = true;
     # graphics.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      # driSupport = true;
+      # driSupport32Bit = true;
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau
@@ -125,9 +125,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "565.57.01";
+      version = "570.86.16";
 
-      sha256_64bit = "sha256-buvpTlheOF6IBPWnQVLfQUiHv4GcwhvZW3Ks0PsYLHo=";
+      sha256_64bit = "sha256-RWPqS7ZUJH9JEAWlfHLGdqrNlavhaR1xMyzs8lJhy9U=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -283,7 +283,7 @@
 
       # File explorers
 	    pcmanfm
-	    gnome.nautilus
+	    nautilus
 	    kio-admin
 
       # Fonts (and TeX)

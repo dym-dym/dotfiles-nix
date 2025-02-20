@@ -62,6 +62,8 @@
     targets = {
       fish.enable = true;
       waybar.enable = false;
+      ghostty.enable = false;
+      rofi.enable = false;
     };
 
 	  fonts = {
