@@ -13,7 +13,7 @@ in
 
 	  programs.waybar.settings.mainBar = {
 
-      output = "DP-1";
+	    # include = "/home/dymdym/.config/waybar/configs/custom_modules/modules";
 	    layer = "top";
 	    height = 30;
 	    margin-top = 4;
@@ -82,8 +82,7 @@ in
 	    };
 
 	    "temperature" = {
-        thermal-zone = 0;
-        hwmon-path = "/sys/class/hwmon/hwmon1/temp1_input";
+	      thermal-zone = 0;
 	      critical-threshold = 80;
 	      format-critical = " <b>{temperatureC}°C</b>";
 	      format = " <b>{temperatureC}°C</b>";
@@ -201,15 +200,15 @@ in
 
 	    "custom/window-icon" = {};
 
-	    "custom/weatherNancy" = {
+	    "custom/weather-1" = {
 	      format = "{}";
 	      tooltip = true;
 	      interval = 3600;
-	      exec = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Nancy ";
+	      exec = "wttrbar --custom-indicator '{ICON} {temp_C}°C' --location Brighton ";
 	      return-type = "json";
 	    };
 
-	    "custom/weatherMontpellier" = {
+	    "custom/weather-2" = {
 	      format = "{}";
 	      tooltip = true;
 	      interval = 3600;
@@ -248,7 +247,7 @@ in
 	  };
 
 	  programs.waybar.style = ''
-    	* {
+	    * {
 			  padding: 0;
 			  margin: 0;
         font-family: JetBrainsMono Nerd Font;
@@ -397,8 +396,8 @@ in
 
 			#pulseaudio {
 			  color: ${config.lib.stylix.colors.withHashtag.base0D};
-			  padding: 0px 10px 0px 10px;
-			  border-radius: ${rounding}px ${rounding}px ${rounding}px ${rounding}px;
+			  padding: 0px 10px 0px 0px;
+			  border-radius: 0px ${rounding}px ${rounding}px 0px;
 			}
 
 			#custom-right-arr {

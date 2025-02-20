@@ -1,7 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  rounding = "5";
-in
 {
 
   options = {
@@ -53,7 +50,6 @@ in
 	      "custom/separator"
 	      "custom/dot"
 	      "clock"
-        "custom/notification"
 	    ];
 
 	    "custom/launcher" = {
@@ -224,31 +220,10 @@ in
 	      format = "  ";
 	      tooltip = false;
 	    };
-
-      "custom/notification" = {
-        tooltip = false;
-        format = "{} {icon}";
-        format-icons = {
-          notification = "󱅫 ";
-          none = " ";
-          dnd-notification = " ";
-          dnd-none = "󰂛 ";
-          inhibited-notification = " ";
-          inhibited-none = " ";
-          dnd-inhibited-notification = " ";
-          dnd-inhibited-none = " ";
-        };
-        return-type = "json";
-        exec-if = "which swaync-client";
-        exec = "swaync-client -swb";
-        on-click = "sleep 0.1 && swaync-client -t -sw";
-        on-click-right = "sleep 0.1 && swaync-client -d -sw";
-        escape = true;
-      };
 	  };
 
 	  programs.waybar.style = ''
-    	* {
+	    * {
 			  padding: 0;
 			  margin: 0;
         font-family: JetBrainsMono Nerd Font;
@@ -263,10 +238,11 @@ in
 			*/
 			#custom-launcher {
 			  font-size: 20px;
-			  color: #${config.lib.stylix.colors.base0D}; /* deepskyblue */
+			  color: #00bfff; /* deepskyblue */
 			  padding: 0px 15px 0px 15px;
 			}
 
+			#pulseaudio,
 			#cpu,
 			#memory,
 			#temperature,
@@ -276,11 +252,10 @@ in
 			#custom-wrap-right,
 			#custom-pacman-update,
 			#tray,
-			#custom-window-name,
-      #custom-notification
+			#custom-window-name
 			{
 			  font-size:14px;
-			  background: #${config.lib.stylix.colors.base02};
+			  background: #363a4f;
 			  margin: 5px 0px 5px 0px;
 			}
 
@@ -291,46 +266,45 @@ in
 			  font-size: 14px;
 			}
 
+			#pulseaudio,
 			#clock,
 			#custom-window-name,
-      #custom-notification,
 			#modules-right,
 			#tray
 			{
 			  margin: 0px 5px 0px 0px;
 			  padding: 0px 10px 0px 12px;
-			  border-radius: ${rounding}px ${rounding}px ${rounding}px ${rounding}px;
-        color: #${config.lib.stylix.colors.base05};
+			  border-radius: 8px 8px 8px 8px;
 			}
 
 			#cpu,
 			#custom-wrap-left
 			{
-			  border-radius: ${rounding}px 0px 0px ${rounding}px;
+			  border-radius: 8px 0px 0px 8px;
 			  padding: 0px 0px 0px 12px;
 			}
 
 			#cpu
 			{
-			  color: #${config.lib.stylix.colors.base0A};
+			  color: #eed49f;
 			  padding: 5px 10px 0px 12px;
 			}
 
 			#memory {
-			  color: #${config.lib.stylix.colors.base0B};
+			  color: #a6da95;
 			  padding: 0px 10px 0px 0px;
 			}
 
 			#temperature
 			{
-			  color: #${config.lib.stylix.colors.base0D};
+			  color: #8aadf4;
 			}
 
 			#temperature,
 			#custom-wrap-right
 			{
 			  padding: 0px 12px 0px 0px;
-			  border-radius: 0px ${rounding}px ${rounding}px 0px;
+			  border-radius: 0px 8px 8px 0px;
 			}
 
 			#custom-wrap-left {
@@ -375,30 +349,30 @@ in
 			  margin: 0px 8px;
 			}
 
-			#pulseaudio,
+			/*#pulseaudio,*/
 			#backlight,
 			#battery
 			{
 			  font-size: 14px;
-			  background: ${config.lib.stylix.colors.withHashtag.base02};
+			  background: #363a4f;
 			  margin: 5px 0px 5px 0px;
 			}
 
 			#battery {
-			  color: ${config.lib.stylix.colors.withHashtag.base0A};
+			  color: #a6da95;
 			  padding: 0px 10px 0px 0px;
 			}
 
 			#backlight {
-			  color: ${config.lib.stylix.colors.withHashtag.base0B};
+			  color: #eed49f;
 			  padding: 0px 10px 0px 10px;
-			  border-radius: ${rounding}px 0px 0px ${rounding}px;
+			  border-radius: 8px 0px 0px 8px;
 			}
 
 			#pulseaudio {
-			  color: ${config.lib.stylix.colors.withHashtag.base0D};
+			  color: #91d7e3;
 			  padding: 0px 10px 0px 10px;
-			  border-radius: ${rounding}px ${rounding}px ${rounding}px ${rounding}px;
+			  border-radius: 8px 8px 8px 8px;
 			}
 
 			#custom-right-arr {
@@ -416,11 +390,6 @@ in
 			#custom-dot-alt {
 			  color: #a5adcb;
 			}
-
-      #custom-weather-2
-      #custom-weather-1 {
-        color: ${config.lib.stylix.colors.withHashtag.base05}
-      }
 
 			/*# sourceMappingURL=style.css.map */
 		'';
