@@ -183,10 +183,10 @@ in {
         #   config = toLuaFile ./nvim/plugin/snacks.lua;
         # }
 
-        # {
-        #   plugin = coc-nvim;
-        #   config = toLuaFile ./nvim/plugin/coc.lua;
-        # }
+        {
+          plugin = coc-nvim;
+          config = toLuaFile ./nvim/plugin/coc.lua;
+        }
       ];
 
       extraLuaConfig = ''
