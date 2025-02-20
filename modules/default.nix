@@ -18,6 +18,8 @@
     ./programs/waybar
     ./programs/yazi
     ./programs/zathura
+    ./programs/fastfetch
+    ./programs/rofi
 
     # ./services/swayosd
     ./services/wlsunset
@@ -45,4 +47,6 @@
   waybar.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
   zathura.enable = lib.mkDefault true;
+  fastfetch.enable = lib.mkDefault true;
+  rofi.enable = lib.mkDefault true;
 }
