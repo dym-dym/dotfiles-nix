@@ -24,13 +24,14 @@
     # ./services/swayosd
     ./services/wlsunset
     ./services/dunst
+    ./services/swaync
   ];
 
 
   alacritty.enable = lib.mkDefault true;
   atuin.enable = lib.mkDefault true;
   cava.enable = lib.mkDefault true;
-  dunst.enable = lib.mkDefault true;
+  dunst.enable = lib.mkDefault false;
   firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
@@ -49,4 +50,5 @@
   zathura.enable = lib.mkDefault true;
   fastfetch.enable = lib.mkDefault true;
   rofi.enable = lib.mkDefault true;
+  swaync.enable = lib.mkDefault true;
 }
