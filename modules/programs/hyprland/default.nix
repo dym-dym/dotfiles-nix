@@ -146,6 +146,8 @@ in
 	      "idleinhibit fullscreen, firefox"
 	      "idleinhibit fullscreen, mpv"
 	      "idleinhibit fullscreen, librewolf"
+        "idleinhibit fullscreen, zen"
+        "opaque, zen"
         "opaque, firefox"
 	      "opaque, mpv"
 	      "opaque, librewolf"
@@ -181,7 +183,8 @@ in
 
 	    bind =
 	      [
-	        "$mod, B, exec, librewolf"
+	        # "$mod, B, exec, librewolf"
+          "$mod, B, exec, zen"
 	        "$mod, Return, exec, alacritty"
           "$mod SHIFT, Return, exec, ${wofi-script}"
 	        "$mod SHIFT,T,togglefloating"

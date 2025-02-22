@@ -24,6 +24,10 @@ in
   imports = [
      ../modules
   ];
+# user/home.nix
+# 163:        "x-scheme-handler/https" = ["zen-beta.desktop"]; # Links
+# 164:        "x-scheme-handler/http" = ["zen-beta.desktop"]; # Links
+# 165:        "x-scheme-handler/mailto" = ["zen-beta.desktop"]; # Links
 
   home.packages = with pkgs; [
       nerdfonts
@@ -39,6 +43,7 @@ in
       unar
       coq
       coqPackages.coq-lsp
+      inputs.zen-browser.packages."${system}".default
   ];
 
   home.file = {
