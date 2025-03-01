@@ -323,6 +323,8 @@
 	    protonup
       networkmanagerapplet
       egl-wayland
+
+      blueberry
     ])
     ++
     (with pkgs-unstable; [
