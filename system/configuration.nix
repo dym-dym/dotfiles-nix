@@ -198,6 +198,7 @@
         bat
         swww
         gimp
+        zoom
       ])
 
       ++
@@ -351,6 +352,8 @@
 	};
 
   programs.gnome-disks.enable = true;
+
+  services.fwupd.enable = true;
 
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
