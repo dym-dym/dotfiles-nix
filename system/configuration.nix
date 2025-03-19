@@ -199,6 +199,7 @@
         swww
         gimp
         zoom
+        owncloud-client
       ])
 
       ++
