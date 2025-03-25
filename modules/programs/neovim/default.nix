@@ -187,6 +187,10 @@ in {
           plugin = coc-nvim;
           config = toLuaFile ./nvim/plugin/coc.lua;
         }
+
+        {
+          plugin = vimtex;
+        }
       ];
 
       extraLuaConfig = ''
