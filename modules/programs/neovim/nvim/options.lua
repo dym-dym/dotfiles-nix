@@ -29,6 +29,15 @@ vim.o.mouse = 'a'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.g.vimtex_view_method = 'zathura'
+vim.g.latex_view_general_viewer = 'zathura'
+vim.g.vimtex_syntax_enabled = 1
+vim.o.conceallevel = 3
+vim.g.tex_conceal = 'abdmg'
+vim.g.vimtex_quickfix_mode = 0
+vim.g.tex_flavor = 'latex'
+-- vim.g.vimtex_compiler_progname = 'nvr'
+
 -- Movements --
 Map("n", "<C-h>", "<C-w>h")
 Map("n", "<C-j>", "<C-w>j")

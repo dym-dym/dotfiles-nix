@@ -47,6 +47,7 @@ in
       fastfetch
       komikku
       comma
+      neovim-remote
 
       # jellyfin-tui
   ])

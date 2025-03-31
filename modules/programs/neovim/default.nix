@@ -87,19 +87,19 @@ in {
 
         nvim-web-devicons
 
-        {
-          plugin = nvim-treesitter.withPlugins (p: [
-            p.tree-sitter-nix
-            p.tree-sitter-vim
-            p.tree-sitter-bash
-            p.tree-sitter-lua
-            p.tree-sitter-python
-            p.tree-sitter-json
-            p.tree-sitter-ocaml
-            p.tree-sitter-rust
-          ]);
-          config = toLuaFile ./nvim/plugin/treesitter.lua;
-        }
+        # {
+        #   plugin = nvim-treesitter.withPlugins (p: [
+        #     p.tree-sitter-nix
+        #     p.tree-sitter-vim
+        #     p.tree-sitter-bash
+        #     p.tree-sitter-lua
+        #     p.tree-sitter-python
+        #     p.tree-sitter-json
+        #     p.tree-sitter-ocaml
+        #     p.tree-sitter-rust
+        #   ]);
+        #   config = toLuaFile ./nvim/plugin/treesitter.lua;
+        # }
 
         vim-nix
 
