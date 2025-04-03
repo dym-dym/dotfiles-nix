@@ -161,12 +161,35 @@ in
         # "x-scheme-handler/https" = ["librewolf.desktop"]; # Links
         # "x-scheme-handler/http" = ["librewolf.desktop"]; # Links
         # "x-scheme-handler/mailto" = ["librewolf.desktop"]; # Links
-        "x-scheme-handler/https" = ["zen-beta.desktop"]; # Links
-        "x-scheme-handler/http" = ["zen-beta.desktop"]; # Links
-        "x-scheme-handler/mailto" = ["zen-beta.desktop"]; # Links
+        # "x-scheme-handler/https" = ["zen-beta.desktop"]; # Links
+        # "x-scheme-handler/http" = ["zen-beta.desktop"]; # Links
+        # "x-scheme-handler/mailto" = ["zen-beta.desktop"]; # Links
         "image/*" = ["feh.desktop"]; # Images
         "image/png" = ["feh.desktop"];
         "image/jpeg" = ["feh.desktop"];
+        "x-scheme-handler/http" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "x-scheme-handler/https" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "x-scheme-handler/mailto" = ["zen-beta.desktop"];
+        "x-scheme-handler/chrome" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "text/html" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-htm" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-html" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-shtml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/xhtml+xml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-xhtml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-xht" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+      };
+      associations.added = {
+        "x-scheme-handler/http" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "x-scheme-handler/https" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "x-scheme-handler/chrome" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "text/html" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-htm" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-html" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-shtml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/xhtml+xml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-xhtml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/x-extension-xht" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
       };
     };
   };
