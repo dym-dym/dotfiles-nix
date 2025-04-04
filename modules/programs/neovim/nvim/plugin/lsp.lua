@@ -28,20 +28,24 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 require('neodev').setup()
 
-require('lspconfig').nil_ls.setup {
+lspconfig = require('lspconfig')
+
+lspconfig.nil_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require('lspconfig').rust_analyzer.setup {
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
 
-require'lspconfig'.ocamllsp.setup{
+lspconfig.ocamllsp.setup{
     on_attach = on_attach,
     capabilities = capabilities,
 }
+
+lspconfig.texlab.setup {}
 
 require('coq-lsp').setup{
     on_attach = on_attach,

@@ -39,8 +39,9 @@ cmp.setup {
             end
         end, { 'i', 's' }),
     },
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+  	sources = {
+    		{ name = 'nvim_lsp' },
+      	{ name = 'luasnip' },
+				{ name = 'buffer' },
     },
 }

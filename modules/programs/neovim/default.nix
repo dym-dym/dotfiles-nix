@@ -40,6 +40,7 @@ in {
         coqPackages.coq-lsp
         coq
         python312Packages.pynvim
+        texlab
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -60,7 +61,7 @@ in {
 
         neodev-nvim
 
-        nvim-cmp
+        # nvim-cmp
         {
           plugin = nvim-cmp;
           config = toLuaFile ./nvim/plugin/cmp.lua;
@@ -183,14 +184,20 @@ in {
         #   config = toLuaFile ./nvim/plugin/snacks.lua;
         # }
 
-        {
-          plugin = coc-nvim;
-          config = toLuaFile ./nvim/plugin/coc.lua;
-        }
+        # {
+        #   plugin = coc-nvim;
+        #   config = toLuaFile ./nvim/plugin/coc.lua;
+        # }
 
         {
           plugin = vimtex;
         }
+
+        # {
+        #   plugin = coc-texlab;
+        # }
+
+
       ];
 
       extraLuaConfig = ''
