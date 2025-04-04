@@ -36,6 +36,7 @@ vim.o.conceallevel = 2
 vim.g.tex_conceal = 'abdmg'
 vim.g.vimtex_quickfix_mode = 0
 vim.g.tex_flavor = 'latex'
+vim.g.vimtex_format_enabled = 1
 -- vim.g.vimtex_compiler_progname = 'nvr'
 
 -- Movements --
