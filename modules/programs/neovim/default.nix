@@ -193,6 +193,11 @@ in {
           plugin = vimtex;
         }
 
+        {
+          plugin = cmp-vimtex;
+          config = toLuaFile ./nvim/plugin/cmp-vimtex.lua;
+        }
+
         # {
         #   plugin = coc-texlab;
         # }
