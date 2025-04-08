@@ -72,3 +72,5 @@ Map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 Map("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
 Map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 
+-- Lazygit --
+Map("n", "<leader>gg", "<cmd>LazyGit <CR>")

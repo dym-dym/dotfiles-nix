@@ -41,6 +41,7 @@ in {
         coq
         python312Packages.pynvim
         texlab
+        lazygit
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -196,6 +197,11 @@ in {
         {
           plugin = cmp-vimtex;
           config = toLuaFile ./nvim/plugin/cmp-vimtex.lua;
+        }
+
+        {
+          plugin = lazygit-nvim;
+          config = toLuaFile ./nvim/plugin/lazygit-nvim.lua;
         }
 
         # {
