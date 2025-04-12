@@ -61,26 +61,6 @@ return {
     -- - you can customize only some of the keymaps (not all of them)
     -- - you can opt out of all keymaps by setting `keymaps = false`
 
-		keys = {
-    -- 👇 in this section, choose your own keymappings!
-			{
-				"<leader>-",
-				mode = { "n", "v" },
-				"<cmd>Yazi<cr>",
-				desc = "Open yazi at the current file",
-			},
-			{
-				-- Open in the current working directory
-				"<leader>cw",
-				"<cmd>Yazi cwd<cr>",
-				desc = "Open the file manager in nvim's working directory",
-			},
-			{
-				"<c-up>",
-				"<cmd>Yazi toggle<cr>",
-				desc = "Resume the last yazi session",
-			},
-		},
 
     keymaps = {
       show_help = "<f1>",

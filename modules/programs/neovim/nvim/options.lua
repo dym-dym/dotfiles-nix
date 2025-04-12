@@ -54,17 +54,17 @@ Map("n", "<S-h>", "<cmd>tabprevious<CR>")
 Map("n", "<S-l>", "<cmd>tabNext<CR>")
 
 -- Windows --
--- Split 
+-- Split
 Map("n", "<leader>wv", "<cmd>vsplit<CR>", { desc="Split vertically" })
 Map("n", "<leader>wh", "<cmd>split<CR>", { desc="Split horizontally" } )
 
--- Tabs 
+-- Tabs
 Map("n", "<leader>wt", "<cmd>tabnew<CR>", { desc="Open new tab" })
 
 -- Neotree --
 -- Map("n", "<leader>ee", "<cmd>Neotree left<CR>")
 -- Map("n", "<leader>ef", "<cmd>Neotree float<CR>")
-Map("n", "<leader>e", "<cmd>Neotree float<CR>", { desc = "Open tree explorer" })
+-- Map("n", "<leader>e", "<cmd>Neotree float<CR>", { desc = "Open tree explorer" })
 
 -- Telescope --
 Map("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
@@ -74,3 +74,8 @@ Map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 
 -- Lazygit --
 Map("n", "<leader>gg", "<cmd>LazyGit <CR>")
+
+-- Yazi --
+Map("n", "<leader>-", "<cmd>Yazi <CR>")
+Map("n", "<leader>cw", "<cmd>Yazi cwd<CR>")
+Map("n", "<leader>ce", "<cmd>Yazi toggle<CR>")
