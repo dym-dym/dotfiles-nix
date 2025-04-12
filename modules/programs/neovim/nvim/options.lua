@@ -50,8 +50,8 @@ Map("t", "<C-j>", "<cmd>wincmd j<CR>")
 Map("t", "<C-k>", "<cmd>wincmd k<CR>")
 Map("t", "<C-l>", "<cmd>wincmd l<CR>")
 
-Map("n", "<S-h>", "<cmd>tabprevious<CR>")
-Map("n", "<S-l>", "<cmd>tabNext<CR>")
+Map("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>")
+Map("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>")
 
 -- Windows --
 -- Split
