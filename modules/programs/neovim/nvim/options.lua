@@ -52,6 +52,7 @@ Map("t", "<C-l>", "<cmd>wincmd l<CR>")
 
 Map("n", "<S-h>", "<cmd>BufferLineCyclePrev<CR>")
 Map("n", "<S-l>", "<cmd>BufferLineCycleNext<CR>")
+Map("n", "<leader>bd", "<cmd>Sayonara<CR>")
 
 -- Windows --
 -- Split

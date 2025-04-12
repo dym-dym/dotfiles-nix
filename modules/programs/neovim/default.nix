@@ -214,6 +214,11 @@ in {
           config = toLuaFile ./nvim/plugin/bufferline-nvim.lua;
         }
 
+        {
+          plugin = vim-sayonara;
+          config = toLuaFile ./nvim/plugin/vim-sayonara.lua;
+        }
+
       ];
 
       extraLuaConfig = ''
