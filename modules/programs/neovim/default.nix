@@ -204,10 +204,10 @@ in {
           config = toLuaFile ./nvim/plugin/lazygit-nvim.lua;
         }
 
-        # {
-        #   plugin = coc-texlab;
-        # }
-
+        {
+          plugin = yazi-nvim;
+          config = toLuaFile ./nvim/plugin/yazi-nvim.lua;
+        }
 
       ];
 
