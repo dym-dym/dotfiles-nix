@@ -202,6 +202,7 @@
         gimp
         zoom
         owncloud-client
+        xautoclick
       ])
 
       ++
