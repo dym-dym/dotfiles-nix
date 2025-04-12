@@ -209,6 +209,11 @@ in {
           config = toLuaFile ./nvim/plugin/yazi-nvim.lua;
         }
 
+        {
+          plugin = bufferline-nvim;
+          config = toLuaFile ./nvim/plugin/bufferline-nvim.lua;
+        }
+
       ];
 
       extraLuaConfig = ''
