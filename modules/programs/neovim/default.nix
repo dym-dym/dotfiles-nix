@@ -54,50 +54,50 @@ in {
       ];
 
       plugins = with pkgs.vimPlugins; [
-        {
-          plugin = nvim-lspconfig;
-          config = toLuaFile ./nvim/plugin/lsp.lua;
-        }
 
-        {
-          plugin = comment-nvim;
-          config = toLua "require(\"Comment\").setup()";
-        }
+        # Theming and looks
 
         {
           plugin = catppuccin-nvim;
           config = "colorscheme catppuccin-mocha";
         }
 
-        neodev-nvim
-
-        # nvim-cmp
-        {
-          plugin = nvim-cmp;
-          config = toLuaFile ./nvim/plugin/cmp.lua;
-        }
-
-        {
-          plugin = telescope-nvim;
-          config = toLuaFile ./nvim/plugin/telescope.lua;
-        }
-
-        telescope-fzf-native-nvim
-        telescope-zoxide
-
-        cmp_luasnip
-        cmp-nvim-lsp
-
-        luasnip
-        friendly-snippets
-
         {
           plugin = lualine-nvim;
           config = toLuaFile ./nvim/plugin/lualine.lua;
         }
 
+        {
+          plugin = dashboard-nvim;
+          config = toLuaFile ./nvim/plugin/dashboard.lua;
+        }
+
+        ## Indentation guides
+        {
+          plugin = indent-blankline-nvim;
+          config = toLuaFile ./nvim/plugins/indent-blank-lines.lua;
+        }
+
+        {
+          plugin = bufferline-nvim;
+          config = toLuaFile ./nvim/plugin/bufferline-nvim.lua;
+        }
+
+        ## ColorColumn dynamic change
+        {
+          plugin = deadcolumn-nvim;
+          config = toLuaFile ./nvim/plugin/deadcolumn.lua;
+        }
+        # Icons
         nvim-web-devicons
 
+        # LSP
+        {
+          plugin = nvim-lspconfig;
+          config = toLuaFile ./nvim/plugin/lsp.lua;
+        }
+
+        # Syntax Highlighting
         {
           plugin = nvim-treesitter.withPlugins (p: [
             p.tree-sitter-nix
@@ -112,35 +112,71 @@ in {
           config = toLuaFile ./nvim/plugin/treesitter.lua;
         }
 
-        vim-nix
 
+        # Snippets and completion
         {
-          plugin = dashboard-nvim;
-          config = toLuaFile ./nvim/plugin/dashboard.lua;
+          plugin = nvim-cmp;
+          config = toLuaFile ./nvim/plugin/cmp.lua;
         }
 
+        cmp_luasnip
+        cmp-nvim-lsp
+
         {
-          plugin = mason-nvim;
-          config = toLuaFile ./nvim/plugin/mason.lua;
+          plugin = cmp-vimtex;
+          config = toLuaFile ./nvim/plugin/cmp-vimtex.lua;
         }
-        mason-lspconfig-nvim
-        mason-tool-installer-nvim
+
+        luasnip
+        friendly-snippets
+
+
+
+        # Comments
+        {
+          plugin = comment-nvim;
+          config = toLua "require(\"Comment\").setup()";
+        }
+
+        # Navigation
+        ## Telescope
+        {
+          plugin = telescope-nvim;
+          config = toLuaFile ./nvim/plugin/telescope.lua;
+        }
+
+        telescope-fzf-native-nvim
+        telescope-zoxide
 
         {
           plugin = which-key-nvim;
           config = toLuaFile ./nvim/plugin/which-key.lua;
         }
 
+        ## Git
         {
-          plugin = neo-tree-nvim;
-          config = toLuaFile ./nvim/plugin/neo-tree-nvim.lua;
+          plugin = lazygit-nvim;
+          config = toLuaFile ./nvim/plugin/lazygit-nvim.lua;
         }
 
+        ## File explorer
         {
-          plugin = mini-nvim;
-          config = toLuaFile ./nvim/plugin/mini.lua;
+          plugin = yazi-nvim;
+          config = toLuaFile ./nvim/plugin/yazi-nvim.lua;
         }
 
+        ## Smooth scrolling
+        {
+          plugin = neoscroll-nvim;
+          config = toLuaFile ./nvim/plugin/neoscroll.lua;
+        }
+
+        # Languages
+
+        ## Nix
+        vim-nix
+
+        ## Coq
         Coqtail
         {
           plugin = coq-lsp;
@@ -179,47 +215,39 @@ in {
           '';
         }
 
+        ## LaTeX
         {
-          plugin = indent-blankline-nvim;
-          config = toLua ''require("ibl").setup()'';
+          plugin = vimtex;
         }
 
+        # Mini
+        {
+          plugin = mini-nvim;
+          config = toLuaFile ./nvim/plugin/mini.lua;
+        }
+
+        # Terminal integration
         {
           plugin = toggleterm-nvim;
           config = toLuaFile ./nvim/plugin/toggleterm.lua;
         }
 
-        {
-          plugin = vimtex;
-        }
-
-        {
-          plugin = cmp-vimtex;
-          config = toLuaFile ./nvim/plugin/cmp-vimtex.lua;
-        }
-
-        {
-          plugin = lazygit-nvim;
-          config = toLuaFile ./nvim/plugin/lazygit-nvim.lua;
-        }
-
-        {
-          plugin = yazi-nvim;
-          config = toLuaFile ./nvim/plugin/yazi-nvim.lua;
-        }
-
-        {
-          plugin = bufferline-nvim;
-          config = toLuaFile ./nvim/plugin/bufferline-nvim.lua;
-        }
-
+        # Buffers handling
         vim-sayonara
 
-        {
-          plugin = deadcolumn-nvim;
-          config = toLuaFile ./nvim/plugin/deadcolumn.lua;
-        }
+        # {
+        #   plugin = mason-nvim;
+        #   config = toLuaFile ./nvim/plugin/mason.lua;
+        # }
+        # mason-lspconfig-nvim
+        # mason-tool-installer-nvim
 
+
+        #
+        # {
+        #   plugin = neo-tree-nvim;
+        #   config = toLuaFile ./nvim/plugin/neo-tree-nvim.lua;
+        # }
       ];
 
       extraLuaConfig = ''
