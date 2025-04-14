@@ -3,5 +3,7 @@ require('neoscroll').setup({
 		'zt',
 		'zz',
 		'zb'
-	}
+	},
+
+	easing = 'linear'
 })
