@@ -24,6 +24,8 @@ vim.o.updatetime = 300
 vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
+vim.o.colorcolumn = '80'
+-- vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg='Red', bg='Red' })
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -38,6 +40,9 @@ vim.g.vimtex_quickfix_mode = 0
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_format_enabled = 1
 -- vim.g.vimtex_compiler_progname = 'nvr'
+
+-- Open zathura on pdf opening --
+vim.cmd([[autocmd BufEnter *.pdf execute "!zathura '%'" | bdelete %]])
 
 -- Movements --
 Map("n", "<C-h>", "<C-w>h")
@@ -68,15 +73,18 @@ Map("n", "<leader>wt", "<cmd>tabnew<CR>", { desc="Open new tab" })
 -- Map("n", "<leader>e", "<cmd>Neotree float<CR>", { desc = "Open tree explorer" })
 
 -- Telescope --
-Map("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
-Map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
-Map("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
-Map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
+Map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc="Find files" })
+Map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc="Grep in project" })
+Map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc="Buffers" })
+Map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc="Help Tags" })
 
 -- Lazygit --
-Map("n", "<leader>gg", "<cmd>LazyGit <CR>")
+Map("n", "<leader>gg", "<cmd>LazyGit <CR>", { desc="Open LazyGit" })
 
 -- Yazi --
 Map("n", "<leader>-", "<cmd>Yazi <CR>")
-Map("n", "<leader>cw", "<cmd>Yazi cwd<CR>")
-Map("n", "<leader>ce", "<cmd>Yazi toggle<CR>")
+Map("n", "<leader>cw", "<cmd>Yazi cwd<CR>", { desc="Open Yazi in directory" })
+Map("n", "<leader>ce", "<cmd>Yazi toggle<CR>", { desc="Toggle Yazi" })
+
+-- ToggleTerm --
+Map("n", "<leader>t", "<cmd>ToggleTerm<CR>", { desc="Open terminal" })
