@@ -63,11 +63,6 @@ in {
         }
 
         {
-          plugin = lualine-nvim;
-          config = toLuaFile ./nvim/plugin/lualine.lua;
-        }
-
-        {
           plugin = dashboard-nvim;
           config = toLuaFile ./nvim/plugin/dashboard.lua;
         }
@@ -75,7 +70,13 @@ in {
         ## Indentation guides
         {
           plugin = indent-blankline-nvim;
-          config = toLuaFile ./nvim/plugins/indent-blank-lines.lua;
+          config = toLuaFile ./nvim/plugin/indent-blank-lines.lua;
+        }
+
+        ## Lines
+        {
+          plugin = lualine-nvim;
+          config = toLuaFile ./nvim/plugin/lualine.lua;
         }
 
         {
