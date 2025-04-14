@@ -216,6 +216,11 @@ in {
 
         vim-sayonara
 
+        {
+          plugin = deadcolumn-nvim;
+          config = toLuaFile ./nvim/plugin/deadcolumn.nvim;
+        }
+
       ];
 
       extraLuaConfig = ''
