@@ -13,6 +13,15 @@
       sha256 = "1lblzp8vdz7lfipbxgvvax4pg7c4x3nm2rlfdfcpf3s55n1g86l4";
     };
   };
+  deadcolumn-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "deadcolumn-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "Bekaboo";
+      repo = "deadcolumn.nvim";
+      rev = "8f5f8610fda22ff7a3937bc72d0e7d41faaceeaa";
+      sha256 = "0agxb0kmk0g4z6jxqzyhxs6nhajlrb273grs7slj510zs33pb53x";
+    };
+  };
 in {
   options = {
     neovim.enable = lib.mkEnableOption "enable neovim";
@@ -89,19 +98,19 @@ in {
 
         nvim-web-devicons
 
-        # {
-        #   plugin = nvim-treesitter.withPlugins (p: [
-        #     p.tree-sitter-nix
-        #     p.tree-sitter-vim
-        #     p.tree-sitter-bash
-        #     p.tree-sitter-lua
-        #     p.tree-sitter-python
-        #     p.tree-sitter-json
-        #     p.tree-sitter-ocaml
-        #     p.tree-sitter-rust
-        #   ]);
-        #   config = toLuaFile ./nvim/plugin/treesitter.lua;
-        # }
+        {
+          plugin = nvim-treesitter.withPlugins (p: [
+            p.tree-sitter-nix
+            p.tree-sitter-vim
+            p.tree-sitter-bash
+            p.tree-sitter-lua
+            p.tree-sitter-python
+            p.tree-sitter-json
+            p.tree-sitter-ocaml
+            p.tree-sitter-rust
+          ]);
+          config = toLuaFile ./nvim/plugin/treesitter.lua;
+        }
 
         vim-nix
 
@@ -180,16 +189,6 @@ in {
           config = toLuaFile ./nvim/plugin/toggleterm.lua;
         }
 
-        # {
-        #   plugin = snack-nvim;
-        #   config = toLuaFile ./nvim/plugin/snacks.lua;
-        # }
-
-        # {
-        #   plugin = coc-nvim;
-        #   config = toLuaFile ./nvim/plugin/coc.lua;
-        # }
-
         {
           plugin = vimtex;
         }
@@ -218,7 +217,7 @@ in {
 
         {
           plugin = deadcolumn-nvim;
-          config = toLuaFile ./nvim/plugin/deadcolumn.nvim;
+          config = toLuaFile ./nvim/plugin/deadcolumn.lua;
         }
 
       ];
