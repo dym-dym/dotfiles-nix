@@ -67,6 +67,17 @@ in {
           config = toLuaFile ./nvim/plugin/dashboard.lua;
         }
 
+        ## Spinner
+        {
+          plugin = fidget-nvim;
+          config = toLuaFile ./nvim/plugin/fidget.lua;
+        }
+
+        {
+          plugin = noice-nvim;
+          config = toLuaFile ./nvim/plugin/noice.lua;
+        }
+
         ## Indentation guides
         {
           plugin = indent-blankline-nvim;
