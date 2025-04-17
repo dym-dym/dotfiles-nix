@@ -203,6 +203,7 @@
         zoom
         owncloud-client
         xautoclick
+        lutris
       ])
 
       ++
