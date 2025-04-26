@@ -204,8 +204,6 @@
         owncloud-client
         xautoclick
         lutris
-        libssh
-        libjpeg
       ])
 
       ++
