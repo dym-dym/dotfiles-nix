@@ -13,8 +13,7 @@ in
 
 	  programs.waybar.settings.mainBar = {
 
-      output = "DP-1";
-	    layer = "top";
+      output = [ "DP-1" "HDMI-A-2" ];
 	    height = 30;
 	    margin-top = 4;
 	    margin-left = 0;
