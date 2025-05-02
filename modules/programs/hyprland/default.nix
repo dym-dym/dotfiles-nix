@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   randombackground = ./scripts/randombackground;
@@ -13,9 +13,15 @@ in
 
 	  wayland.windowManager.hyprland = {
 	    enable = true;
-	    package = pkgs.hyprland;
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      package = pkgs.hyprland;
+      # package = hyprland.packages.${pkgs.system}.hyprland;
 	    xwayland.enable = true;
 	    systemd.enable = true;
+      plugins =  with pkgs.hyprlandPlugins; [
+        csgo-vulkan-fix
+      ];
 	  };
 
 	  wayland.windowManager.hyprland.systemd.variables = ["--all"];
@@ -239,6 +245,7 @@ in
 	      "SUPER, mouse:272, movewindow"
 	      "SUPER, mouse:273, resizewindow"
 	    ];
+
 	  };
   };
 }
