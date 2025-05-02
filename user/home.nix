@@ -44,6 +44,7 @@ in
       coq
       coqPackages.coq-lsp
       inputs.zen-browser.packages."${system}".default
+      neovim-remote
   ];
 
   home.file = {

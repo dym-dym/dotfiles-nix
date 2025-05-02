@@ -5,8 +5,14 @@
   };
 
   config = {
+
     programs.zathura = {
       enable = true;
+
+      options = {
+        synctex = true;
+        synctex-editor-command = "nvr --remote-silent +%{line} %{input}";
+      };
       # options = {
       #   default-fg = "rgba(205,214,244,1)";
       #   default-bg = "rgba(30,30,46,1)";
