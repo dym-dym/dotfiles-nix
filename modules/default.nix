@@ -14,7 +14,7 @@
     # ./programs/jellyfin-tui
     ./programs/librewolf
     ./programs/neovim
-    ./programs/nvf
+    # ./programs/nvf
     ./programs/nushell
     ./programs/qutebrowser
     ./programs/starship
@@ -46,7 +46,7 @@
   hyprlock.enable = lib.mkDefault true;
   librewolf.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
-  nvf.enable = lib.mkDefault false;
+  # nvf.enable = lib.mkDefault false;
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
   swayosd.enable = lib.mkDefault true;
