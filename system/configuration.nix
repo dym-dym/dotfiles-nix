@@ -175,7 +175,6 @@
         element-desktop
         signal-desktop
         whatsapp-for-linux
-        skypeforlinux
         android-tools
         # fastfetch
         lshw
