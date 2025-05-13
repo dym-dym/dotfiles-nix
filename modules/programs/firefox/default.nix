@@ -42,18 +42,18 @@
         };
         search.force = true;
 
-        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-
-          bitwarden
-          privacy-redirect
-          sponsorblock
-          vimium
-          tabliss
-          sidebery
-          userchrome-toggle-extended
-          firefox-color
-
-        ];
+        # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+        #
+        #   bitwarden
+        #   privacy-redirect
+        #   sponsorblock
+        #   vimium
+        #   tabliss
+        #   sidebery
+        #   userchrome-toggle-extended
+        #   firefox-color
+        #
+        # ];
 
         userChrome = ''
         /*
