@@ -298,7 +298,6 @@
       # Misc
 	    thunderbird
 	    mangohud
-	    heroic
 	    discord-canary
 	    protonup
       networkmanagerapplet
