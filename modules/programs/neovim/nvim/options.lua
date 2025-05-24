@@ -39,6 +39,15 @@ vim.g.tex_conceal = 'abdmg'
 vim.g.vimtex_quickfix_mode = 0
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_format_enabled = 1
+vim.g.vimtex_compiler_latexmk = {
+    options = {
+        '-verbose',
+        '-file-line-error',
+        '-synctex=1',
+        '-interaction=nonstopmode',
+        '-shell-escape',
+    },
+}
 -- vim.g.vimtex_compiler_progname = 'nvr'
 
 -- Open zathura on pdf opening --
