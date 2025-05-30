@@ -49,6 +49,8 @@ in
       comma
       neovim-remote
 
+      inkscape
+
       # jellyfin-tui
   ])
     ++
