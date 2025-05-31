@@ -49,8 +49,6 @@ in
       comma
       neovim-remote
 
-      inkscape
-
       # jellyfin-tui
   ])
     ++
@@ -157,6 +155,7 @@ in
         # "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"]; # .docx
         # "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"]; # .pptx
         "application/pdf" = ["zathura.desktop"]; # .pdf
+        "application/x-pdf" = ["zathura.desktop"]; # .pdf
         "application/zip" = ["xarchiver.desktop"];
         "text/*" = ["neovim.desktop"]; # Any text files
         "video/*" = ["mpv.desktop"]; # Any video files
