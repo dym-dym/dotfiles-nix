@@ -17,8 +17,8 @@
     ];
 
   # Bootloader.
-  # boot.kernelPackages = pkgs.linuxPackages_6_12;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_14;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     systemd-boot.enable = true;
     systemd-boot.configurationLimit = 5;
@@ -121,9 +121,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "570.153.02";
+      version = "575.57.08";
 
-      sha256_64bit = "sha256-FIiG5PaVdvqPpnFA5uXdblH5Cy7HSmXxp6czTfpd4bY=";
+      sha256_64bit = "sha256-KqcB2sGAp7IKbleMzNkB3tjUTlfWBYDwj50o3R//xvI=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
