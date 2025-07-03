@@ -48,6 +48,7 @@ in
       komikku
       comma
       neovim-remote
+      protonvpn-gui
 
       # jellyfin-tui
   ])
