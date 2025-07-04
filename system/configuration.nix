@@ -164,7 +164,7 @@
   users.users.dymdym = {
     isNormalUser = true;
     description = "dymdym";
-    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "uinput" ]; # "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" "uinput" "docker" ]; # "libvirtd" ];
 
     # User packages
     packages =
@@ -382,6 +382,7 @@
     };
   };
 
+  virtualisation.docker.enable = true;
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
 
