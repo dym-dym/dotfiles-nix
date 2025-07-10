@@ -38,17 +38,17 @@ in
 
 	    general = {
 	      sensitivity = "1";
-	      gaps_in = "5";
-	      gaps_out = "8";
+	      gaps_in = "7";
+	      gaps_out = "6";
 	      border_size = "2";
 	      # "col.active_border" = "0xffb072d1";
 	      # "col.inactive_border" = "0xff292a37";
 	    };
 
 	    decoration = {
-	      rounding = "1";
-	      active_opacity = "0.9";
-	      inactive_opacity = "0.7";
+	      rounding = "4";
+	      active_opacity = "1";
+	      inactive_opacity = "0.8";
 
 	      blur = {
 	        enabled = true;
