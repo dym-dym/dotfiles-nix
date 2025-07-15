@@ -19,15 +19,15 @@
 
 	      font = {
 	        normal = {
-		        family = "FiraCode Nerd Font Mono";
+		        family = lib.mkDefault "FiraCode Nerd Font Mono";
 		        style = "Regular";
 		      };
 	        bold = {
-		        family = "FiraCode Nerd Font";
+		        family = lib.mkDefault "FiraCode Nerd Font";
 		        style = "Bold";
 		      };
 	        italic = {
-		        family = "FiraCode Nerd Font";
+		        family = lib.mkDefault "FiraCode Nerd Font";
 		        style = "Italic";
 		      };
 		      size = 12;

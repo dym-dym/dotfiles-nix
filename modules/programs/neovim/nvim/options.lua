@@ -48,6 +48,7 @@ vim.g.vimtex_compiler_latexmk = {
         '-shell-escape',
     },
 }
+vim.g.Tex_MultipleCompileFormats = 'pdf,bibtex,pdf'
 -- vim.g.vimtex_compiler_progname = 'nvr'
 
 -- Open zathura on pdf opening --

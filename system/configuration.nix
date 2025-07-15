@@ -269,15 +269,15 @@
       # File explorers
 	    pcmanfm
 	    nautilus
-	    kio-admin
+      # kio-admin
 
       # Fonts (and TeX)
 
-      nerdfonts
-      jetbrains-mono
-	    fira-code-nerdfont
+      # nerdfonts
+      nerd-fonts.jetbrains-mono
+	    nerd-fonts.fira-code
 	    font-awesome
-      noto-fonts
+      nerd-fonts.noto
       noto-fonts-extra
       noto-fonts-emoji
 

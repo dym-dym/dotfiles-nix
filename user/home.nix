@@ -27,11 +27,11 @@ in
   ];
 
   home.packages = (with pkgs; [
-      nerdfonts
-      jetbrains-mono
-	    fira-code-nerdfont
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      # fira-code-nerdfont
 	    font-awesome
-      noto-fonts
+      nerd-fonts.noto
       noto-fonts-extra
       noto-fonts-emoji
       swayosd
@@ -39,7 +39,7 @@ in
       ffmpegthumbnailer
       unar
       coq
-      coqPackages.coq-lsp
+      # coqPackages.coq-lsp
       # gimp
       irssi
       hexchat
@@ -92,16 +92,16 @@ in
     };
 
 	  fonts = {
-	    monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-	      name = "FiraCode Nerd Font Mono";
-	    };
+	    # monospace = {
+	    #    package = pkgs.nerd-fonts.override {fonts = ["FiraCode"];};
+	    #   name = "FiraCode Nerd Font Mono";
+	    # };
 	    sansSerif = {
-	       package = pkgs.dejavu_fonts;
+	       package = pkgs.nerd-fonts.dejavu-sans-mono;
 	       name = "DejaVu Sans";
 	    };
 	    serif = {
-	      package = pkgs.dejavu_fonts;
+	      package = pkgs.nerd-fonts.dejavu-sans-mono;
 	      name = "DejaVu Serif";
 	    };
       emoji = {
