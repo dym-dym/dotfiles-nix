@@ -18,18 +18,18 @@
 	      };
 
 	      font = {
-	        normal = {
-		        family = lib.mkDefault "FiraCode Nerd Font Mono";
-		        style = "Regular";
-		      };
-	        bold = {
-		        family = lib.mkDefault "FiraCode Nerd Font";
-		        style = "Bold";
-		      };
-	        italic = {
-		        family = lib.mkDefault "FiraCode Nerd Font";
-		        style = "Italic";
-		      };
+	      #   normal = {
+	      #    family = lib.mkDefault "FiraCode Nerd Font Mono";
+	      #    style = "Regular";
+	      #  };
+	      #   bold = {
+	      #    family = lib.mkDefault "FiraCode Nerd Font";
+	      #    style = "Bold";
+	      #  };
+	      #   italic = {
+	      #    family = lib.mkDefault "FiraCode Nerd Font";
+	      #    style = "Italic";
+	      #  };
 		      size = 12;
 		      offset = {
 		        x = 0;

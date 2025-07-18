@@ -29,7 +29,7 @@ in
   home.packages = (with pkgs; [
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
-      # fira-code-nerdfont
+
 	    font-awesome
       nerd-fonts.noto
       noto-fonts-extra
@@ -96,6 +96,10 @@ in
 	    #    package = pkgs.nerd-fonts.override {fonts = ["FiraCode"];};
 	    #   name = "FiraCode Nerd Font Mono";
 	    # };
+      monospace = {
+        package = pkgs.nerd-fonts.dejavu-sans-mono;
+        name = "DejaVu Sans Mono";
+      };
 	    sansSerif = {
 	       package = pkgs.nerd-fonts.dejavu-sans-mono;
 	       name = "DejaVu Sans";
