@@ -48,8 +48,9 @@ in
       komikku
       comma
       neovim-remote
-      protonvpn-gui
 
+      protonvpn-gui
+      bitwarden-desktop
       # jellyfin-tui
   ])
     ++
@@ -199,6 +200,8 @@ in
       };
     };
   };
+
+  programs.keepassxc.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

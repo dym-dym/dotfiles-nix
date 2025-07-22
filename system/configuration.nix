@@ -359,10 +359,10 @@
 
   services.fwupd.enable = true;
 
-    services.kanata = {
-    enable = true;
-    keyboards = {
-      "laptop".config = ''
+  services.kanata = {
+  enable = true;
+  keyboards = {
+    "laptop".config = ''
 (defsrc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
