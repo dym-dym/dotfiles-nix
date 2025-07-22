@@ -13,5 +13,7 @@
         "privacy.resistFingerprinting" = false;
       };
     };
+
+    stylix.targets.librewolf.enable = false;
   };
 }

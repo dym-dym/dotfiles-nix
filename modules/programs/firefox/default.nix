@@ -153,5 +153,6 @@
 
       };
     };
+    stylix.targets.firefox.profileNames = [ "dymdym" ];
   };
 }
