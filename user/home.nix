@@ -30,11 +30,10 @@ in
 # 165:        "x-scheme-handler/mailto" = ["zen-beta.desktop"]; # Links
 
   home.packages = with pkgs; [
-      nerdfonts
-      jetbrains-mono
-	    fira-code-nerdfont
+      nerd-fonts.jetbrains-mono
+	    nerd-fonts.fira-code
 	    font-awesome
-      noto-fonts
+      nerd-fonts.noto
       noto-fonts-extra
       noto-fonts-emoji
       swayosd
@@ -42,7 +41,7 @@ in
       ffmpegthumbnailer
       unar
       coq
-      coqPackages.coq-lsp
+      # coqPackages.coq-lsp
       inputs.zen-browser.packages."${system}".default
       neovim-remote
   ];
@@ -81,15 +80,17 @@ in
 
 	  fonts = {
 	    monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-	      name = "FiraCode Nerd Font Mono";
+	      #  package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+	      # name = "FiraCode Nerd Font Mono";
+        package = pkgs.nerd-fonts.dejavu-sans-mono;
+        name = "DejaVu Sans Mono";
 	    };
 	    sansSerif = {
-	       package = pkgs.dejavu_fonts;
+	       package = pkgs.nerd-fonts.dejavu-sans-mono;
 	       name = "DejaVu Sans";
 	    };
 	    serif = {
-	      package = pkgs.dejavu_fonts;
+	      package = pkgs.nerd-fonts.dejavu-sans-mono;
 	      name = "DejaVu Serif";
 	    };
       emoji = {

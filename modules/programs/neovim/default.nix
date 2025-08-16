@@ -46,7 +46,7 @@ in {
 
         luarocks-nix
         nodejs
-        coqPackages.coq-lsp
+        # coqPackages.coq-lsp
         coq
         python312Packages.pynvim
         texlab

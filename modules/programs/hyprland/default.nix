@@ -20,7 +20,7 @@ in
 	    xwayland.enable = true;
 	    systemd.enable = true;
       plugins =  with pkgs.hyprlandPlugins; [
-        csgo-vulkan-fix
+        # csgo-vulkan-fix
       ];
 	  };
 
@@ -29,9 +29,9 @@ in
 	  wayland.windowManager.hyprland.settings = {
 
 	    monitor = [
-                  # "DP-1,1920x1080@144,0x0,1,vrr,1"
-                  "HDMI-A-2,1920x1080@60,0x0,1,1"
-	                # "HDMI-A-2,1680x1050@59.95,1920x-600,1,transform,1"
+                  "DP-1,1920x1080@144,1680x0,1,vrr,1"
+                  # "HDMI-A-2,1920x1080@60,0x0,1,1"
+                  "HDMI-A-2,1680x1050@59.95,0x0,1" #,transform,1"
 	                # "HDMI-A-2,1680x1050@59.95,1920x0,1"
                 ];
 

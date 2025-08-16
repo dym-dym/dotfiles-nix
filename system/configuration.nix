@@ -125,9 +125,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "575.51.02";
+      version = "580.65.06";
 
-      sha256_64bit = "sha256-XZ0N8ISmoAC8p28DrGHk/YN1rJsInJ2dZNL8O+Tuaa0=";
+      sha256_64bit = "sha256-BLEIZ69YXnZc+/3POe1fS9ESN1vrqwFy6qGHxqpQJP8=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -153,7 +153,7 @@
   ## == Audio ==
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # hardware.bluetooth.enable = true;
 
@@ -285,15 +285,15 @@
       # File explorers
 	    pcmanfm
 	    nautilus
-	    kio-admin
+      # kio-admin
 
       # Fonts (and TeX)
 
-      nerdfonts
-      jetbrains-mono
+      # nerdfonts
+      nerd-fonts.jetbrains-mono
 	    # fira-code-nerdfont
       font-awesome
-      noto-fonts
+      nerd-fonts.noto
       noto-fonts-extra
       noto-fonts-emoji
 
