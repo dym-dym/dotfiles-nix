@@ -72,7 +72,7 @@
       layout = "us";
       variant = "intl";
     };
-    videoDrivers = [ "displaylink#6.0.0" "nvidia" ];
+    videoDrivers = [ "displaylink#6.1.0" "nvidia" ];
   };
 
   # Configure console keymap
