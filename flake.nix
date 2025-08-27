@@ -3,14 +3,12 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.05";
-    # nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
-      # url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,7 +26,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    nixos-hardware,
+    # nixos-hardware,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -47,7 +45,7 @@
 
         modules = [
           ./system/configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-t590
+            # nixos-hardware.nixosModules.lenovo-thinkpad-t590
           inputs.sddm-sugar-candy-nix.nixosModules.default
         ];
       };

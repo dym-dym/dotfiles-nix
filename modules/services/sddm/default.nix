@@ -21,16 +21,18 @@ in
     services.xserver.resolutions = [
       {
         x = 1920;
-        y = 1080;
+        y = 1200;
       }
     ];
+
+    services.xserver.enable = true;
 
     services.displayManager.sddm = {
       enable = true; # Enable SDDM.
 
-      wayland = {
-        enable = true;
-      };
+      # wayland = {
+      #   enable = true;
+      # };
 
       sugarCandyNix = {
         enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
@@ -39,7 +41,7 @@ in
           # Here is a simple example:
           Background = lib.cleanSource ./background.jpg;
           ScreenWidth = 1920;
-          ScreenHeight = 1080;
+          ScreenHeight = 1200;
           FormPosition = "left";
           HaveFormBackground = true;
           PartialBlur = true;

@@ -72,7 +72,7 @@
       layout = "us";
       variant = "intl";
     };
-    videoDrivers = [ "displaylink#6.1.0" "nvidia" ];
+    videoDrivers = [ "displaylink#6.1.0" ];
   };
 
   # Configure console keymap
@@ -81,7 +81,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  #NvidiaConfig
+  # Hardware config
   hardware = {
 
     uinput.enable = true;
@@ -104,38 +104,6 @@
         # libvdpau-va-gl
         # intel-media-driver
       ];
-    };
-  };
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "#nvidia-x11"
-    ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;
-
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "575.64";
-
-      sha256_64bit = "sha256-6wG8/nOwbH0ktgg8J+ZBT2l5VC8G5lYBQhtkzMCtaLE=";
-      sha256_aarch64 = lib.fakeSha256;
-      openSha256 = lib.fakeSha256;
-      settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
-      persistencedSha256 = lib.fakeSha256;
-    };
-
-    prime = {
-      reverseSync.enable = true;
-      # sync.enable = true;
-
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:60:0:0";
     };
   };
 
@@ -172,14 +140,14 @@
         # kdePackages.kate
         # thunderbird
         telegram-desktop
-        element-desktop
+        # element-desktop
         signal-desktop
-        whatsapp-for-linux
+        # whatsapp-for-linux
         android-tools
         # fastfetch
         lshw
         # atuin
-        spotify
+        # spotify
         # support 64-bit only
         (wine.override { wineBuild = "wine64"; })
         # support 64-bit only
@@ -192,17 +160,17 @@
         zoxide
         fd
         blueman
-        anki
+        # anki
         usbimager
-        jellyfin-mpv-shim
+        # jellyfin-mpv-shim
         gnumake
         bat
         swww
         gimp
         zoom
-        owncloud-client
+        # owncloud-client
         xautoclick
-        lutris
+        # lutris
       ])
 
       ++
@@ -226,13 +194,13 @@
     fish.enable = true;
     # nushell.enable = true;
     hyprland.enable = true;
-    gamemode.enable = true;
+    # gamemode.enable = true;
     nm-applet.enable = true;
     pay-respects.enable = true;
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
+    # steam = {
+    #   enable = true;
+    #   gamescopeSession.enable = true;
+    # };
   };
 
 
@@ -284,12 +252,12 @@
       texliveFull
 
       # Browsers
-      librewolf
+      # librewolf
 
       # Media
-	    jellyfin-media-player
+	    # jellyfin-media-player
 	    mpv
-      obs-studio
+      # obs-studio
 
       # Sound
 	    pavucontrol
@@ -302,7 +270,7 @@
 	    protonup
       networkmanagerapplet
       simple-scan
-      tailscale
+      # tailscale
       libreoffice
       kanata
     ])
@@ -313,7 +281,7 @@
   ## == Environment Variables ==
 
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/dymdym/.steam/root/compatibilitytools.d";
+    # STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/dymdym/.steam/root/compatibilitytools.d";
   };
 
   services.gvfs.enable = true;
@@ -382,7 +350,7 @@
     };
   };
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
 

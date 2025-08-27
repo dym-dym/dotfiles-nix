@@ -41,11 +41,11 @@ in
       coq
       # coqPackages.coq-lsp
       # gimp
-      irssi
-      hexchat
+      # irssi
+      # hexchat
       inputs.zen-browser.packages."${system}".default
       fastfetch
-      komikku
+      # komikku
       comma
       neovim-remote
 
