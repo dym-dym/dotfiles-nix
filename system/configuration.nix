@@ -162,7 +162,7 @@
         blueman
         # anki
         usbimager
-        # jellyfin-mpv-shim
+        jellyfin-mpv-shim
         gnumake
         bat
         swww
