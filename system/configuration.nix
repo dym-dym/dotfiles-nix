@@ -287,10 +287,10 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.devmon.enable = true;
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "client";
-  };
+  # services.tailscale = {
+  #   enable = true;
+  #   useRoutingFeatures = "client";
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
