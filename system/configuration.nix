@@ -121,9 +121,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "575.64";
+      version = "575.64.05";
 
-      sha256_64bit = "sha256-6wG8/nOwbH0ktgg8J+ZBT2l5VC8G5lYBQhtkzMCtaLE=";
+      sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -202,7 +202,6 @@
         zoom
         owncloud-client
         xautoclick
-        lutris
       ])
 
       ++
@@ -302,7 +301,7 @@
 	    protonup
       networkmanagerapplet
       simple-scan
-      tailscale
+      # tailscale
       libreoffice
       kanata
     ])
@@ -319,10 +318,10 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.devmon.enable = true;
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "client";
-  };
+  # services.tailscale = {
+  #   enable = true;
+  #   useRoutingFeatures = "client";
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
