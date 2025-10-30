@@ -51,6 +51,7 @@ in {
         python312Packages.pynvim
         texlab
         lazygit
+        lean4
       ];
 
       plugins = with pkgs.vimPlugins; [
@@ -183,6 +184,10 @@ in {
           config = toLuaFile ./nvim/plugin/neoscroll.lua;
         }
 
+        # Others
+
+        plenary-nvim
+
         # Languages
 
         ## Nix
@@ -225,6 +230,11 @@ in {
             hi def link CoqtailError Error
             hi def link CoqtailOmitted coqProofAdmit
           '';
+        }
+
+        {
+          plugin = lean-nvim;
+          config = toLuaFile ./nvim/plugin/lean-nvim.lua;
         }
 
         ## LaTeX
