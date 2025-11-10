@@ -4,15 +4,15 @@
   pkgs,
   ...
 }: let
-  coq-lsp = pkgs.vimUtils.buildVimPlugin {
-    name = "coq-lsp";
-    src = pkgs.fetchFromGitHub {
-      owner = "tomtomjhj";
-      repo = "coq-lsp.nvim";
-      rev = "e8f8edd56bde52e64f98824d0737127356b8bd4e";
-      sha256 = "1lblzp8vdz7lfipbxgvvax4pg7c4x3nm2rlfdfcpf3s55n1g86l4";
-    };
-  };
+  # coq-lsp = pkgs.vimUtils.buildVimPlugin {
+  #   name = "coq-lsp";
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "tomtomjhj";
+  #     repo = "coq-lsp.nvim";
+  #     rev = "e8f8edd56bde52e64f98824d0737127356b8bd4e";
+  #     sha256 = "1lblzp8vdz7lfipbxgvvax4pg7c4x3nm2rlfdfcpf3s55n1g86l4";
+  #   };
+  # };
   deadcolumn-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "deadcolumn-nvim";
     src = pkgs.fetchFromGitHub {
@@ -46,8 +46,8 @@ in {
 
         luarocks-nix
         nodejs
-        # coqPackages.coq-lsp
         coq
+        # coqPackages.coq-lsp
         python312Packages.pynvim
         texlab
         lazygit
@@ -196,7 +196,7 @@ in {
         ## Coq
         Coqtail
         {
-          plugin = coq-lsp;
+          plugin = coq-lsp-nvim;
           # config = toLuaFile ./nvim/plugin/coqtail.lua;
           config = ''
             " Don't load Coqtail

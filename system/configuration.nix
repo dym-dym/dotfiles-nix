@@ -171,6 +171,8 @@
         # owncloud-client
         xautoclick
         # lutris
+
+        # coqPackages.coqide
       ])
 
       ++
