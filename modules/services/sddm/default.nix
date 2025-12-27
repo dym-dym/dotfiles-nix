@@ -34,22 +34,22 @@ in
       #   enable = true;
       # };
 
-      sugarCandyNix = {
-        enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
-        settings = {
-          # Set your configuration options here.
-          # Here is a simple example:
-          Background = lib.cleanSource ./background.jpg;
-          ScreenWidth = 1920;
-          ScreenHeight = 1200;
-          FormPosition = "left";
-          HaveFormBackground = true;
-          PartialBlur = true;
-          DateFormat = "dddd, d MMMM";
-        };
-      };
+      # sugarCandyNix = {
+      #   enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
+      #   settings = {
+      #     # Set your configuration options here.
+      #     # Here is a simple example:
+      #     Background = lib.cleanSource ./background.jpg;
+      #     ScreenWidth = 1920;
+      #     ScreenHeight = 1200;
+      #     FormPosition = "left";
+      #     HaveFormBackground = true;
+      #     PartialBlur = true;
+      #     DateFormat = "dddd, d MMMM";
+      #   };
+      # };
 
-      # theme = "sugar-dark-sddm";
+      theme = "tokyo-night-sddm";
       # theme = "sugar-dark-sddm";
       enableHidpi = true;
 
