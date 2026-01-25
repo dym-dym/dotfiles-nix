@@ -30,6 +30,7 @@ in
 # 165:        "x-scheme-handler/mailto" = ["zen-beta.desktop"]; # Links
 
   home.packages = with pkgs; [
+      signal-desktop
       nerd-fonts.jetbrains-mono
 	    nerd-fonts.fira-code
 	    font-awesome

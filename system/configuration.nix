@@ -16,9 +16,12 @@
       # ./wireguard.nix
     ];
 
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-36.9.5"
+    ];
   # Bootloader.
   # boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
-  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_6_10;
 
   boot.loader = {
@@ -125,9 +128,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "580.65.06";
+      version = "590.44.01";
 
-      sha256_64bit = "sha256-BLEIZ69YXnZc+/3POe1fS9ESN1vrqwFy6qGHxqpQJP8=";
+      sha256_64bit = "sha256-VbkVaKwElaazojfxkHnz/nN/5olk13ezkw/EQjhKPms=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -191,7 +194,6 @@
         # thunderbird
         telegram-desktop
         element-desktop
-        signal-desktop
         whatsapp-for-linux
         android-tools
         neofetch
