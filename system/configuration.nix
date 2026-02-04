@@ -275,6 +275,7 @@
       # tailscale
       libreoffice
       kanata
+      # displaylink
     ])
     ++
     (with pkgs-unstable; [
