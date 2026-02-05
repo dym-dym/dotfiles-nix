@@ -72,7 +72,7 @@
       layout = "us";
       variant = "intl";
     };
-    videoDrivers = [ "displaylink#6.1.0" ];
+    videoDrivers = [ ]; # "displaylink#6.2.0" ];
   };
 
   # Configure console keymap
@@ -324,6 +324,7 @@
 	        TimeoutStopSec = 10;
 	      };
 	  };
+    services.dlm.wantedBy = [ "multi-user.target" ];
 	};
 
   programs.gnome-disks.enable = true;
