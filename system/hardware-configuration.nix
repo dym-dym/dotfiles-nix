@@ -44,8 +44,27 @@
     };
 
   fileSystems."/home/dymdym/storage" =
-    { device = "/dev/disk/by-uuid/abf0d7b6-42b5-453a-826a-028187143b9a";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=@" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/dymdym/storage/data" =
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=data" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/dymdym/storage/games" =
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=games" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/dymdym/storage/important" =
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=important" "compress=zstd" "noatime" ];
     };
 
   swapDevices = [ ];
