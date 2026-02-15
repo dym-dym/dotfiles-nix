@@ -192,7 +192,7 @@ in
 	    bind =
 	      [
 	        # "$mod, B, exec, librewolf"
-          "$mod, B, exec, zen"
+          "$mod, B, exec, zen-beta"
 	        "$mod, Return, exec, alacritty"
           "$mod SHIFT, Return, exec, ${wofi-script}"
 	        "$mod SHIFT,T,togglefloating"

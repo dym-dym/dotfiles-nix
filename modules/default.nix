@@ -4,11 +4,11 @@
     ./programs/alacritty
     ./programs/atuin
     ./programs/cava
-    ./programs/firefox
+    # ./programs/firefox
     ./programs/fish
     ./programs/hyprland
     ./programs/hyprlock
-    ./programs/librewolf
+    # ./programs/librewolf
     ./programs/neovim
     ./programs/qutebrowser
     ./programs/starship
@@ -32,11 +32,11 @@
   atuin.enable = lib.mkDefault true;
   cava.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault false;
-  firefox.enable = lib.mkDefault true;
+  # firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
   hyprlock.enable = lib.mkDefault true;
-  librewolf.enable = lib.mkDefault true;
+  # librewolf.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
