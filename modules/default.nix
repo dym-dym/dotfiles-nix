@@ -10,7 +10,7 @@
     ./programs/hyprlock
     # ./programs/librewolf
     ./programs/neovim
-    ./programs/qutebrowser
+    # ./programs/qutebrowser
     ./programs/starship
     ./programs/texlive
     ./programs/wlogout
@@ -38,7 +38,7 @@
   hyprlock.enable = lib.mkDefault true;
   # librewolf.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
-  qutebrowser.enable = lib.mkDefault true;
+  # qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
   # swayosd.enable = lib.mkDefault true;
   texlive.enable = lib.mkDefault false;
