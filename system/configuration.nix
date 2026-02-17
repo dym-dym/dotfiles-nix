@@ -173,6 +173,7 @@
         # lutris
 
         # coqPackages.coqide
+        qmk
       ])
 
       ++
