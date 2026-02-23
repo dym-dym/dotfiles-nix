@@ -105,6 +105,8 @@
         # intel-media-driver
       ];
     };
+
+    keyboard.qmk.enable = true;
   };
 
   ## == Audio ==

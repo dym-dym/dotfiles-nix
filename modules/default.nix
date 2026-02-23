@@ -1,10 +1,13 @@
 {
   pkgs,
   lib,
+  config,
   ...
-}: {
+}:
+{
   imports = [
     ./programs/alacritty
+    ./programs/kitty
     ./programs/atuin
     ./programs/cava
     ./programs/firefox
@@ -31,7 +34,8 @@
     ./services/swaync
   ];
 
-  alacritty.enable = lib.mkDefault true;
+  alacritty.enable = lib.mkDefault false;
+  kitty.enable = lib.mkDefault true;
   atuin.enable = lib.mkDefault true;
   cava.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault false;

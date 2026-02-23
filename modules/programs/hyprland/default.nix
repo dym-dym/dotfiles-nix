@@ -3,6 +3,7 @@
 let
   randombackground = ./scripts/randombackground;
   wofi-script = ./scripts/wofi;
+  terminal = if (config.alacritty.enable) then "alacritty" else (if config.alacritty.enable then "kitty" else "kitty");
 in
 {
   options = {
@@ -181,7 +182,7 @@ in
 	      [
 	        # "$mod, B, exec, librewolf"
 	        "$mod, B, exec, zen-beta"
-	        "$mod, Return, exec, alacritty"
+	        "$mod, Return, exec, ${terminal}"
                 "$mod SHIFT, Return, exec, ${wofi-script}"
 	        "$mod SHIFT,T,togglefloating"
 		"$mod, C, killactive"
