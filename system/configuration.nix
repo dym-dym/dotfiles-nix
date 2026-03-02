@@ -176,6 +176,7 @@
 
         # coqPackages.coqide
         qmk
+        qbittorrent
       ])
 
       ++
