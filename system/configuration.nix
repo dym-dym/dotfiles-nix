@@ -17,7 +17,6 @@
     ];
 
   # Bootloader.
-  # boot.kernelPackages = pkgs.linuxPackages_6_14;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     systemd-boot.enable = true;
@@ -121,9 +120,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "575.64.05";
+      version = "590.48.01";
 
-      sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
+      sha256_64bit = "sha256-ueL4BpN4FDHMh/TNKRCeEz3Oy1ClDWto1LO/LWlr1ok=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -174,7 +173,7 @@
         telegram-desktop
         element-desktop
         signal-desktop
-        whatsapp-for-linux
+        wasistlos
         android-tools
         # fastfetch
         lshw
@@ -277,8 +276,8 @@
 	    nerd-fonts.fira-code
 	    font-awesome
       nerd-fonts.noto
-      noto-fonts-extra
-      noto-fonts-emoji
+      noto-fonts
+      noto-fonts-color-emoji
 
       texliveFull
 
@@ -298,7 +297,7 @@
 	    thunderbird
 	    mangohud
 	    discord-canary
-	    protonup
+	    protonup-ng
       networkmanagerapplet
       simple-scan
       # tailscale
