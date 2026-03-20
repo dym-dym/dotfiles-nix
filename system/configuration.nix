@@ -178,6 +178,7 @@
         qmk
         qbittorrent
         feh
+        lean4
       ])
 
       ++
@@ -253,8 +254,10 @@
 	    nerd-fonts.fira-code
 	    font-awesome
       nerd-fonts.noto
-      noto-fonts-extra
-      noto-fonts-emoji
+      # noto-fonts-extra
+      noto-fonts
+      # noto-fonts-emoji
+      noto-fonts-color-emoji
 
       texliveFull
 
@@ -274,7 +277,7 @@
 	    thunderbird
 	    mangohud
 	    discord-canary
-	    protonup
+	    protonup-ng
       networkmanagerapplet
       simple-scan
       # tailscale

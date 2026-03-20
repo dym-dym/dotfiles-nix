@@ -32,8 +32,10 @@ in
 
 	    font-awesome
       nerd-fonts.noto
-      noto-fonts-extra
-      noto-fonts-emoji
+      noto-fonts
+      # noto-fonts-extra
+      #noto-fonts-emoji
+      noto-fonts-color-emoji
       swayosd
       ueberzugpp
       ffmpegthumbnailer
@@ -110,7 +112,7 @@ in
 	      name = "DejaVu Serif";
 	    };
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };
@@ -141,9 +143,11 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Dylan Bettendroffer";
-    userEmail = "dylan.bettendroffer@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        email = "dylan.bettendroffer@gmail.com";
+        name = "Dylan Bettendroffer";
+      };
       init.defaultBranch = "main";
     };
   };
