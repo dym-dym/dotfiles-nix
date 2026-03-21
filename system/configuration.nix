@@ -103,7 +103,8 @@
       # driSupport = true;
       # driSupport32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
+        #vaapiVdpau
+        libva-vdpau-driver
         libvdpau
         libvdpau-va-gl
         nvidia-vaapi-driver
@@ -128,9 +129,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "590.44.01";
+      version = "590.48.01";
 
-      sha256_64bit = "sha256-VbkVaKwElaazojfxkHnz/nN/5olk13ezkw/EQjhKPms=";
+      sha256_64bit = "sha256-ueL4BpN4FDHMh/TNKRCeEz3Oy1ClDWto1LO/LWlr1ok=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -194,7 +195,8 @@
         # thunderbird
         telegram-desktop
         element-desktop
-        whatsapp-for-linux
+        #whatsapp-for-linux
+        wasistlos
         android-tools
         neofetch
         lshw
@@ -297,8 +299,8 @@
 	    # fira-code-nerdfont
       font-awesome
       nerd-fonts.noto
-      noto-fonts-extra
-      noto-fonts-emoji
+      noto-fonts
+      noto-fonts-color-emoji
 
       texliveFull
 
@@ -324,7 +326,7 @@
       discord-canary
       webcord
 
-	    protonup
+	    protonup-ng
       networkmanagerapplet
       egl-wayland
 
