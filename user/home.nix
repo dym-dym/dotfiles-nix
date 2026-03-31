@@ -1,7 +1,8 @@
 { config, lib, pkgs, pkgs-unstable, inputs, ... }:
 let
   system = "x86_64-linux";
-  theme = "tokyo-night-dark";
+  # theme = "tokyo-night-dark";
+  theme = "catppuccin-mocha";
   polarity = "dark";
   wallpaper = "SELInternet.jpg";
 
