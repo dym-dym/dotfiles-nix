@@ -16,6 +16,7 @@
     ./programs/hyprlock
     ./programs/librewolf
     ./programs/neovim
+    ./programs/niri
     ./programs/nushell
     ./programs/qutebrowser
     ./programs/starship
@@ -31,7 +32,7 @@
     ./services/swayosd
     ./services/wlsunset
     ./services/dunst
-    ./services/swaync
+    # ./services/swaync
   ];
 
   alacritty.enable = lib.mkDefault false;
@@ -39,7 +40,7 @@
   atuin.enable = lib.mkDefault true;
   cava.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault false;
-  swaync.enable = lib.mkDefault true;
+  # swaync.enable = lib.mkDefault true;
   fastfetch.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault false;
@@ -48,6 +49,7 @@
   hyprlock.enable = lib.mkDefault true;
   librewolf.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
+  niri.enable = lib.mkDefault true;
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
   swayosd.enable = lib.mkDefault true;

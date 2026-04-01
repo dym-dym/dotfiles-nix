@@ -14,18 +14,30 @@
 
     stylix.url = "github:nix-community/stylix/release-25.11";
 
-    sddm-sugar-candy-nix = {
-      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # sddm-sugar-candy-nix = {
+    #   url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    niri,
+    noctalia,
     # nixos-hardware,
     ...
   } @ inputs: let
@@ -46,7 +58,7 @@
         modules = [
           ./system/configuration.nix
             # nixos-hardware.nixosModules.lenovo-thinkpad-t590
-          inputs.sddm-sugar-candy-nix.nixosModules.default
+          # inputs.sddm-sugar-candy-nix.nixosModules.default
         ];
       };
     };
@@ -63,6 +75,8 @@
         modules = [
           ./user/home.nix
           inputs.stylix.homeModules.stylix
+          inputs.niri.homeModules.niri
+          inputs.noctalia.homeModules.default
         ];
       };
     };

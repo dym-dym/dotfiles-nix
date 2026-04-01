@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 let
-  tokyo-night-sddm = pkgs.libsForQt5.callPackage ./tokyo-night-sddm { };
-  sugar-dark-sddm = pkgs.libsForQt5.callPackage ./sugar-dark-sddm { };
-  eucalyptus-drop-sddm = pkgs.libsForQt5.callPackage ./eucalyptus-drop-sddm { };
+  # tokyo-night-sddm = pkgs.libsForQt5.callPackage ./tokyo-night-sddm { };
+  # sugar-dark-sddm = pkgs.libsForQt5.callPackage ./sugar-dark-sddm { };
+  # eucalyptus-drop-sddm = pkgs.libsForQt5.callPackage ./eucalyptus-drop-sddm { };
 in
 {
 
@@ -13,9 +13,14 @@ in
   config = lib.mkIf config.sddm.enable {
 
     environment.systemPackages = with pkgs; [
-      tokyo-night-sddm
-      sugar-dark-sddm
-      eucalyptus-drop-sddm
+      # tokyo-night-sddm
+      # sugar-dark-sddm
+      sddm-sugar-dark
+      # eucalyptus-drop-sddm
+      sddm-astronaut
+      # kdePackages.qtmultimedia
+      # kdePackages.qtsvg
+      # kdePackages.qtvirtualkeyboard
     ];
 
     services.xserver.resolutions = [
@@ -49,8 +54,9 @@ in
       #   };
       # };
 
-      theme = "tokyo-night-sddm";
+      # theme = "tokyo-night-sddm";
       # theme = "sugar-dark-sddm";
+      # theme = "sddm-sugar-dark";
       enableHidpi = true;
 
       autoNumlock = true;

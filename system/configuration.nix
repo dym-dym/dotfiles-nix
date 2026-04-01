@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, lib, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
 
 {
   imports =
@@ -179,6 +179,7 @@
         qbittorrent
         feh
         lean4
+
       ])
 
       ++
@@ -209,6 +210,7 @@
       enable = true;
       gamescopeSession.enable = true;
     };
+    niri.enable = true;
   };
 
 
@@ -284,6 +286,20 @@
       libreoffice
       kanata
       # displaylink
+
+      # Niri packages
+      niri
+      xwayland-satellite
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # noctalia-shell
+
+      sddm-astronaut
+      kdePackages.qtmultimedia
+      kdePackages.qtsvg
+      kdePackages.qtvirtualkeyboard
+      kdePackages.qtvirtualkeyboard
+      kdePackages.qt5compat
+
     ])
     ++
     (with pkgs-unstable; [
@@ -298,6 +314,7 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.devmon.enable = true;
+  services.upower.enable = true;
   # services.tailscale = {
   #   enable = true;
   #   useRoutingFeatures = "client";

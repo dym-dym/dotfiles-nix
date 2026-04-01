@@ -6,11 +6,17 @@ let
   terminal = if (config.alacritty.enable) then "alacritty" else (if config.alacritty.enable then "kitty" else "kitty");
 in
 {
+  imports = [
+    ../../services/swaync
+  ];
+
   options = {
     hyprland.enable = lib.mkEnableOption "enable hyprland";
   };
 
   config = lib.mkIf config.hyprland.enable {
+
+    swaync.enable = lib.mkDefault true;
 
 	  wayland.windowManager.hyprland = {
 	    enable = true;
