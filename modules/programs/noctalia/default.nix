@@ -55,7 +55,7 @@
         bar = {
           autoHideDelay = 500;
           autoShowDelay = 150;
-          backgroundOpacity = lib.mkDefault 0;
+          backgroundOpacity = 0;
           barType = "floating";
           capsuleColorKey = "none";
           capsuleOpacity = lib.mkDefault 1;

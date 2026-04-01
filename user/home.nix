@@ -94,6 +94,7 @@ in
       waybar.enable = false;
       swaync.enable = false;
       rofi.enable = false;
+      noctalia-shell.enable = false;
     };
 
 	  fonts = {
