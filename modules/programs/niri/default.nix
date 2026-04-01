@@ -6,12 +6,18 @@ let
   terminal = if (config.alacritty.enable) then "alacritty" else (if config.alacritty.enable then "kitty" else "kitty");
 in
 {
+
+  imports = [
+    ../noctalia
+  ];
+
   options = {
     niri.enable = lib.mkEnableOption "enable niri";
   };
 
   config = lib.mkIf config.niri.enable {
 
+    noctalia.enable = lib.mkDefault true;
 
     programs.niri = {
       enable = true;

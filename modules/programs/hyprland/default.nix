@@ -8,6 +8,7 @@ in
 {
   imports = [
     ../../services/swaync
+    ../waybar
   ];
 
   options = {
@@ -17,6 +18,7 @@ in
   config = lib.mkIf config.hyprland.enable {
 
     swaync.enable = lib.mkDefault true;
+    waybar.enable = lib.mkDefault true;
 
 	  wayland.windowManager.hyprland = {
 	    enable = true;
