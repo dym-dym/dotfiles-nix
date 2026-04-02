@@ -141,13 +141,13 @@
             "unreadBadgeColor": "primary"
           },
           {
-            "deviceNativePath": "__default__",
-            "displayMode": "graphic-clean",
+            "deviceNativePath": "BAT0",
+            "displayMode": "graphic",
             "hideIfIdle": false,
             "hideIfNotDetected": true,
             "id": "Battery",
             "showNoctaliaPerformance": false,
-            "showPowerProfiles": false
+            "showPowerProfiles": true
           },
           {
             "displayMode": "onhover",
@@ -264,9 +264,10 @@
       "settingsPanelSideBarCardStyle": false
     },
     "location": {
-      "name": "Tokyo",
+      "name": "Marseille",
       "weatherEnabled": true,
       "weatherShowEffects": true,
+      "weatherTaliaMascotAlways": false,
       "useFahrenheit": false,
       "use12hourFormat": false,
       "showWeekNumberInCalendar": false,
@@ -696,7 +697,7 @@
       "lastSeenTs": 1775144581000
     },
     "changelogState": {
-      "lastSeenVersion": "v4.7.3"
+      "lastSeenVersion": "v4.7.4"
     },
     "colorSchemesList": {
       "schemes": [],
