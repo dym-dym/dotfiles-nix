@@ -30,15 +30,10 @@
   ## == Network ==
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
-  #networking.networkmanager.ensureProfiles.profiles.ipv4.ignore-auto-dns = true;
   networking.dhcpcd.extraConfig = ''
     nohook resolv.conf
   '';
@@ -75,7 +70,7 @@
       layout = "us";
       variant = "intl";
     };
-    videoDrivers = [ ]; # "displaylink#6.2.0" ];
+    videoDrivers = [ ];
   };
 
   # Configure console keymap
@@ -102,10 +97,6 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        # vaapiVdpau
-        # vaapiIntel
-        # libvdpau-va-gl
-        # intel-media-driver
       ];
     };
 
@@ -142,17 +133,10 @@
     # User packages
     packages =
       (with pkgs; [
-        # kdePackages.kate
-        # thunderbird
         telegram-desktop
-        # element-desktop
         signal-desktop
-        # whatsapp-for-linux
         android-tools
-        # fastfetch
         lshw
-        # atuin
-        # spotify
         # support 64-bit only
         (wine.override { wineBuild = "wine64"; })
         # support 64-bit only
@@ -165,7 +149,6 @@
         zoxide
         fd
         blueman
-        # anki
         usbimager
         jellyfin-mpv-shim
         gnumake
@@ -173,15 +156,14 @@
         swww
         gimp
         zoom
-        # owncloud-client
         xautoclick
-        # lutris
 
-        # coqPackages.coqide
         qmk
         qbittorrent
         feh
         lean4
+        elan
+        vscodium
 
       ])
 
@@ -204,9 +186,7 @@
 
   programs = {
     fish.enable = true;
-    # nushell.enable = true;
     hyprland.enable = true;
-    # gamemode.enable = true;
     nm-applet.enable = true;
     pay-respects.enable = true;
     steam = {
@@ -226,11 +206,6 @@
     (with pkgs; [
 
       # Fish
-	    # fishPlugins.done
-	    # fishPlugins.fzf-fish
-	    # fishPlugins.forgit
-	    # fishPlugins.hydro
-	    # fishPlugins.grc
 
       # Terminal
 	    git
@@ -250,7 +225,6 @@
       # File explorers
 	    pcmanfm
 	    nautilus
-      # kio-admin
 
       # Fonts (and TeX)
 
@@ -259,20 +233,13 @@
 	    nerd-fonts.fira-code
 	    font-awesome
       nerd-fonts.noto
-      # noto-fonts-extra
       noto-fonts
-      # noto-fonts-emoji
       noto-fonts-color-emoji
 
       texliveFull
 
-      # Browsers
-      # librewolf
-
       # Media
-	    # jellyfin-media-player
 	    mpv
-      # obs-studio
 
       # Sound
 	    pavucontrol
@@ -285,10 +252,8 @@
 	    protonup-ng
       networkmanagerapplet
       simple-scan
-      # tailscale
       libreoffice
       kanata
-      # displaylink
 
       # Niri packages
       niri
@@ -306,29 +271,45 @@
     # STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/dymdym/.steam/root/compatibilitytools.d";
   };
 
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
-  services.upower.enable = true;
-  # services.tailscale = {
-  #   enable = true;
-  #   useRoutingFeatures = "client";
-  # };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  services = {
+  	gvfs.enable = true;
+  	udisks2.enable = true;
+  	devmon.enable = true;
+  	upower.enable = true;
+  	fwupd.enable = true;
+
+    # Enable the OpenSSH daemon.
+  	openssh.enable = true;
+  	openssh.settings.PasswordAuthentication = true;
+
+    kanata = {
+      enable = true;
+      keyboards = {
+      "laptop".config = ''
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer capsmod
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  esc  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+  '';
+        };
+    };
+  };
 
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = true;
 
   systemd = {
 	  user.services.polkit-gnome-authentication-agent-1 = {
@@ -349,41 +330,6 @@
 
   programs.gnome-disks.enable = true;
 
-  services.fwupd.enable = true;
-
-  services.kanata = {
-  enable = true;
-  keyboards = {
-    "laptop".config = ''
-(defsrc
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
-)
-
-(deflayer capsmod 
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  esc  a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
-)
-  '';
-    };
-  };
-
-  # virtualisation.docker.enable = true;
-  # virtualisation.libvirtd.enable = true;
-  # programs.virt-manager.enable = true;
-
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -402,12 +348,12 @@
     options = "--delete-older-than 15d";
   };
 
-  system.autoUpgrade = {
-   enable = true;
-   # channel = "https://nixos.org/channels/nixos-24.05";
-   flake = "github:dym-dym/dotfiles-nix/laptop";
-   dates = "daily";
-  };
+  # system.autoUpgrade = {
+  #  enable = true;
+  #  # channel = "https://nixos.org/channels/nixos-24.05";
+  #  flake = "github:dym-dym/dotfiles-nix/laptop";
+  #  dates = "daily";
+  # };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
