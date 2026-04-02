@@ -125,7 +125,8 @@ in
           "Mod+Shift+Slash".action.show-hotkey-overlay = {};
 
           "Mod+Return".action.spawn = "kitty";
-          "Mod+Shift+Return".action.spawn = [ "rofi" "-show" "drun" ];
+          # "Mod+Shift+Return".action.spawn = [ "rofi" "-show" "drun" ];
+          "Mod+Shift+Return".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
           "Mod+Shift+D".action.spawn = [ "wlogout" "--css" "/home/dymdym/.config/wlogout/style.css" ];
           "Mod+B".action.spawn = "zen-beta";
 
