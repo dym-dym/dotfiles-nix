@@ -20,11 +20,11 @@
   # boot.kernelPackages = pkgs.linuxPackages_6_14;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
-    # systemd-boot.enable = true;
-    limine.enable = true;
-    limine.maxGenerations = 5;
-    limine.efiSupport = true;
-    # systemd-boot.configurationLimit = 5;
+    systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 5;
+    # limine.enable = true;
+    # limine.maxGenerations = 5;
+    # limine.efiSupport = true;
   };
 
   ## == Network ==
@@ -294,14 +294,6 @@
       niri
       xwayland-satellite
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-      # noctalia-shell
-
-      sddm-astronaut
-      kdePackages.qtmultimedia
-      kdePackages.qtsvg
-      kdePackages.qtvirtualkeyboard
-      kdePackages.qtvirtualkeyboard
-      kdePackages.qt5compat
 
     ])
     ++

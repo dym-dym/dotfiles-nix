@@ -1,8 +1,11 @@
 { config, lib, pkgs, ... }:
 let
-  # tokyo-night-sddm = pkgs.libsForQt5.callPackage ./tokyo-night-sddm { };
-  # sugar-dark-sddm = pkgs.libsForQt5.callPackage ./sugar-dark-sddm { };
-  # eucalyptus-drop-sddm = pkgs.libsForQt5.callPackage ./eucalyptus-drop-sddm { };
+  sddm-astronaut-custom = pkgs.sddm-astronaut.override {
+    embeddedTheme = "pixel_sakura"; # The name of the theme you most loved
+    # themeConfig = {
+    #   Background = "../../../user/wallpapers/Cloudsday.jpg"; # This theme also accepts videos
+    # };
+  };
 in
 {
 
@@ -13,14 +16,11 @@ in
   config = lib.mkIf config.sddm.enable {
 
     environment.systemPackages = with pkgs; [
-      # tokyo-night-sddm
-      # sugar-dark-sddm
-      sddm-sugar-dark
-      # eucalyptus-drop-sddm
-      sddm-astronaut
-      # kdePackages.qtmultimedia
-      # kdePackages.qtsvg
-      # kdePackages.qtvirtualkeyboard
+      sddm-astronaut-custom
+      kdePackages.qtmultimedia
+      kdePackages.qtsvg
+      kdePackages.qtvirtualkeyboard
+
     ];
 
     services.xserver.resolutions = [
@@ -32,31 +32,29 @@ in
 
     services.xserver.enable = true;
 
+
     services.displayManager.sddm = {
+
+      extraPackages = with pkgs; [
+        sddm-astronaut
+      ];
+
       enable = true; # Enable SDDM.
+
+      package = pkgs.kdePackages.sddm;
 
       # wayland = {
       #   enable = true;
+      #   compositor = "kwin";
       # };
 
-      # sugarCandyNix = {
-      #   enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
-      #   settings = {
-      #     # Set your configuration options here.
-      #     # Here is a simple example:
-      #     Background = lib.cleanSource ./background.jpg;
-      #     ScreenWidth = 1920;
-      #     ScreenHeight = 1200;
-      #     FormPosition = "left";
-      #     HaveFormBackground = true;
-      #     PartialBlur = true;
-      #     DateFormat = "dddd, d MMMM";
-      #   };
-      # };
+      theme = "sddm-astronaut-custom";
+      settings = {
+        Theme = {
+          Current = "sddm-astronaut-theme"; # Remains the same
+        };
+      };
 
-      # theme = "tokyo-night-sddm";
-      # theme = "sugar-dark-sddm";
-      # theme = "sddm-sugar-dark";
       enableHidpi = true;
 
       autoNumlock = true;
