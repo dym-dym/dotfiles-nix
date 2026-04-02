@@ -3,26 +3,9 @@
   lib,
   pkgs,
   ...
-}: let
-  # coq-lsp = pkgs.vimUtils.buildVimPlugin {
-  #   name = "coq-lsp";
-  #   src = pkgs.fetchFromGitHub {
-  #     owner = "tomtomjhj";
-  #     repo = "coq-lsp.nvim";
-  #     rev = "e8f8edd56bde52e64f98824d0737127356b8bd4e";
-  #     sha256 = "1lblzp8vdz7lfipbxgvvax4pg7c4x3nm2rlfdfcpf3s55n1g86l4";
-  #   };
-  # };
-  deadcolumn-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "deadcolumn-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "Bekaboo";
-      repo = "deadcolumn.nvim";
-      rev = "8f5f8610fda22ff7a3937bc72d0e7d41faaceeaa";
-      sha256 = "0agxb0kmk0g4z6jxqzyhxs6nhajlrb273grs7slj510zs33pb53x";
-    };
-  };
-in {
+}:
+
+  {
   options = {
     neovim.enable = lib.mkEnableOption "enable neovim";
   };
@@ -47,7 +30,6 @@ in {
         luarocks-nix
         nodejs
         coq
-        # coqPackages.coq-lsp
         python312Packages.pynvim
         texlab
         lazygit
@@ -98,9 +80,10 @@ in {
 
         ## ColorColumn dynamic change
         {
-          plugin = deadcolumn-nvim;
-          config = toLuaFile ./nvim/plugin/deadcolumn.lua;
+          plugin = smartcolumn-nvim;
+          config = toLua "require(\"smartcolumn\").setup()";
         }
+
         # Icons
         nvim-web-devicons
 
@@ -197,7 +180,6 @@ in {
         Coqtail
         {
           plugin = coq-lsp-nvim;
-          # config = toLuaFile ./nvim/plugin/coqtail.lua;
           config = ''
             " Don't load Coqtail
             let g:loaded_coqtail = 1
@@ -257,19 +239,6 @@ in {
         # Buffers handling
         vim-sayonara
 
-        # {
-        #   plugin = mason-nvim;
-        #   config = toLuaFile ./nvim/plugin/mason.lua;
-        # }
-        # mason-lspconfig-nvim
-        # mason-tool-installer-nvim
-
-
-        #
-        # {
-        #   plugin = neo-tree-nvim;
-        #   config = toLuaFile ./nvim/plugin/neo-tree-nvim.lua;
-        # }
       ];
 
       extraLuaConfig = ''
