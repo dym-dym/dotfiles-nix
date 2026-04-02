@@ -124,8 +124,6 @@
     pulse.enable = true;
   };
 
-  services.tuned.enable = true;
-
   ## == Users ==
 
   # users.users.dymdym.shell = pkgs.fish;
