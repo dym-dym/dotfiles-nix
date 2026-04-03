@@ -28,24 +28,42 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- require('neodev').setup()
 
-lspconfig = require('lspconfig')
+-- lspconfig = require('lspconfig')
+lspconfig = vim.lsp.config
 
-lspconfig.nil_ls.setup {
+-- lspconfig.nil_ls.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
+vim.lsp.config('nil_ls', {
     on_attach = on_attach,
     capabilities = capabilities,
-}
+})
+vim.lsp.enable('nil_ls')
 
-lspconfig.rust_analyzer.setup {
+-- lspconfig.rust_analyzer.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
+vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     capabilities = capabilities,
-}
+})
+vim.lsp.enable('rust_analyzer')
 
-lspconfig.ocamllsp.setup{
+-- lspconfig.ocamllsp.setup{
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
+
+vim.lsp.config('ocamllsp', {
     on_attach = on_attach,
     capabilities = capabilities,
-}
+})
+vim.lsp.enable('ocamllsp')
 
-lspconfig.texlab.setup {}
+vim.lsp.config('texlab', {})
+vim.lsp.enable('texlab')
 
 require('coq-lsp').setup{
     on_attach = on_attach,

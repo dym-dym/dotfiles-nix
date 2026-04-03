@@ -75,7 +75,15 @@ in
 
   home.sessionVariables = {
      EDITOR = "nvim";
+      NIXOS_OZONE_WL = 1;
+      MOZ_ENABLE_WAYLAND = 1;
+      XDG_CURRENT_DESKTOP = "niri";
+      XDG_SESSION_DESKTOP = "Wayland";
+      XDG_SESSION_TYPE = "wayland";
+      GDK_BACKEND = "wayland,x11";
+      QT_QPA_PLATFORM = "wayland;xcb";
   };
+
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
@@ -205,6 +213,22 @@ in
         "application/x-extension-xhtml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
         "application/x-extension-xht" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
       };
+    };
+    portal = {
+      enable = true;
+      config = {
+        common = {
+          default = [ "gtk" "gnome" ];
+        };
+        niri = {
+          default = [ "gtk" "gnome" ];
+        };
+      };
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+      ];
+      xdgOpenUsePortal = true;
     };
   };
 

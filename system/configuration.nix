@@ -11,7 +11,6 @@
       ./hardware-configuration.nix
       ../modules/system-modules.nix
       # Login Manager
-      # ./sddm.nix
       # VPN
       # ./wireguard.nix
     ];
@@ -278,6 +277,11 @@
   	devmon.enable = true;
   	upower.enable = true;
   	fwupd.enable = true;
+
+    dbus.packages = [ pkgs.nautilus
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
 
     # Enable the OpenSSH daemon.
   	openssh.enable = true;
