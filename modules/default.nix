@@ -12,8 +12,8 @@
     ./programs/cava
     ./programs/firefox
     ./programs/fish
-    ./programs/hyprland
-    ./programs/hyprlock
+    # ./programs/hyprland
+    # ./programs/hyprlock
     ./programs/librewolf
     ./programs/neovim
     ./programs/niri
@@ -29,7 +29,7 @@
     ./programs/zathura
     ./programs/fastfetch
 
-    ./services/swayosd
+    # ./services/swayosd
     ./services/wlsunset
     ./services/dunst
     # ./services/swaync
@@ -45,14 +45,14 @@
   firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault false;
   nushell.enable = lib.mkDefault true;
-  hyprland.enable = lib.mkDefault true;
-  hyprlock.enable = lib.mkDefault true;
+  # hyprland.enable = lib.mkDefault true;
+  # hyprlock.enable = lib.mkDefault true;
   librewolf.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
   niri.enable = lib.mkDefault true;
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
-  swayosd.enable = lib.mkDefault true;
+  # swayosd.enable = lib.mkDefault true;
   texlive.enable = lib.mkDefault false;
   wlsunset.enable = lib.mkDefault true;
   wlogout.enable = lib.mkDefault true;

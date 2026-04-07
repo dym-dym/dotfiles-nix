@@ -8,7 +8,9 @@ in
 {
   imports = [
     ../../services/swaync
+    ../../services/swayosd
     ../waybar
+    ../hyprlock
   ];
 
   options = {
@@ -18,7 +20,9 @@ in
   config = lib.mkIf config.hyprland.enable {
 
     swaync.enable = lib.mkDefault true;
+    swayosd.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
+    hyprlock.enable = lib.mkDefault true;
 
 	  wayland.windowManager.hyprland = {
 	    enable = true;

@@ -19,12 +19,50 @@
   # boot.kernelPackages = pkgs.linuxPackages_6_14;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 5;
-    # limine.enable = true;
-    # limine.maxGenerations = 5;
-    # limine.efiSupport = true;
+    # systemd-boot.enable = true;
+    # systemd-boot.configurationLimit = 5;
+
+    limine = {
+      enable = true;
+      maxGenerations = 5;
+      efiSupport = true;
+      secureBoot.enable = true;
+
+      style = {
+        interface.resolution = "1920x1200";
+        wallpapers = [ "/home/dymdym/.dotfiles/system/disco.png" ];
+      };
+
+    };
+
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
   };
+
+  boot.plymouth = {
+    enable = true;
+    theme = "owl";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "owl" ];
+        })
+      ];
+
+  };
+
+  boot = {
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "systemd.show_status=auto"
+    ];
+  };
+
 
   ## == Network ==
 
@@ -215,6 +253,9 @@
 	    eza
 	    ripgrep
 
+      # Secure boot
+      sbctl
+
       # Window Manager
 	    swaybg
 	    waypaper
@@ -248,6 +289,7 @@
 	    thunderbird
 	    mangohud
 	    discord-canary
+	    discord
 	    protonup-ng
       networkmanagerapplet
       simple-scan
