@@ -38,6 +38,7 @@ in
 
         input.touchpad.tap = true;
         input.touchpad.natural-scroll = false;
+        input.mouse.accel-speed = 0.0;
 
         workspaces = {
           "01-main" = {
