@@ -64,19 +64,21 @@
   };
 
 
-  ## == Network ==
+  networking = {
 
-  networking.hostName = "nixos"; # Define your hostname.
+    hostName = "nixos"; # Define your hostname.
 
+    # Setup DNS
+    nameservers = [ "100.100.100.100" "9.9.9.9" "1.1.1.1" ];
 
   # Enable networking
-  networking.networkmanager.enable = true;
-  networking.dhcpcd.extraConfig = ''
-    nohook resolv.conf
-  '';
+    networkmanager.enable = true;
+    dhcpcd.extraConfig = ''
+      nohook resolv.conf
+    '';
 
-  # Setup DNS
-  networking.nameservers = [ "100.100.100.100" "9.9.9.9" "1.1.1.1" ];
+    firewall.checkReversePath = false;
+  };
 
   ## == Locales ==
 
@@ -102,19 +104,10 @@
   ## == Graphical Settings ==
 
   # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "intl";
-    };
-    videoDrivers = [ ];
-  };
+
 
   # Configure console keymap
   console.keyMap = "us-acentos";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Hardware config
   hardware = {
@@ -210,15 +203,6 @@
       ]);
   };
 
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin = {
-    enable = false;
-    user = "dymdym";
-  };
-
-  services.avahi.enable = true;
-  services.avahi.nssmdns4 = true;
-
   ## == Programs and Services ==
 
   programs = {
@@ -231,6 +215,7 @@
       gamescopeSession.enable = true;
     };
     niri.enable = true;
+    kdeconnect.enable = true;
   };
 
 
@@ -301,6 +286,12 @@
       xwayland-satellite
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
+      # VPN
+      wireguard-tools
+      protonvpn-gui
+
+      gamemode
+      mangohud
     ])
     ++
     (with pkgs-unstable; [
@@ -351,6 +342,26 @@
   '';
         };
     };
+  # Enable automatic login for the user.
+    displayManager.autoLogin = {
+      enable = false;
+      user = "dymdym";
+    };
+
+    avahi.enable = true;
+    avahi.nssmdns4 = true;
+
+    xserver = {
+      xkb = {
+        layout = "us";
+        variant = "intl";
+      };
+      videoDrivers = [ ];
+    };
+    # Enable CUPS to print documents.
+    printing.enable = true;
+
+    udev.enable = true;
   };
 
 
