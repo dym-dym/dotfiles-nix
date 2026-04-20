@@ -55,6 +55,8 @@ in
 
       protonvpn-gui
       bitwarden-desktop
+
+      lazygit
       # jellyfin-tui
   ])
     ++
