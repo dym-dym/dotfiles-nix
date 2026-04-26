@@ -222,6 +222,7 @@
       enable = true;
       gamescopeSession.enable = true;
     };
+    gamescope.enable = true;
     niri.enable = true;
     kdeconnect.enable = true;
   };
