@@ -239,6 +239,9 @@
         # Buffers handling
         vim-sayonara
 
+        # Wiki
+        vimwiki
+
       ];
 
       extraLuaConfig = ''
