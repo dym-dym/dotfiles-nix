@@ -9,9 +9,9 @@
     programs.noctalia = {
       enable = true;
 
-      settings =
-        lib.mkDefault (builtins.fromJSON
-          (builtins.readFile ./noctalia.json)).settings;
+      settings = ./config.toml;
+        # lib.mkDefault (builtins.fromJSON
+        #   (builtins.readFile ./noctalia.json)).settings;
 
     };
   };
