@@ -6,7 +6,7 @@
 
   config = lib.mkIf config.noctalia.enable {
 
-    programs.noctalia-shell = {
+    programs.noctalia = {
       enable = true;
 
       settings =
