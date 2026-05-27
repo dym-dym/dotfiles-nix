@@ -74,144 +74,133 @@ showOutline = false
 useSeparateOpacity = true
 widgetSpacing = 6
 
-[[bar.widgets.center]]
-characterCount = 2
-colorizeIcons = false
-emptyColor = "secondary"
-enableScrollWheel = true
-focusedColor = "primary"
-followFocusedScreen = false
-fontWeight = "bold"
-groupedBorderOpacity = 1
-hideUnoccupied = false
-iconScale = 0.8
-id = "Workspace"
-labelMode = "index"
-occupiedColor = "secondary"
-pillSize = 0.6
-showApplications = false
-showApplicationsHover = false
-showBadge = true
-showLabelsOnlyWhenOccupied = true
-unfocusedIconsOpacity = 1
+    [bar.widgets]
+    background_opacity = 0.0
+    capsule = true
+    center = [ "workspaces" ]
+    contact_shadow = true
+    end = [ "network", "bluetooth", "volume", "brightness", "battery", "notifications", "control-center" ]
+    position = "left"
+    start = [ "launcher", "wallpaper", "tray", "media" ]
+    widget_spacing = 8
 
-[[bar.widgets.left]]
-colorizeSystemIcon = "none"
-colorizeSystemText = "none"
-customIconPath = ""
-enableColorization = false
-icon = "rocket"
-iconColor = "none"
-id = "Launcher"
-useDistroLogo = false
+        [[bar.widgets.left]]
+        colorizeSystemIcon = "none"
+        colorizeSystemText = "none"
+        customIconPath = ""
+        enableColorization = false
+        icon = "rocket"
+        iconColor = "none"
+        id = "Launcher"
+        useDistroLogo = false
 
-[[bar.widgets.left]]
-clockColor = "none"
-customFont = ""
-formatHorizontal = "HH:mm ddd, MMM dd"
-formatVertical = "HH mm - dd MM"
-id = "Clock"
-tooltipFormat = "HH:mm ddd, MMM dd"
-useCustomFont = false
+        [[bar.widgets.left]]
+        clockColor = "none"
+        customFont = ""
+        formatHorizontal = "HH:mm ddd, MMM dd"
+        formatVertical = "HH mm - dd MM"
+        id = "Clock"
+        tooltipFormat = "HH:mm ddd, MMM dd"
+        useCustomFont = false
 
-[[bar.widgets.left]]
-compactMode = true
-diskPath = "/"
-iconColor = "none"
-id = "SystemMonitor"
-showCpuCores = false
-showCpuFreq = false
-showCpuTemp = true
-showCpuUsage = true
-showDiskAvailable = false
-showDiskUsage = false
-showDiskUsageAsPercent = false
-showGpuTemp = false
-showLoadAverage = false
-showMemoryAsPercent = false
-showMemoryUsage = true
-showNetworkStats = false
-showSwapUsage = false
-textColor = "none"
-useMonospaceFont = true
-usePadding = false
+        [[bar.widgets.left]]
+        compactMode = true
+        diskPath = "/"
+        iconColor = "none"
+        id = "SystemMonitor"
+        showCpuCores = false
+        showCpuFreq = false
+        showCpuTemp = true
+        showCpuUsage = true
+        showDiskAvailable = false
+        showDiskUsage = false
+        showDiskUsageAsPercent = false
+        showGpuTemp = false
+        showLoadAverage = false
+        showMemoryAsPercent = false
+        showMemoryUsage = true
+        showNetworkStats = false
+        showSwapUsage = false
+        textColor = "none"
+        useMonospaceFont = true
+        usePadding = false
 
-[[bar.widgets.left]]
-colorizeIcons = false
-hideMode = "hidden"
-id = "ActiveWindow"
-maxWidth = 145
-scrollingMode = "hover"
-showIcon = true
-showText = true
-textColor = "none"
-useFixedWidth = false
+        [[bar.widgets.left]]
+        colorizeIcons = false
+        hideMode = "hidden"
+        id = "ActiveWindow"
+        maxWidth = 145
+        scrollingMode = "hover"
+        showIcon = true
+        showText = true
+        textColor = "none"
+        useFixedWidth = false
 
-[[bar.widgets.left]]
-compactMode = false
-hideMode = "hidden"
-hideWhenIdle = false
-id = "MediaMini"
-maxWidth = 145
-panelShowAlbumArt = true
-scrollingMode = "hover"
-showAlbumArt = true
-showArtistFirst = true
-showProgressRing = true
-showVisualizer = false
-textColor = "none"
-useFixedWidth = false
-visualizerType = "linear"
+        [[bar.widgets.left]]
+        compactMode = false
+        hideMode = "hidden"
+        hideWhenIdle = false
+        id = "MediaMini"
+        maxWidth = 145
+        panelShowAlbumArt = true
+        scrollingMode = "hover"
+        showAlbumArt = true
+        showArtistFirst = true
+        showProgressRing = true
+        showVisualizer = false
+        textColor = "none"
+        useFixedWidth = false
+        visualizerType = "linear"
 
-[[bar.widgets.right]]
-blacklist = []
-chevronColor = "none"
-colorizeIcons = false
-drawerEnabled = true
-hidePassive = false
-id = "Tray"
-pinned = []
+        [[bar.widgets.right]]
+        blacklist = []
+        chevronColor = "none"
+        colorizeIcons = false
+        drawerEnabled = true
+        hidePassive = false
+        id = "Tray"
+        pinned = []
 
-[[bar.widgets.right]]
-hideWhenZero = false
-hideWhenZeroUnread = false
-iconColor = "none"
-id = "NotificationHistory"
-showUnreadBadge = true
-unreadBadgeColor = "primary"
+        [[bar.widgets.right]]
+        hideWhenZero = false
+        hideWhenZeroUnread = false
+        iconColor = "none"
+        id = "NotificationHistory"
+        showUnreadBadge = true
+        unreadBadgeColor = "primary"
 
-[[bar.widgets.right]]
-deviceNativePath = "__default__"
-displayMode = "graphic-clean"
-hideIfIdle = false
-hideIfNotDetected = true
-id = "Battery"
-showNoctaliaPerformance = false
-showPowerProfiles = false
+        [[bar.widgets.right]]
+        deviceNativePath = "__default__"
+        displayMode = "graphic-clean"
+        hideIfIdle = false
+        hideIfNotDetected = true
+        id = "Battery"
+        showNoctaliaPerformance = false
+        showPowerProfiles = false
 
-[[bar.widgets.right]]
-displayMode = "onhover"
-iconColor = "none"
-id = "Volume"
-middleClickCommand = "pwvucontrol || pavucontrol"
-textColor = "none"
+        [[bar.widgets.right]]
+        displayMode = "onhover"
+        iconColor = "none"
+        id = "Volume"
+        middleClickCommand = "pwvucontrol || pavucontrol"
+        textColor = "none"
 
-[[bar.widgets.right]]
-applyToAllMonitors = false
-displayMode = "onhover"
-iconColor = "none"
-id = "Brightness"
-textColor = "none"
+        [[bar.widgets.right]]
+        applyToAllMonitors = false
+        displayMode = "onhover"
+        iconColor = "none"
+        id = "Brightness"
+        textColor = "none"
 
-[[bar.widgets.right]]
-colorizeDistroLogo = false
-colorizeSystemIcon = "none"
-colorizeSystemText = "none"
-customIconPath = ""
-enableColorization = true
-icon = "noctalia"
-id = "ControlCenter"
-useDistroLogo = true
+        [[bar.widgets.right]]
+        colorizeDistroLogo = false
+        colorizeSystemIcon = "none"
+        colorizeSystemText = "none"
+        customIconPath = ""
+        enableColorization = true
+        icon = "noctalia"
+        id = "ControlCenter"
+        useDistroLogo = true
 
 [brightness]
 backlightDeviceMappings = []
@@ -242,56 +231,59 @@ schedulingMode = "off"
 syncGsettings = true
 useWallpaperColors = true
 
+[config]
+
 [controlCenter]
 diskPath = "/"
 position = "close_to_bar_button"
-[[controlCenter.cards]]
-enabled = true
-id = "profile-card"
 
-[[controlCenter.cards]]
-enabled = true
-id = "shortcuts-card"
+    [[controlCenter.shortcuts.left]]
+    id = "Network"
 
-[[controlCenter.cards]]
-enabled = true
-id = "audio-card"
+    [[controlCenter.shortcuts.left]]
+    id = "Bluetooth"
 
-[[controlCenter.cards]]
-enabled = false
-id = "brightness-card"
+    [[controlCenter.shortcuts.left]]
+    id = "WallpaperSelector"
 
-[[controlCenter.cards]]
-enabled = true
-id = "weather-card"
+    [[controlCenter.shortcuts.left]]
+    id = "NoctaliaPerformance"
 
-[[controlCenter.cards]]
-enabled = true
-id = "media-sysmon-card"
+    [[controlCenter.shortcuts.right]]
+    id = "Notifications"
 
-[[controlCenter.shortcuts.left]]
-id = "Network"
+    [[controlCenter.shortcuts.right]]
+    id = "PowerProfile"
 
-[[controlCenter.shortcuts.left]]
-id = "Bluetooth"
+    [[controlCenter.shortcuts.right]]
+    id = "KeepAwake"
 
-[[controlCenter.shortcuts.left]]
-id = "WallpaperSelector"
+    [[controlCenter.shortcuts.right]]
+    id = "NightLight"
 
-[[controlCenter.shortcuts.left]]
-id = "NoctaliaPerformance"
+    [[controlCenter.cards]]
+    enabled = true
+    id = "profile-card"
 
-[[controlCenter.shortcuts.right]]
-id = "Notifications"
+    [[controlCenter.cards]]
+    enabled = true
+    id = "shortcuts-card"
 
-[[controlCenter.shortcuts.right]]
-id = "PowerProfile"
+    [[controlCenter.cards]]
+    enabled = true
+    id = "audio-card"
 
-[[controlCenter.shortcuts.right]]
-id = "KeepAwake"
+    [[controlCenter.cards]]
+    enabled = false
+    id = "brightness-card"
 
-[[controlCenter.shortcuts.right]]
-id = "NightLight"
+    [[controlCenter.cards]]
+    enabled = true
+    id = "weather-card"
+
+    [[controlCenter.cards]]
+    enabled = true
+    id = "media-sysmon-card"
 
 [desktopWidgets]
 enabled = false
@@ -304,10 +296,10 @@ overviewEnabled = true
 animationSpeed = 1
 backgroundOpacity = 1
 colorizeIcons = false
-deadOpacity = 0.6
+deadOpacity = 0.59999999999999998
 displayMode = "auto_hide"
 dockType = "floating"
-enabled = true
+enabled = false
 floatingRatio = 1
 groupApps = false
 groupClickAction = "cycle"
@@ -315,7 +307,7 @@ groupContextMenuMode = "extended"
 groupIndicatorStyle = "dots"
 inactiveIndicators = false
 indicatorColor = "primary"
-indicatorOpacity = 0.6
+indicatorOpacity = 0.59999999999999998
 indicatorThickness = 3
 launcherIcon = ""
 launcherIconColor = "none"
@@ -342,7 +334,7 @@ boxRadiusRatio = 1
 clockFormat = "hh\\nmm"
 clockStyle = "custom"
 compactLockScreen = false
-dimmerOpacity = 0.2
+dimmerOpacity = 0.20000000000000001
 enableBlurBehind = true
 enableLockScreenCountdown = true
 enableLockScreenMediaControls = false
@@ -371,14 +363,14 @@ showSessionButtonsOnLockScreen = true
 smoothScrollEnabled = true
 telemetryEnabled = false
 
-[general.keybinds]
-keyDown = ["Down"]
-keyEnter = ["Return", "Enter"]
-keyEscape = ["Esc"]
-keyLeft = ["Left"]
-keyRemove = ["Del"]
-keyRight = ["Right"]
-keyUp = ["Up"]
+    [general.keybinds]
+    keyDown = [ "Down" ]
+    keyEnter = [ "Return", "Enter" ]
+    keyEscape = [ "Esc" ]
+    keyLeft = [ "Left" ]
+    keyRemove = [ "Del" ]
+    keyRight = [ "Right" ]
+    keyUp = [ "Up" ]
 
 [hooks]
 colorGeneration = ""
@@ -441,6 +433,9 @@ manualSunrise = "06:30"
 manualSunset = "18:30"
 nightTemp = "4000"
 
+[nightlight]
+enabled = true
+
 [noctaliaPerformance]
 disableDesktopWidgets = true
 disableWallpaper = true
@@ -462,25 +457,25 @@ normalUrgencyDuration = 8
 overlayLayer = true
 respectExpireTimeout = false
 
-[notifications.saveToHistory]
-critical = true
-low = true
-normal = true
+    [notifications.saveToHistory]
+    critical = true
+    low = true
+    normal = true
 
-[notifications.sounds]
-criticalSoundFile = ""
-enabled = false
-excludedApps = "discord,firefox,chrome,chromium,edge"
-lowSoundFile = ""
-normalSoundFile = ""
-separateSounds = false
-volume = 0.5
+    [notifications.sounds]
+    criticalSoundFile = ""
+    enabled = false
+    excludedApps = "discord,firefox,chrome,chromium,edge"
+    lowSoundFile = ""
+    normalSoundFile = ""
+    separateSounds = false
+    volume = 0.5
 
 [osd]
 autoHideMs = 2000
 backgroundOpacity = 1
 enabled = true
-enabledTypes = [0, 1, 2]
+enabledTypes = [ 0, 1, 2 ]
 location = "top_right"
 monitors = []
 overlayLayer = true
@@ -498,61 +493,70 @@ position = "center"
 showHeader = true
 showKeybinds = true
 
-[[sessionMenu.powerOptions]]
-action = "lock"
-command = ""
-countdownEnabled = true
-enabled = true
-keybind = "1"
+    [[sessionMenu.powerOptions]]
+    action = "lock"
+    command = ""
+    countdownEnabled = true
+    enabled = true
+    keybind = "1"
 
-[[sessionMenu.powerOptions]]
-action = "suspend"
-command = ""
-countdownEnabled = true
-enabled = true
-keybind = "2"
+    [[sessionMenu.powerOptions]]
+    action = "suspend"
+    command = ""
+    countdownEnabled = true
+    enabled = true
+    keybind = "2"
 
-[[sessionMenu.powerOptions]]
-action = "hibernate"
-command = ""
-countdownEnabled = true
-enabled = true
-keybind = "3"
+    [[sessionMenu.powerOptions]]
+    action = "hibernate"
+    command = ""
+    countdownEnabled = true
+    enabled = true
+    keybind = "3"
 
-[[sessionMenu.powerOptions]]
-action = "reboot"
-command = ""
-countdownEnabled = true
-enabled = true
-keybind = "4"
+    [[sessionMenu.powerOptions]]
+    action = "reboot"
+    command = ""
+    countdownEnabled = true
+    enabled = true
+    keybind = "4"
 
-[[sessionMenu.powerOptions]]
-action = "logout"
-command = ""
-countdownEnabled = true
-enabled = true
-keybind = "5"
+    [[sessionMenu.powerOptions]]
+    action = "logout"
+    command = ""
+    countdownEnabled = true
+    enabled = true
+    keybind = "5"
 
-[[sessionMenu.powerOptions]]
-action = "shutdown"
-command = ""
-countdownEnabled = true
-enabled = true
-keybind = "6"
+    [[sessionMenu.powerOptions]]
+    action = "shutdown"
+    command = ""
+    countdownEnabled = true
+    enabled = true
+    keybind = "6"
 
-[[sessionMenu.powerOptions]]
-action = "rebootToUefi"
-command = ""
-countdownEnabled = true
-enabled = true
-keybind = "7"
+    [[sessionMenu.powerOptions]]
+    action = "rebootToUefi"
+    command = ""
+    countdownEnabled = true
+    enabled = true
+    keybind = "7"
 
-[[sessionMenu.powerOptions]]
-action = "userspaceReboot"
-command = ""
-countdownEnabled = true
-enabled = false
-keybind = ""
+    [[sessionMenu.powerOptions]]
+    action = "userspaceReboot"
+    command = ""
+    countdownEnabled = true
+    enabled = false
+    keybind = ""
+
+[shell]
+font_family = "FiraCode Nerd Font"
+settings_show_advanced = true
+telemetry_enabled = false
+
+    [shell.panel]
+    control_center_placement = "floating"
+    open_near_click_control_center = true
 
 [systemMonitor]
 batteryCriticalThreshold = 5
@@ -581,13 +585,21 @@ warningColor = ""
 activeTemplates = []
 enableUserTheming = false
 
+[theme]
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "gtk4", "qt" ]
+    community_ids = [ "yazi" ]
+
 [ui]
 boxBorderEnabled = false
 fontDefault = "Sans Serif"
 fontDefaultScale = 1
 fontFixed = "monospace"
 fontFixedScale = 1
-panelBackgroundOpacity = 0.93
+panelBackgroundOpacity = 0.93000000000000005
 panelsAttachedToBar = true
 scrollbarAlwaysVisible = true
 settingsPanelMode = "attached"
@@ -606,9 +618,9 @@ fillMode = "crop"
 hideWallpaperFilenames = false
 linkLightAndDarkWallpapers = true
 monitorDirectories = []
-overviewBlur = 0.4
+overviewBlur = 0.40000000000000002
 overviewEnabled = false
-overviewTint = 0.6
+overviewTint = 0.59999999999999998
 panelPosition = "follow_bar"
 randomIntervalSec = 300
 setWallpaperOnAllMonitors = true
@@ -617,15 +629,8 @@ skipStartupTransition = false
 solidColor = "#1a1a2e"
 sortOrder = "name"
 transitionDuration = 1500
-transitionEdgeSmoothness = 0.05
-transitionType = [
-    "fade",
-    "disc",
-    "stripes",
-    "wipe",
-    "pixelate",
-    "honeycomb",
-]
+transitionEdgeSmoothness = 0.050000000000000003
+transitionType = [ "fade", "disc", "stripes", "wipe", "pixelate", "honeycomb" ]
 useOriginalImages = false
 useSolidColor = false
 useWallhaven = false
@@ -641,3 +646,26 @@ wallhavenResolutionMode = "atleast"
 wallhavenResolutionWidth = ""
 wallhavenSorting = "relevance"
 wallpaperChangeMode = "random"
+
+    [wallpaper.default]
+    path = "/home/dymdym/Pictures/Wallpapers/disco.png"
+
+    [wallpaper.last]
+    path = "/home/dymdym/Pictures/Wallpapers/disco.png"
+
+[widget.battery]
+display_mode = "graphic"
+scale = 0.90000000000000013
+show_label = false
+
+[widget.brightness]
+show_label = false
+
+[widget.network]
+show_label = false
+
+[widget.tray]
+hidden = [ "blueman", "nm-applet" ]
+
+[widget.volume]
+show_label = false
