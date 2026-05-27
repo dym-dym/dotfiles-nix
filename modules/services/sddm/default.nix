@@ -16,6 +16,10 @@ in
       tokyo-night-sddm
       sugar-dark-sddm
       eucalyptus-drop-sddm
+      kdePackages.qtmultimedia
+      kdePackages.qtwayland
+      kdePackages.qtbase
+      sddm-astronaut
     ];
 
     services.xserver.resolutions = [
@@ -48,7 +52,7 @@ in
       # };
 
       # theme = "sugar-dark-sddm";
-      theme = "tokyo-night-sddm";
+      theme = "sddm-astronaut-theme";
       enableHidpi = true;
 
       autoNumlock = true;

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, lib, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
 
 {
   imports =
@@ -16,26 +16,62 @@
       # ./wireguard.nix
     ];
 
-    nixpkgs.config.permittedInsecurePackages = [
-      "electron-36.9.5"
-    ];
   # Bootloader.
-  # boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackages_6_10;
+
 
   boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 20;
-    # systemd-boot.device = "/dev/nvme0n1p3";
-    # grub = {
-      # enable = false;
-      # useOSProber = true;
-      # device = "/dev/nvme0n1p3";
-    # };
+    # systemd-boot.enable = true;
+    # systemd-boot.configurationLimit = 5;
+
+    limine = {
+      enable = true;
+      maxGenerations = 5;
+      efiSupport = true;
+      secureBoot.enable = false;
+
+      style = {
+        interface.resolution = "1920x1200";
+        wallpapers = [ "/home/dymdym/.dotfiles/system/disco.png" ];
+      };
+
+    };
+
+  # boot.loader = {
+  #   systemd-boot.enable = true;
+  #   systemd-boot.configurationLimit = 20;
+  #   # systemd-boot.device = "/dev/nvme0n1p3";
+  #   # grub = {
+  #     # enable = false;
+  #     # useOSProber = true;
+  #     # device = "/dev/nvme0n1p3";
+  #   # };
   };
   # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11_beta ];
-  boot.kernelParams = [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ];
+
+  boot.plymouth = {
+    enable = true;
+    theme = "owl";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "owl" ];
+        })
+      ];
+
+  };
+
+  boot = {
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "systemd.show_status=auto"
+      "nvidia-drm.modeset=1"
+      "nvidia-drm.fbdev=1"
+    ];
+  };
 
   ## == Network ==
 
@@ -129,9 +165,9 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "590.48.01";
+      version = "610.43.02";
 
-      sha256_64bit = "sha256-ueL4BpN4FDHMh/TNKRCeEz3Oy1ClDWto1LO/LWlr1ok=";
+      sha256_64bit = "sha256-MDSgVLtM33dS/43CclZMsQVROAS/9TU4lFkBsWyndGM=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -180,7 +216,9 @@
 
   ## == Users ==
 
-  users.users.dymdym.shell = pkgs.fish;
+  # users.users.dymdym.shell = pkgs.fish;
+  users.defaultUserShell = pkgs.nushell;
+  users.users.dymdym.shell = pkgs.nushell;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dymdym = {
@@ -191,17 +229,10 @@
     # User packages
     packages = 
       (with pkgs; [
-        # kdePackages.kate
-        # thunderbird
         telegram-desktop
-        element-desktop
-        #whatsapp-for-linux
-        wasistlos
+        signal-desktop
         android-tools
-        neofetch
         lshw
-        # atuin
-        spotify
         # support 64-bit only
         (wine.override { wineBuild = "wine64"; })
         # support 64-bit only
@@ -214,15 +245,22 @@
         zoxide
         fd
         blueman
-        anki
-        qmk
-        solaar
-        libreoffice
+        usbimager
+        jellyfin-mpv-shim
+        gnumake
+        bat
+        swww
+        gimp
+        zoom
         xautoclick
+
+        qmk
+        qbittorrent
+        feh
+        lean4
+        elan
       ])
-
       ++
-
       (with pkgs-unstable; [
       ]);
   };
@@ -235,20 +273,20 @@
 
   ## == Programs and Services ==
 
+
   programs = {
-    # firefox.enable = true;
     fish.enable = true;
-    hyprland.enable = true;
-    gamemode.enable = true;
     nm-applet.enable = true;
-    appimage.enable = true;
+    pay-respects.enable = true;
     steam = {
       enable = true;
       gamescopeSession.enable = true;
     };
+    gamescope.enable = true;
+    niri.enable = true;
+    kdeconnect.enable = true;
     gnome-disks.enable = true;
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -258,55 +296,38 @@
   environment.systemPackages = 
     (with pkgs; [
 
-      # Fish 
-	    fishPlugins.done
-	    fishPlugins.fzf-fish
-	    fishPlugins.forgit
-	    fishPlugins.hydro
-	    fishPlugins.grc
-
-      # Terminal
+     # Terminal
 	    git
-      # neovim
 	    fzf
 	    grc
-      # starship
-      # alacritty
 	    btop
 	    tealdeer
 	    eza
 	    ripgrep
 
+
       # Window Manager
-      # wofi
-      # waybar
 	    swaybg
 	    waypaper
 	    wttrbar
-      # wlogout
-      # hyprlock
 	    sway-contrib.grimshot
 
       # File explorers
 	    pcmanfm
 	    nautilus
-      # kio-admin
 
       # Fonts (and TeX)
 
       # nerdfonts
       nerd-fonts.jetbrains-mono
-	    # fira-code-nerdfont
-      font-awesome
+	    nerd-fonts.fira-code
+	    font-awesome
       nerd-fonts.noto
       noto-fonts
       noto-fonts-color-emoji
 
       texliveFull
 
-      # Browsers
-      # librewolf
-      # qutebrowser
 
       # Media
 	    jellyfin-media-player
@@ -321,16 +342,33 @@
       # Misc
 	    thunderbird
 	    mangohud
-	    heroic
+	    discord-canary
 	    discord
-      discord-canary
-      webcord
+	    protonup-ng
+      networkmanagerapplet
+      simple-scan
+      libreoffice
+      kanata
 
 	    protonup-ng
       networkmanagerapplet
       egl-wayland
 
       blueberry
+
+      # Secure boot
+      sbctl
+
+      # Niri packages
+      niri
+      xwayland-satellite
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+      # VPN
+      wireguard-tools
+      protonvpn-gui
+
+      gamemode
     ])
     ++
     (with pkgs-unstable; [
@@ -344,51 +382,90 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/dymdym/.steam/root/compatibilitytools.d";
   };
 
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
+  services = {
+  	gvfs.enable = true;
+  	udisks2.enable = true;
+  	devmon.enable = true;
+  	upower.enable = true;
+  	fwupd.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+    dbus.packages = [ pkgs.nautilus
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
+
+    # Enable the OpenSSH daemon.
+  	openssh.enable = true;
+  	openssh.settings.PasswordAuthentication = true;
+
+    kanata = {
+      enable = true;
+      keyboards = {
+      "laptop".config = ''
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(deflayer capsmod
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  esc  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+  '';
+        };
+    };
 
 
-  # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+    avahi.enable = true;
+    avahi.nssmdns4 = true;
+    #
+    # xserver = {
+    #   xkb = {
+    #     layout = "us";
+    #     variant = "intl";
+    #   };
+    #   videoDrivers = [ ];
+    # };
+    # Enable CUPS to print documents.
+    # printing.enable = true;
+
+    udev.enable = true;
+  };
 
   systemd = {
-	  user.services.polkit-gnome-authentication-agent-1 = {
-	    description = "polkit-gnome-authentication-agent-1";
-	    wantedBy = [ "graphical-session.target" ];
-	    wants = [ "graphical-session.target" ];
-	    after = [ "graphical-session.target" ];
-	    serviceConfig = {
-	        Type = "simple";
-	        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-	        Restart = "on-failure";
-	        RestartSec = 1;
-	        TimeoutStopSec = 10;
-	      };
-	  };
-	};
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
-    ];
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
   };
+
+  # xdg.portal = {
+  #   enable = true;
+  #   wlr.enable = false;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-gtk
+  #   ];
+  #   configPackages = [
+  #     pkgs.xdg-desktop-portal-gtk
+  #     pkgs.xdg-desktop-portal
+  #   ];
+  # };
 
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
