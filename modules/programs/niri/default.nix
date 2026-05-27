@@ -24,7 +24,7 @@ in
       enable = true;
       settings = {
 
-        # xwayland-satellite.enable = true;
+        xwayland-satellite.enable = true;
 
         debug = {
           honor-xdg-activation-with-invalid-serial = {};
@@ -40,6 +40,24 @@ in
         input.touchpad.tap = true;
         input.touchpad.natural-scroll = false;
         input.mouse.accel-speed = 0.0;
+
+        outputs = {
+          "DP-1" = {
+            mode = {
+              height = 1920;
+              width = 1080;
+              refresh = 144.0;
+            };
+            focus-at-startup = true;
+          };
+          "HDMI-A-2" = {
+            mode = {
+              height = 1680;
+              width = 1050;
+              refresh = 60.0;
+            };
+          };
+        };
 
         workspaces = {
           "01-main" = {
