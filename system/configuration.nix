@@ -31,11 +31,16 @@
       secureBoot.enable = false;
 
       style = {
-        interface.resolution = "1920x1200";
+        interface.resolution = "1920x1080";
         wallpapers = [ "/home/dymdym/.dotfiles/system/disco.png" ];
       };
 
     };
+
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    }
 
   # boot.loader = {
   #   systemd-boot.enable = true;
