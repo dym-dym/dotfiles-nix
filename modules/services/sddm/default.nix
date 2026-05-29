@@ -23,6 +23,11 @@ in
 
     ];
 
+    services.xserver.displayManager.setupCommands = ''
+/run/current-system/sw/bin/xrandr --output DP-1 --primary
+/run/current-system/sw/bin/xrandr --output HDMI-A-2 --left-of DisplayPort-0
+    '';
+
     services.xserver.resolutions = [
       {
         x = 1920;
