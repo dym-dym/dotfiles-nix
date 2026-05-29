@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland?submodules=1";
+    # hyprland.url = "github:hyprwm/Hyprland?submodules=1";
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     stylix.url = "github:danth/stylix/release-25.11";
@@ -29,7 +29,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }@inputs: # nixos-hardware,
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: # nixos-hardware, hyprland
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -83,7 +83,7 @@
           modules = [
             ./user/home.nix
             inputs.stylix.homeModules.stylix
-            inputs.hyprland.homeManagerModules.default
+            # inputs.hyprland.homeManagerModules.default
             inputs.niri.homeModules.niri
             inputs.noctalia.homeModules.default
             # inputs.nixvim.homeManagerModules.nixvim

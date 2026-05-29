@@ -77,6 +77,8 @@ in
       waybar.enable = false;
       ghostty.enable = false;
       rofi.enable = false;
+      librewolf.profileNames = [ "dymdym" ];
+      firefox.profileNames = [ "dymdym" ];
     };
 
 	  fonts = {
