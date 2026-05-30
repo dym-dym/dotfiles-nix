@@ -44,17 +44,17 @@ in
         outputs = {
           "DP-1" = {
             mode = {
-              height = 1920;
-              width = 1080;
-              refresh = 144.0;
+              width = 1920;
+              height = 1080;
+              refresh = 144.000;
             };
             focus-at-startup = true;
           };
           "HDMI-A-2" = {
             mode = {
-              height = 1680;
-              width = 1050;
-              refresh = 60.0;
+              width = 1680;
+              height = 1050;
+              refresh = 59.954;
             };
           };
         };
