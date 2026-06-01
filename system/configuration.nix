@@ -26,10 +26,10 @@
       enable = true;
       maxGenerations = 5;
       efiSupport = true;
-      secureBoot.enable = true;
+      secureBoot.enable = false;
 
       style = {
-        interface.resolution = "1920x1200";
+        interface.resolution = "1920x1080";
         wallpapers = [ "/home/dymdym/.dotfiles/system/disco.png" ];
       };
 
@@ -131,6 +131,41 @@
     };
 
     keyboard.qmk.enable = true;
+  };
+
+  # Nvidia
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "#nvidia-x11"
+    ];
+
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "595.80";
+
+      sha256_64bit = "sha256-ueL4BpN4FDHMh/TNKRCeEz3Oy1ClDWto1LO/LWlr1ok=";
+      sha256_aarch64 = lib.fakeSha256;
+      openSha256 = lib.fakeSha256;
+      settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
+      persistencedSha256 = lib.fakeSha256;
+    };
+
+    prime = {
+      reverseSync.enable = true;
+      # sync.enable = true;
+
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:60:0:0";
+    };
   };
 
   ## == Audio ==
