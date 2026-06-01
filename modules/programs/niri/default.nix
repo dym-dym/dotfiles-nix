@@ -1,10 +1,5 @@
 { config, lib, pkgs, ... }:
 
-let
-  # randombackground = ./scripts/randombackground;
-  # wofi-script = ./scripts/wofi;
-  terminal = if (config.alacritty.enable) then "alacritty" else (if config.alacritty.enable then "kitty" else "kitty");
-in
 {
 
   imports = [
@@ -75,11 +70,6 @@ in
 
         layer-rules = [
           {
-            # matches = [
-            #   {
-            #     namespace = "^noctalia-overview*";
-            #   }
-            # ];
             place-within-backdrop = true;
           }
         ];
@@ -115,15 +105,10 @@ in
 
         spawn-at-startup = [
           { argv = ["noctalia"]; }
-          # { argv = ["swaync"]; }
-          # { argv = ["swayosd-server"]; }
-          # { argv = ["swww-daemon"]; }
-          # { argv = ["swww" "restore"];}
         ];
 
 
         switch-events = {
-          # "lid-close".action.spawn = "hyprlock";
           "lid-close".action.spawn = [ "noctalia" "msg" "screen-lock" ];
         };
 
@@ -132,30 +117,17 @@ in
           "Mod+Shift+Slash".action.show-hotkey-overlay = {};
 
           "Mod+Return".action.spawn = "kitty";
-          # "Mod+Shift+Return".action.spawn = [ "rofi" "-show" "drun" ];
           "Mod+Shift+Return".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
-          # "Mod+Shift+D".action.spawn = [ "wlogout" "--css" "/home/dymdym/.config/wlogout/style.css" ];
           "Mod+Shift+D".action.spawn = [ "noctalia" "msg" "screen-lock" ];
           "Mod+B".action.spawn = "zen-beta";
 
-          # "XF86AudioRaiseVolume".action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" "-l" "1.0" ];
           "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" ];
-          # "XF86AudioLowerVolume".action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-" ];
           "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" ];
-          # "XF86AudioMute".action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
-          "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mut" ];
-          # "XF86AudioMicMute".action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
+          "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute" ];
           "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "mic-mute" ];
 
-          # "XF86AudioPlay".action.spawn = [ "playerctl" "play-pause" ];
-          # "XF86AudioStop".action.spawn = [ "playerctl" "stop" ];
-          # "XF86AudioPrev".action.spawn = [ "playerctl" "previous" ];
-          # "XF86AudioNext".action.spawn = [ "playerctl" "next" ];
-
           "XF86MonBrightnessUp".action.spawn = [ "noctalia" "msg" "brightness-up" ];
-          # "XF86MonBrightnessUp".action.spawn = [ "swayosd-client" "--brightness" "raise" ];
           "XF86MonBrightnessDown".action.spawn = [ "noctalia" "msg" "brightness-down" ];
-          # "XF86MonBrightnessDown".action.spawn = [ "swayosd-client" "--brightness" "lower" ];
 
           "Mod+O".action.toggle-overview = {};
           "Mod+C".action.close-window = {};
