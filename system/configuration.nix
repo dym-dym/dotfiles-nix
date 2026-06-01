@@ -10,17 +10,11 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../modules/system-modules.nix
-      # Login Manager
-      # VPN
-      # ./wireguard.nix
     ];
 
   # Bootloader.
-  # boot.kernelPackages = pkgs.linuxPackages_6_14;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
-    # systemd-boot.enable = true;
-    # systemd-boot.configurationLimit = 5;
 
     limine = {
       enable = true;
@@ -83,8 +77,8 @@
   ## == Locales ==
 
   # Set your time zone.
-  # time.timeZone = "Europe/London";
-  time.timeZone = "Europe/Paris";
+  time.timeZone = "Europe/London";
+  # time.timeZone = "Europe/Paris";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -152,7 +146,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
       version = "595.80";
 
-      sha256_64bit = "sha256-ueL4BpN4FDHMh/TNKRCeEz3Oy1ClDWto1LO/LWlr1ok=";
+      sha256_64bit = "sha256-PVTIP+B/01c/8M66hXTAYTLg9T2Hy9u1gq43K7TF1Hg=";
       sha256_aarch64 = lib.fakeSha256;
       openSha256 = lib.fakeSha256;
       settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
@@ -400,7 +394,7 @@
         layout = "us";
         variant = "intl";
       };
-      videoDrivers = [ ];
+      videoDrivers = [ "nvidia" ];
     };
     # Enable CUPS to print documents.
     printing.enable = true;
