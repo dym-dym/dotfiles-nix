@@ -129,6 +129,7 @@ in
 
         spawn-at-startup = [
           { argv = ["noctalia"]; }
+          { argv = ["protonvpn-app" "--spawn-minimized"]; }
         ];
 
 
