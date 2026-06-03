@@ -48,10 +48,10 @@ in
 
       package = pkgs.kdePackages.sddm;
 
-      # wayland = {
-      #   enable = true;
-      #   compositor = "kwin";
-      # };
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
 
       theme = "sddm-astronaut-custom";
       settings = {

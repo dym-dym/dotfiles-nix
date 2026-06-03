@@ -386,6 +386,7 @@
       protonvpn-gui
 
       gamemode
+      gnome-keyring
     ])
     ++
     (with pkgs-unstable; [
@@ -397,6 +398,9 @@
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/dymdym/.steam/root/compatibilitytools.d";
+    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "niri";
   };
 
   services = {
@@ -472,17 +476,39 @@
     };
   };
 
-  # xdg.portal = {
-  #   enable = true;
-  #   wlr.enable = false;
-  #   extraPortals = [
-  #     pkgs.xdg-desktop-portal-gtk
-  #   ];
-  #   configPackages = [
-  #     pkgs.xdg-desktop-portal-gtk
-  #     pkgs.xdg-desktop-portal
-  #   ];
-  # };
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    wlr.enable = true;
+    # wlr.settings = {
+    #   screencast = {
+    #     output_name = "DP-1";
+    #     chooser_type = "simple";
+    #     chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+    #   };
+    # };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+    ];
+    config = {
+      common = {
+        default = [ "*" ];
+      };
+      niri = {
+        default = [
+          "gtk"
+          "gnome"
+        ];
+        "org.freedesktop.impl.portal.Access" = "gtk";
+        "org.freedesktop.impl.portal.Notification" = "gtk";
+        "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+        "org.freedesktop.portal.ScreenCast" = "wlr";
+      };
+    };
+  };
 
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;

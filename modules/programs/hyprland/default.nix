@@ -133,7 +133,7 @@ in
 				"SDL_VIDEODRIVER,wayland"
 				"_JAVA_AWT_WM_NONEREPARENTING,1"
 				"CLUTTER_BACKEND,wayland"
-				"GDK_BACKEND,wayland,x11"
+        # "GDK_BACKEND,wayland,x11"
 	    ];
 
 	    windowrule = [
