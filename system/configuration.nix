@@ -276,6 +276,7 @@
         feh
         lean4
         elan
+        lazygit
       ])
       ++
       (with pkgs-unstable; [
