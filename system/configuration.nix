@@ -105,6 +105,8 @@
   # Setup DNS
   networking.nameservers = [ "9.9.9.9" ];
 
+  networking.firewall.allowedTCPPorts = [ 8384 ];
+
   ## == Locales ==
 
   # Set your time zone.
@@ -419,6 +421,28 @@
     # Enable the OpenSSH daemon.
   	openssh.enable = true;
   	openssh.settings.PasswordAuthentication = true;
+
+    #Syncthing
+
+    syncthing = {
+      enable = true;
+      user = "dymdym";
+      group = "users";
+      configDir = "/home/dymdym/.config/syncthing";
+      openDefaultPorts = true;
+      guiAddress = "0.0.0.0:8384";
+
+      settings = {
+        gui = {
+          user = "dymdym";
+          password = "password123";
+        };
+
+        devices = {
+          "Work-laptop" = { id = "STIKJ7C-GQ4RP4B-JG5Q7RO-XHCUKRK-2XBKKYI-ZU3CDYB-C3FWN2G-HCKYGAF"; };
+        };
+      };
+    };
 
     kanata = {
       enable = true;

@@ -224,7 +224,7 @@ in
 
           "Mod+Shift+T".action.toggle-window-floating = {};
 
-          "Print".action.screenshot = {};
+          "Mod+Shift+S".action.screenshot = {};
           "Ctrl+Print".action.screenshot-screen = {};
           "Alt+Print".action.screenshot-window = {};
 
