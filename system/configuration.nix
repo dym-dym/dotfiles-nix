@@ -78,6 +78,7 @@
     '';
 
     firewall.checkReversePath = false;
+    firewall.allowedTCPPorts = [ 8384 ];
   };
 
   ## == Locales ==
@@ -329,6 +330,36 @@
   	openssh.enable = true;
   	openssh.settings.PasswordAuthentication = true;
 
+    # Syncthing
+
+    syncthing = {
+      enable = true;
+      group = "users";
+      user = "dymdym";
+      configDir = "/home/dymdym/.config/syncthing";
+      openDefaultPorts = true;
+      guiAddress = "0.0.0.0:8384";
+
+      settings = {
+        gui = {
+          user = "dymdym";
+          password = "password123";
+        };
+
+        devices = {
+          "Tower" = { id = "LFU4MR6-H46IRPQ-FWS2OU4-XXULCFR-QC6NF5C-DWT3X2L-URYJYKG-GNDWBQG"; };
+        };
+
+        folders = {
+          "Zotero Storage" = {
+            path = "/home/dymdym/Zotero/storage";
+            devices = [ "Tower" ];
+          };
+        };
+      };
+    };
+
+    # Keyboard remapping
     kanata = {
       enable = true;
       keyboards = {
