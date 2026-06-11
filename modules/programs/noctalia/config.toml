@@ -400,7 +400,7 @@ suspendTimeout = 1800
 
 [location]
 analogClockInCalendar = false
-autoLocate = false
+autoLocate = true
 firstDayOfWeek = -1
 hideWeatherCityName = false
 hideWeatherTimezone = false
@@ -457,19 +457,19 @@ normalUrgencyDuration = 8
 overlayLayer = true
 respectExpireTimeout = false
 
-    [notifications.saveToHistory]
-    critical = true
-    low = true
-    normal = true
+	[notifications.saveToHistory]
+	critical = true
+	low = true
+	normal = true
 
-    [notifications.sounds]
-    criticalSoundFile = ""
-    enabled = false
-    excludedApps = "discord,firefox,chrome,chromium,edge"
-    lowSoundFile = ""
-    normalSoundFile = ""
-    separateSounds = false
-    volume = 0.5
+	[notifications.sounds]
+	criticalSoundFile = ""
+	enabled = false
+	excludedApps = "discord,firefox,chrome,chromium,edge"
+	lowSoundFile = ""
+	normalSoundFile = ""
+	separateSounds = false
+	volume = 0.5
 
 [osd]
 autoHideMs = 2000
