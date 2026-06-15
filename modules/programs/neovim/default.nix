@@ -1,270 +1,140 @@
+{ lib, config, ... }:
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
-  coq-lsp = pkgs.vimUtils.buildVimPlugin {
-    name = "coq-lsp";
-    src = pkgs.fetchFromGitHub {
-      owner = "tomtomjhj";
-      repo = "coq-lsp.nvim";
-      rev = "e8f8edd56bde52e64f98824d0737127356b8bd4e";
-      sha256 = "1lblzp8vdz7lfipbxgvvax4pg7c4x3nm2rlfdfcpf3s55n1g86l4";
-    };
-  };
-  deadcolumn-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "deadcolumn-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "Bekaboo";
-      repo = "deadcolumn.nvim";
-      rev = "8f5f8610fda22ff7a3937bc72d0e7d41faaceeaa";
-      sha256 = "0agxb0kmk0g4z6jxqzyhxs6nhajlrb273grs7slj510zs33pb53x";
-    };
-  };
-in {
+
   options = {
     neovim.enable = lib.mkEnableOption "enable neovim";
   };
 
   config = lib.mkIf config.neovim.enable {
-    programs.neovim = let
-      toLua = str: "lua << EOF\n${str}\nEOF\n";
-      toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    in {
+
+    programs.nixvim = {
       enable = true;
 
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
+      globals = {
+        loaded_netrw = 1;
+        loaded_netrwPlugin = 1;
 
-      extraPackages = with pkgs; [
-        lua-language-server
-        nil
+        latex_view_general_viewer = lib.mkDefault "zathura";
 
-        wl-clipboard
+        tex_conceal = "abdmg";
+        tex_flavor = "latex";
 
-        luarocks-nix
-        nodejs
-        # coqPackages.coq-lsp
-        coq
-        python312Packages.pynvim
-        texlab
-        lazygit
+        mapleader = " ";
+        maplocalleader = " ";
+      };
+
+
+      highlight.ExtraWhitespace.bg = "red";
+
+      autoCmd = [
+        {
+          command = "\"!zathura '%'\" | bdelete";
+          event = [
+            "BufEnter"
+            "BufWinEnter"
+          ];
+          pattern = [
+            "*.pdf"
+          ];
+        }
       ];
 
-      plugins = with pkgs.vimPlugins; [
 
-        # Theming and looks
-
-        {
-          plugin = catppuccin-nvim;
-          config = "colorscheme catppuccin-mocha";
-        }
-
-        {
-          plugin = dashboard-nvim;
-          config = toLuaFile ./nvim/plugin/dashboard.lua;
-        }
-
-        ## Spinner
-        {
-          plugin = fidget-nvim;
-          config = toLuaFile ./nvim/plugin/fidget.lua;
-        }
-
-        {
-          plugin = noice-nvim;
-          config = toLuaFile ./nvim/plugin/noice.lua;
-        }
-
-        ## Indentation guides
-        {
-          plugin = indent-blankline-nvim;
-          config = toLuaFile ./nvim/plugin/indent-blank-lines.lua;
-        }
-
-        ## Lines
-        {
-          plugin = lualine-nvim;
-          config = toLuaFile ./nvim/plugin/lualine.lua;
-        }
-
-        {
-          plugin = bufferline-nvim;
-          config = toLuaFile ./nvim/plugin/bufferline-nvim.lua;
-        }
-
-        ## ColorColumn dynamic change
-        {
-          plugin = deadcolumn-nvim;
-          config = toLuaFile ./nvim/plugin/deadcolumn.lua;
-        }
-        # Icons
-        nvim-web-devicons
-
-        # LSP
-        {
-          plugin = nvim-lspconfig;
-          config = toLuaFile ./nvim/plugin/lsp.lua;
-        }
-
-        # Syntax Highlighting
-        {
-          plugin = nvim-treesitter.withPlugins (p: [
-            p.tree-sitter-nix
-            p.tree-sitter-vim
-            p.tree-sitter-bash
-            p.tree-sitter-lua
-            p.tree-sitter-python
-            p.tree-sitter-json
-            p.tree-sitter-ocaml
-            p.tree-sitter-rust
-          ]);
-          config = toLuaFile ./nvim/plugin/treesitter.lua;
-        }
-
-
-        # Snippets and completion
-        {
-          plugin = nvim-cmp;
-          config = toLuaFile ./nvim/plugin/cmp.lua;
-        }
-
-        cmp_luasnip
-        cmp-nvim-lsp
-
-        {
-          plugin = cmp-vimtex;
-          config = toLuaFile ./nvim/plugin/cmp-vimtex.lua;
-        }
-
-        luasnip
-        friendly-snippets
-
-
-
-        # Comments
-        {
-          plugin = comment-nvim;
-          config = toLua "require(\"Comment\").setup()";
-        }
-
-        # Navigation
-        ## Telescope
-        {
-          plugin = telescope-nvim;
-          config = toLuaFile ./nvim/plugin/telescope.lua;
-        }
-
-        telescope-fzf-native-nvim
-        telescope-zoxide
-
-        {
-          plugin = which-key-nvim;
-          config = toLuaFile ./nvim/plugin/which-key.lua;
-        }
-
-        ## Git
-        {
-          plugin = lazygit-nvim;
-          config = toLuaFile ./nvim/plugin/lazygit-nvim.lua;
-        }
-
-        ## File explorer
-        {
-          plugin = yazi-nvim;
-          config = toLuaFile ./nvim/plugin/yazi-nvim.lua;
-        }
-
-        ## Smooth scrolling
-        {
-          plugin = neoscroll-nvim;
-          config = toLuaFile ./nvim/plugin/neoscroll.lua;
-        }
-
-        # Languages
-
-        ## Nix
-        vim-nix
-
-        ## Coq
-        Coqtail
-        {
-          plugin = coq-lsp;
-          # config = toLuaFile ./nvim/plugin/coqtail.lua;
-          config = ''
-            " Don't load Coqtail
-            let g:loaded_coqtail = 1
-            let g:coqtail#supported = 0
-
-            " Setup coq-lsp.nvim
-            lua require'coq-lsp'.setup()
-
-            function CoqtailHookDefineMappings()
-              imap <buffer> <S-Down> <Plug>CoqNext
-              imap <buffer> <S-Left> <Plug>CoqToLine
-              imap <buffer> <S-Up> <Plug>CoqUndo
-              nmap <buffer> <S-Down> <Plug>CoqNext
-              nmap <buffer> <S-Left> <Plug>CoqToLine
-              nmap <buffer> <S-Up> <Plug>CoqUndo
-            endfunction
-
-            if &t_Co > 16
-              if &background ==# 'dark'
-                hi def CoqtailChecked ctermbg=17 guibg=#113311
-                hi def CoqtailSent    ctermbg=60 guibg=#007630
-              else
-                hi def CoqtailChecked ctermbg=17 guibg=LightGreen
-                hi def CoqtailSent    ctermbg=60 guibg=LimeGreen
-              endif
-            else
-              hi def CoqtailChecked ctermbg=4 guibg=LightGreen
-              hi def CoqtailSent    ctermbg=7 guibg=LimeGreen
-            endif
-            hi def link CoqtailError Error
-            hi def link CoqtailOmitted coqProofAdmit
-          '';
-        }
-
-        ## LaTeX
-        {
-          plugin = vimtex;
-        }
-
-        # Mini
-        {
-          plugin = mini-nvim;
-          config = toLuaFile ./nvim/plugin/mini.lua;
-        }
-
-        # Terminal integration
-        {
-          plugin = toggleterm-nvim;
-          config = toLuaFile ./nvim/plugin/toggleterm.lua;
-        }
-
-        # Buffers handling
-        vim-sayonara
-
-        # {
-        #   plugin = mason-nvim;
-        #   config = toLuaFile ./nvim/plugin/mason.lua;
-        # }
-        # mason-lspconfig-nvim
-        # mason-tool-installer-nvim
-
-
-        #
-        # {
-        #   plugin = neo-tree-nvim;
-        #   config = toLuaFile ./nvim/plugin/neo-tree-nvim.lua;
-        # }
+      imports = [
+        ./config
       ];
 
-      extraLuaConfig = ''
-        ${builtins.readFile ./nvim/options.lua}
-      '';
+      colorschemes.catppuccin.enable = true;
+      plugins.lualine.enable = true;
+      plugins.web-devicons.enable = true;
+
+
+      keymaps = [
+
+        # Movements
+        {
+          mode = "n";
+          key = "<C-h>";
+          action = "<C-w>h";
+        }
+
+        {
+          mode = "n";
+          key = "<C-j>";
+          action = "<C-w>j";
+        }
+
+        {
+          mode = "n";
+          key = "<C-k>";
+          action = "<C-w>k";
+        }
+
+        {
+          mode = "n";
+          key = "<C-l>";
+          action = "<C-w>l";
+        }
+
+        {
+          mode = "t";
+          key = "<C-h>";
+          action = "<CMD>wincmd h<CR>";
+        }
+
+        {
+          mode = "t";
+          key = "<C-j>";
+          action = "<CMD>wincmd j<CR>";
+        }
+
+        {
+          mode = "t";
+          key = "<C-k>";
+          action = "<CMD>wincmd k<CR>";
+        }
+
+        {
+          mode = "t";
+          key = "<C-l>";
+          action = "<CMD>wincmd l<CR>";
+        }
+
+        {
+          mode = "n";
+          key = "<S-h>";
+          action = "<CMD>BufferLineCyclePrev<CR>";
+        }        
+
+        {
+          mode = "n";
+          key = "<S-l>";
+          action = "<CMD>BufferLineCycleNext<CR>";
+        }        
+
+        # Yazi
+        {
+          mode = "n";
+          key = "<leader>-";
+          action = "<CMD>Yazi <CR>";
+        }
+
+        # Terminal
+
+        {
+          mode = "n";
+          key = "<leader>t";
+          action = "<CMD>ToggleTerm<CR>";
+        }
+
+        {
+          mode = "n";
+          key = "<leader>g";
+          action = "<CMD>LazyGit<CR>";
+        }
+
+      ];
     };
+
   };
 }

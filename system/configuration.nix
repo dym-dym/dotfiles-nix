@@ -257,7 +257,7 @@
         # support 64-bit only
         wine64
         # wine-staging (version with experimental features)
-        wineWowPackages.staging
+        wineWow64Packages.staging
         # winetricks (all versions)
         winetricks
         wlsunset
@@ -268,7 +268,7 @@
         jellyfin-mpv-shim
         gnumake
         bat
-        swww
+        awww
         gimp
         zoom
         xautoclick
@@ -357,7 +357,6 @@
 
       # Sound
 	    pavucontrol
-	    blueberry
 
       # Misc
 	    thunderbird
@@ -370,11 +369,7 @@
       libreoffice
       kanata
 
-	    protonup-ng
-      networkmanagerapplet
       egl-wayland
-
-      blueberry
 
       # Secure boot
       sbctl
@@ -386,7 +381,7 @@
 
       # VPN
       wireguard-tools
-      protonvpn-gui
+      proton-vpn
 
       gamemode
       gnome-keyring
@@ -520,7 +515,7 @@
       common = {
         default = [ "*" ];
       };
-      niri = {
+      niri = lib.mkDefault {
         default = [
           "gtk"
           "gnome"

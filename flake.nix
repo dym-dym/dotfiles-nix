@@ -3,18 +3,15 @@
 
   inputs = {
 
-    nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland.url = "github:hyprwm/Hyprland?submodules=1";
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    stylix.url = "github:danth/stylix/release-25.11";
+    stylix.url = "github:danth/stylix/release-26.05";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
@@ -27,9 +24,11 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: # nixos-hardware, hyprland
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -49,16 +48,13 @@
 
           modules = [
             ./system/configuration.nix
-            # nixos-hardware.nixosModules.gigabyte-b550
             # inputs.stylix.nixosModules.stylix
-            #inputs.sddm-sugar-candy-nix.nixosModules.default
             {
               nixpkgs.overlays = [
                 (final: prev: {
                   unstable = import nixpkgs-unstable {
                     inherit system;
                     config.allowUnfree = true;
-                    # legacyPackages.${prev.system};
                   };
                 })
               ];
@@ -83,10 +79,9 @@
           modules = [
             ./user/home.nix
             inputs.stylix.homeModules.stylix
-            # inputs.hyprland.homeManagerModules.default
             inputs.niri.homeModules.niri
             inputs.noctalia.homeModules.default
-            # inputs.nixvim.homeManagerModules.nixvim
+            inputs.nixvim.homeModules.nixvim
           ];
         };
       };

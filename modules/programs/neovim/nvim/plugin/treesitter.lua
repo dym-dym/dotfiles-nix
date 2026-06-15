@@ -1,4 +1,8 @@
-require('nvim-treesitter.configs').setup {
+
+-- local treesitter = require('nvim-treesitter.configs')
+local treesitter = require('nvim-treesitter')
+
+treesitter.setup {
 	ensure_installed = {},
 
 	ignore_install = { "latex" },
@@ -8,3 +12,5 @@ require('nvim-treesitter.configs').setup {
 
 	indent = { enable = true },
 }
+
+treesitter.install({ 'rust', 'ocaml', 'html', 'markdown', 'lua' })
