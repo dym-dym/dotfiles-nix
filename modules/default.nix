@@ -25,16 +25,12 @@
     ./programs/yazi
     ./programs/zathura
     ./programs/fastfetch
-
-    ./services/wlsunset
-    ./services/dunst
   ];
 
   alacritty.enable = lib.mkDefault false;
   kitty.enable = lib.mkDefault true;
   atuin.enable = lib.mkDefault true;
   cava.enable = lib.mkDefault true;
-  dunst.enable = lib.mkDefault false;
   fastfetch.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault false;
@@ -45,7 +41,6 @@
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
   texlive.enable = lib.mkDefault false;
-  wlsunset.enable = lib.mkDefault true;
   wlogout.enable = lib.mkDefault true;
   wofi.enable = lib.mkDefault true;
   rofi.enable = lib.mkDefault true;
