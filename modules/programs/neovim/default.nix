@@ -129,7 +129,7 @@
 
         {
           mode = "n";
-          key = "<leader>g";
+          key = "<leader>gg";
           action = "<CMD>LazyGit<CR>";
         }
 
