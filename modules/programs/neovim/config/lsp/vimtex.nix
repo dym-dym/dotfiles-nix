@@ -1,8 +1,9 @@
+{pkgs, ... }:
 {
   plugins.vimtex = {
     enable = true;
     settings = {
-      compiler_method = "pdflatex";
+      compiler_method = "latexmk";
 
       syntax_enable = 1;
       format_enabled = "1";
@@ -14,5 +15,6 @@
       };
       view_method = "zathura";
     };
+    texlivePackage = pkgs.texliveFull;
   };
 }
