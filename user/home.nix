@@ -21,7 +21,7 @@ in
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
   imports = [
      ../modules
@@ -32,7 +32,7 @@ in
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
 
-	    font-awesome
+      font-awesome
       nerd-fonts.noto
       noto-fonts
       # noto-fonts-extra
@@ -53,7 +53,7 @@ in
       comma
       neovim-remote
 
-      protonvpn-gui
+      proton-vpn
       # bitwarden-desktop
 
       lazygit

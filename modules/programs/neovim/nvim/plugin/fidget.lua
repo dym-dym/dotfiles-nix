@@ -1,1 +1,3 @@
-require("fidget").setup()
+local fidget = require("fidget")
+
+fidget.setup()

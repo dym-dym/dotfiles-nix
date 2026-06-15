@@ -181,7 +181,7 @@
         # support 64-bit only
         wine64
         # wine-staging (version with experimental features)
-        wineWowPackages.staging
+        wineWow64Packages.staging
         # winetricks (all versions)
         winetricks
         wlsunset
@@ -278,14 +278,14 @@
 
       # Sound
 	    pavucontrol
-	    blueberry
+	    # blueberry
 
       # Misc
-	    thunderbird
-	    mangohud
-	    discord-canary
-	    discord
-	    protonup-ng
+      thunderbird
+      mangohud
+      discord-canary
+      discord
+      protonup-ng
       networkmanagerapplet
       simple-scan
       libreoffice
@@ -298,7 +298,7 @@
 
       # VPN
       wireguard-tools
-      protonvpn-gui
+      proton-vpn
 
       gamemode
       mangohud

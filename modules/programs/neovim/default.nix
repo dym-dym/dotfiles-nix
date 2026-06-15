@@ -12,8 +12,10 @@
 
   config = lib.mkIf config.neovim.enable {
     programs.neovim = let
-      toLua = str: "lua << EOF\n${str}\nEOF\n";
+      # toLua = str: "lua << EOF\n${str}\nEOF\n";
+      toLua = str: "\n${str}\nEOF\n";
       toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+      # toLuaFile = file: "\n${builtins.readFile file}\nEOF\n";
     in {
       enable = true;
 
@@ -42,7 +44,7 @@
 
         {
           plugin = catppuccin-nvim;
-          config = "colorscheme catppuccin-mocha";
+          config = "colorscheme = catppuccin-mocha";
         }
 
         {
@@ -50,7 +52,7 @@
           config = toLuaFile ./nvim/plugin/dashboard.lua;
         }
 
-        ## Spinner
+        # Spinner
         {
           plugin = fidget-nvim;
           config = toLuaFile ./nvim/plugin/fidget.lua;
@@ -244,7 +246,7 @@
 
       ];
 
-      extraLuaConfig = ''
+      initLua = ''
         ${builtins.readFile ./nvim/options.lua}
       '';
     };
