@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 let
   system = "x86_64-linux";
   theme = "tokyo-night-dark";
@@ -9,27 +9,22 @@ in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "dymdym";
-  home.homeDirectory = "/home/dymdym";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "26.05"; # Please read the comment before changing.
+  home = {
+    username = "dymdym";
+    homeDirectory = "/home/dymdym";
 
-  imports = [
-     ../modules
-  ];
-# user/home.nix
-# 163:        "x-scheme-handler/https" = ["zen-beta.desktop"]; # Links
-# 164:        "x-scheme-handler/http" = ["zen-beta.desktop"]; # Links
-# 165:        "x-scheme-handler/mailto" = ["zen-beta.desktop"]; # Links
+    # This value determines the Home Manager release that your configuration is
+    # compatible with. This helps avoid breakage when a new Home Manager release
+    # introduces backwards incompatible changes.
+    #
+    # You should not change this value, even if you update Home Manager. If you do
+    # want to update the value, then make sure to first check the Home Manager
+    # release notes.
 
-  home.packages = with pkgs; [
+    stateVersion = "26.05";
+
+    packages = with pkgs; [
       signal-desktop
       nerd-fonts.jetbrains-mono
 	    nerd-fonts.fira-code
@@ -37,7 +32,6 @@ in
       nerd-fonts.noto
       noto-fonts
       noto-fonts-color-emoji
-      swayosd
       ueberzugpp
       ffmpegthumbnailer
       unar
@@ -45,20 +39,25 @@ in
       # coqPackages.coq-lsp
       inputs.zen-browser.packages."${system}".default
       neovim-remote
+    ];
+
+    file = {
+      ".XCompose".text = ''
+          include "%L"
+
+          <dead_acute> <C> : "Ç"
+          <dead_acute> <c> : "ç"
+      '';
+    };
+    sessionVariables = {
+       EDITOR = "nvim";
+    };
+  };
+
+  imports = [
+     ../modules
   ];
 
-  home.file = {
-    ".XCompose".text = ''
-        include "%L"
-
-        <dead_acute> <C> : "Ç"
-        <dead_acute> <c> : "ç"
-    '';
-  };
-
-  home.sessionVariables = {
-     EDITOR = "nvim";
-  };
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
@@ -68,9 +67,12 @@ in
 
     image = ./wallpapers/${wallpaper};
 
-    cursor.package = pkgs.simp1e-cursors;
-    cursor.name = "Simp1e-Catppuccin-Mocha";
-    cursor.size = 25;
+    cursor = {
+      package = pkgs.simp1e-cursors;
+      name = "Simp1e-Catppuccin-Mocha";
+      size = 25;
+    };
+
 
     targets = {
       fish.enable = true;
@@ -104,36 +106,27 @@ in
   };
 
   gtk.iconTheme = {
-    # package = pkgs.gnome.adwaita-icon-theme;
-    # name = "adwaita-icon-theme";
-    # package = pkgs.pop-icon-theme;
-    # name = "pop-icon-theme";
-    # package = pkgs.flat-remix-icon-theme;
-    # name = "Flat-Remix-Teal-Dark";
     package = pkgs.dracula-icon-theme;
     name = "Dracula";
-    # package = pkgs.kanagawa-icon-theme;
-    # name = "Kanagawa";
   };
 
   qt = {
     enable = true;
-    # platformTheme.name = lib.mkForce "gtk";
-    # style.name = lib.mkForce "adwaita-dark";
-    # style.package = lib.mkForce pkgs.adwaita-qt;
   };
 
-  programs.eza.enable = true;
-  programs.ripgrep.enable = true;
+  programs = {
+    eza.enable = true;
+    ripgrep.enable = true;
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Dylan Bettendroffer";
-        email = "dylan.bettendroffer@gmail.com";
+    git = {
+      enable = true;
+      settings = {
+        user = {
+          name = "Dylan Bettendroffer";
+          email = "dylan.bettendroffer@gmail.com";
+        };
+        init.defaultBranch = "main";
       };
-      init.defaultBranch = "main";
     };
   };
 
