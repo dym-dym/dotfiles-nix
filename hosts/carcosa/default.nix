@@ -19,56 +19,32 @@
       #../../modules/common/virtualisation.nix
       ../../modules/common/xdg.nix
       ../../modules/common/misc.nix
+      ../../modules/common/utils/options.nix
+
+
       ../../modules/system-modules.nix
 
       # Users of the machine
       ../../users
     ];
 
-  options = {
-    
-    hostname = lib.mkOption {
-      type = lib.types.string;
-      default = "nixos";
-    };
-
-    username = lib.mkOption {
-      type = lib.types.string;
-      default = "dymdym";
-    };
-
-    timezone = lib.mkOption {
-      type = lib.types.string;
-      default = "Europe/London";
-    };
-
-    nvidia.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-
-    extraBootEntries = lib.mkOption {
-      type = lib.types.string;
-      default = '''';
-    };
-
-    secureBoot.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-
-    bluetooth.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-
-    wireless.enable = lib.mkOption {
-      types = lib.types.bool;
-      default = false;
-    };
-  };
-
   config = {
     bluetooth.enable = true;
+    hostname = "nixos";
+    nvidia.enable = true;
+
+    extraBootEntries = ''
+/+CachyOS
+//Cachy OS
+  protocol: linux
+  path: uuid(13f1af99-7bf1-4b82-a97d-a9e780265198):/vmlinuz-linux-cachyos
+  cmdline: rootflags=subvol=/@ root=UUID=71f0dfa0-c386-44f8-93df-b3ad9ae5affb quiet udev.log_level=3 systemd.show_status=auto nvidia-drm.modeset=1 nvidia-drm.fbdev=1 splash loglevel=3 lsm=landlock,yama,bpf rw
+  module_path: uuid(13f1af99-7bf1-4b82-a97d-a9e780265198):/initramfs-linux-cachyos.img
+//Cachy OS LTS
+  protocol: linux
+  path: uuid(13f1af99-7bf1-4b82-a97d-a9e780265198):/vmlinuz-linux-cachyos-lts
+  cmdline: rootflags=subvol=/@ root=UUID=71f0dfa0-c386-44f8-93df-b3ad9ae5affb quiet udev.log_level=3 systemd.show_status=auto nvidia-drm.modeset=1 nvidia-drm.fbdev=1 splash loglevel=3 lsm=landlock,yama,bpf rw
+  module_path: uuid(13f1af99-7bf1-4b82-a97d-a9e780265198):/initramfs-linux-cachyos-lts.img
+'';
   };
 }

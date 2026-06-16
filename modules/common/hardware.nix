@@ -6,24 +6,25 @@
     bluetooth.enable = config.bluetooth.enable;
 
     keyboard.qmk.enable = true;
-    # graphics.enable = true;
+
     graphics = {
       enable = true;
-      # driSupport = true;
-      # driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        #vaapiVdpau
-        libva-vdpau-driver
-        libvdpau
-        libvdpau-va-gl
-        nvidia-vaapi-driver
-        vdpauinfo
-        libva
-        libva-utils
-      ];
+      extraPackages = with pkgs; 
+        (if (config.nvidia.enable == true) then
+          [ #vaapiVdpau
+            libva-vdpau-driver
+            libvdpau
+            libvdpau-va-gl
+            nvidia-vaapi-driver
+            vdpauinfo
+            libva
+            libva-utils
+          ] else []);
     };
 
-    nvidia = {
+
+
+    nvidia = lib.mkIf config.nvidia.enable {
       modesetting.enable = true;
       open = false;
 
