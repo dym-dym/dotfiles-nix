@@ -2,28 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }:
+{ lib, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./boot.nix
-      ./hardware.nix
-      ./networking.nix
-      ./packages.nix
-      ./services.nix
-      ./systemd.nix
-      ./users
-      # ./virtualisation.nix
-      ./xdg.nix
-      ../modules/system-modules.nix
-    ];
-
-  ## == Locales ==
-
-  # Set your time zone.
   time.timeZone = "Europe/London";
 
   # Select internationalisation properties.

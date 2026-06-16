@@ -2,7 +2,9 @@
 {
   #NvidiaConfig
   hardware = {
-    bluetooth.enable = true;
+
+    bluetooth.enable = config.bluetooth.enable;
+
     keyboard.qmk.enable = true;
     # graphics.enable = true;
     graphics = {

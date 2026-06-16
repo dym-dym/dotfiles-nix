@@ -31,7 +31,7 @@
 
         style = {
           interface.resolution = "1920x1080";
-          wallpapers = [ "/home/dymdym/.dotfiles/system/disco.png" ];
+          wallpapers = [ "/home/dymdym/.dotfiles/modules/common/disco.png" ];
         };
 
         extraEntries = ''

@@ -37,7 +37,7 @@
     in
     {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        carcosa = lib.nixosSystem {
 
           specialArgs = {
             inherit inputs;
@@ -47,7 +47,56 @@
 	        inherit system;
 
           modules = [
-            ./system/configuration.nix
+            ./hosts/carcosa
+            # inputs.stylix.nixosModules.stylix
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    inherit system;
+                    config.allowUnfree = true;
+                  };
+                })
+              ];
+            }
+          ];
+        };
+
+        rlyeh = lib.nixosSystem {
+
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+          };
+
+	        inherit system;
+
+          modules = [
+            ./hosts/rlyeh
+            # inputs.stylix.nixosModules.stylix
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    inherit system;
+                    config.allowUnfree = true;
+                  };
+                })
+              ];
+            }
+          ];
+        };
+        midian = lib.nixosSystem {
+
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+          };
+
+	        inherit system;
+
+          modules = [
+            ./hosts/midian
             # inputs.stylix.nixosModules.stylix
             {
               nixpkgs.overlays = [
@@ -62,6 +111,7 @@
           ];
         };
       };
+
       nixConfig = {
         extra-substituters = [ "https://noctalia.cachix.org" ];
         extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
@@ -77,7 +127,7 @@
           };
 
           modules = [
-            ./user/home.nix
+            ./home-manager/home.nix
             inputs.stylix.homeModules.stylix
             inputs.niri.homeModules.niri
             inputs.noctalia.homeModules.default
