@@ -54,7 +54,7 @@ in
       neovim-remote
 
       protonvpn-gui
-      bitwarden-desktop
+      # bitwarden-desktop
 
       lazygit
       # jellyfin-tui
