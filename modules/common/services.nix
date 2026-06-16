@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, config, ...}:
 {
   services = {
 
@@ -10,7 +10,7 @@
           layout = "us";
           variant = "intl";
         };
-        videoDrivers = [ "nvidia" ];
+        videoDrivers = (if config.nvidia.enable == true then [ "nvidia" ] else []);
       };
 
     # Enable CUPS to print documents.
