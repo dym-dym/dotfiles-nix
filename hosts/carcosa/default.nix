@@ -30,7 +30,7 @@
 
   config = {
     bluetooth.enable = true;
-    hostname = "nixos";
+    hostname = "carcosa";
     nvidia.enable = true;
 
     extraBootEntries = ''
