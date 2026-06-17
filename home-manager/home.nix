@@ -79,14 +79,15 @@ in
       waybar.enable = false;
       ghostty.enable = false;
       rofi.enable = false;
+      gtk.enable = false;
+      qt.enable = false;
+      yazi.enable = false;
       librewolf.profileNames = [ "dymdym" ];
       firefox.profileNames = [ "dymdym" ];
     };
 
 	  fonts = {
 	    monospace = {
-	      #  package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-	      # name = "FiraCode Nerd Font Mono";
         package = pkgs.nerd-fonts.dejavu-sans-mono;
         name = "DejaVu Sans Mono";
 	    };
