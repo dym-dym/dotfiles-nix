@@ -25,6 +25,7 @@
 
 
       highlight.ExtraWhitespace.bg = "red";
+      extraConfigLua = '''';
 
       autoCmd = [
         {
