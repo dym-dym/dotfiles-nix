@@ -79,8 +79,8 @@ in
       waybar.enable = false;
       ghostty.enable = false;
       rofi.enable = false;
-      gtk.enable = false;
-      qt.enable = false;
+      # gtk.enable = false;
+      # qt.enable = false;
       yazi.enable = false;
       librewolf.profileNames = [ "dymdym" ];
       firefox.profileNames = [ "dymdym" ];
