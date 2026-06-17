@@ -10,7 +10,7 @@
           layout = "us";
           variant = "intl";
         };
-        videoDrivers = (if config.nvidia.enable == true then [ "nvidia" ] else []);
+        videoDrivers = if config.nvidia.enable then [ "nvidia" ] else [];
       };
 
     # Enable CUPS to print documents.
@@ -38,7 +38,8 @@
   	upower.enable = true;
   	fwupd.enable = true;
 
-    dbus.packages = [ pkgs.nautilus
+    dbus.packages = [ 
+      pkgs.nautilus
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
     ];

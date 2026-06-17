@@ -11,7 +11,7 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; 
-        (if (config.nvidia.enable == true) then
+        (if config.nvidia.enable then
           [ #vaapiVdpau
             libva-vdpau-driver
             libvdpau

@@ -24,10 +24,8 @@
           wineWow64Packages.staging
           # winetricks (all versions)
           winetricks
-          wlsunset
           zoxide
           fd
-          blueman
           usbimager
           jellyfin-mpv-shim
           gnumake

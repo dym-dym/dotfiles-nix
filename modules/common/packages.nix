@@ -18,7 +18,6 @@
   # $ nix search wget
   environment.systemPackages = 
     (with pkgs; [
-
      # Terminal
 	    git
 	    fzf
@@ -27,13 +26,6 @@
 	    tealdeer
 	    eza
 	    ripgrep
-
-
-      # Window Manager
-	    swaybg
-	    waypaper
-	    wttrbar
-	    sway-contrib.grimshot
 
       # File explorers
 	    pcmanfm
@@ -56,7 +48,6 @@
 	    jellyfin-media-player
       jellyfin-mpv-shim
 	    mpv
-      obs-studio
 
       # Sound
 	    pavucontrol
@@ -64,10 +55,8 @@
       # Misc
 	    thunderbird
 	    mangohud
-	    discord-canary
 	    discord
 	    protonup-ng
-      networkmanagerapplet
       simple-scan
       libreoffice
       kanata

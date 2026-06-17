@@ -12,7 +12,7 @@
       "quiet"
       "udev.log_level=3"
       "systemd.show_status=auto"
-    ] ++ (if (config.nvidia.enable == true)
+    ] ++ (if config.nvidia.enable
             then [ "nvidia-drm.modeset=1" "nvidia-drm.fbdev=1" ]
             else []);
 
