@@ -3,9 +3,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
     dymdym = {
-      # shell = pkgs.fish;
       shell = pkgs.nushell;
       isNormalUser = true;
+      initialPassword = "password123";
       description = "dymdym";
       extraGroups = [ "networkmanager" "wheel" ]; # "libvirtd" ];
 

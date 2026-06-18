@@ -26,6 +26,12 @@
     };
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
+
+    preservation.url = "github:nix-community/preservation";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
@@ -47,7 +53,11 @@
 	        inherit system;
 
           modules = [
+            inputs.disko.nixosModules.disko
+            inputs.preservation.nixosModules.default
             ./hosts/carcosa
+            ./hosts/carcosa/preservation.nix
+            ./hosts/carcosa/disko.nix
             # inputs.stylix.nixosModules.stylix
             {
               nixpkgs.overlays = [

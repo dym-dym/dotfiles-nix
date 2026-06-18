@@ -67,6 +67,13 @@
       options = [ "subvol=important" "compress=zstd" "noatime" ];
     };
 
+  fileSystems."/home/dymdym/ssd-storage" =
+    { device = "/dev/disk/by-uuid/5a718355-1727-4bcf-b091-877ee498419a";
+      fsType = "btrfs";
+      options = [ "subvol=@" "compress=zstd" "noatime" ];
+    };
+
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
