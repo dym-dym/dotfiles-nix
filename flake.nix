@@ -113,6 +113,22 @@
                 })
               ];
             }
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+              	useGlobalPkgs = true;
+              	useUserPackages = true;
+              	users.dymdym = import ./home;
+
+                sharedModules = [
+                  inputs.stylix.homeModules.stylix
+                  inputs.niri.homeModules.niri
+                  inputs.noctalia.homeModules.default
+                  inputs.nixvim.homeModules.nixvim
+                ];
+              };
+            }
           ];
         };
 
