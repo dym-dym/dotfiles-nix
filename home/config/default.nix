@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
+{ lib, ... }:
 {
   imports = [
     ./programs/alacritty
@@ -19,9 +14,6 @@
     ./programs/qutebrowser
     ./programs/starship
     ./programs/texlive
-    ./programs/wlogout
-    ./programs/wofi
-    ./programs/rofi
     ./programs/yazi
     ./programs/zathura
     ./programs/fastfetch
@@ -41,9 +33,6 @@
   qutebrowser.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
   texlive.enable = lib.mkDefault false;
-  wlogout.enable = lib.mkDefault true;
-  wofi.enable = lib.mkDefault true;
-  rofi.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
   zathura.enable = lib.mkDefault true;
 }

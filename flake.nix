@@ -27,11 +27,11 @@
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 
-    # preservation.url = "github:nix-community/preservation";
-    # disko = {
-    #   url = "github:nix-community/disko";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    preservation.url = "github:nix-community/preservation";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
@@ -43,6 +43,51 @@
     in
     {
       nixosConfigurations = {
+
+      void = lib.nixosSystem {
+
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+          };
+
+	        inherit system;
+
+          modules = [
+            ./hosts/void
+            inputs.disko.nixosModules.disko
+            inputs.preservation.nixosModules.default
+            ./hosts/void/preservation.nix
+            ./hosts/void/disko.nix
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = import nixpkgs-unstable {
+                    inherit system;
+                    config.allowUnfree = true;
+                  };
+                })
+              ];
+            }
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+              	useGlobalPkgs = true;
+              	useUserPackages = true;
+              	users.dymdym = import ./home;
+
+                sharedModules = [
+                  inputs.stylix.homeModules.stylix
+                  inputs.niri.homeModules.niri
+                  inputs.noctalia.homeModules.default
+                  inputs.nixvim.homeModules.nixvim
+                ];
+              };
+            }
+          ];
+        };
+
         carcosa = lib.nixosSystem {
 
           specialArgs = {
@@ -58,7 +103,6 @@
             ./hosts/carcosa
             # ./hosts/carcosa/preservation.nix
             # ./hosts/carcosa/disko.nix
-            # inputs.stylix.nixosModules.stylix
             {
               nixpkgs.overlays = [
                 (final: prev: {
@@ -83,7 +127,6 @@
 
           modules = [
             ./hosts/rlyeh
-            # inputs.stylix.nixosModules.stylix
             {
               nixpkgs.overlays = [
                 (final: prev: {
@@ -96,6 +139,7 @@
             }
           ];
         };
+
         midian = lib.nixosSystem {
 
           specialArgs = {
@@ -107,7 +151,10 @@
 
           modules = [
             ./hosts/midian
-            # inputs.stylix.nixosModules.stylix
+            # inputs.disko.nixosModules.disko
+            # inputs.preservation.nixosModules.default
+            # ./hosts/midian/preservation.nix
+            # ./hosts/midian/disko.nix
             {
               nixpkgs.overlays = [
                 (final: prev: {
@@ -118,32 +165,29 @@
                 })
               ];
             }
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+              	useGlobalPkgs = true;
+              	useUserPackages = true;
+              	users.dymdym = import ./home;
+
+                sharedModules = [
+                  inputs.stylix.homeModules.stylix
+                  inputs.niri.homeModules.niri
+                  inputs.noctalia.homeModules.default
+                  inputs.nixvim.homeModules.nixvim
+                ];
+              };
+            }
           ];
         };
       };
+    };
 
-      nixConfig = {
-        extra-substituters = [ "https://noctalia.cachix.org" ];
-        extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
-      };
-
-      homeConfigurations = {
-        dymdym = home-manager.lib.homeManagerConfiguration {
-	        inherit pkgs;
-
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-          };
-
-          modules = [
-            ./home-manager/home.nix
-            inputs.stylix.homeModules.stylix
-            inputs.niri.homeModules.niri
-            inputs.noctalia.homeModules.default
-            inputs.nixvim.homeModules.nixvim
-          ];
-        };
-      };
+    nixConfig = {
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
     };
 }

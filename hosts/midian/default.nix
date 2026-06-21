@@ -5,28 +5,38 @@
 { ... }:
 
 {
+
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./hardware-configuration.nix
-      ../../modules/common/boot.nix
-      ../../modules/common/hardware.nix
-      ../../modules/common/networking.nix
-      ../../modules/common/packages.nix
-      ../../modules/common/services.nix
-      ../../modules/common/systemd.nix
-      #../../modules/common/virtualisation.nix
-      ../../modules/common/xdg.nix
-      ../../modules/common/misc.nix
-      ../../modules/common/utils/options.nix
-
-
-      ../../modules/system-modules.nix
-
+      ../../modules/common
+      ../../home/config/system-modules.nix
       # Users of the machine
       ../../users
     ];
+  # imports =
+  #   [
+  #     # Include the results of the hardware scan.
+  #     ./hardware-configuration.nix
+  #     # ./hardware-configuration.nix
+  #     ../../modules/common/boot.nix
+  #     ../../modules/common/hardware.nix
+  #     ../../modules/common/networking.nix
+  #     ../../modules/common/packages.nix
+  #     ../../modules/common/services.nix
+  #     ../../modules/common/systemd.nix
+  #     #../../modules/common/virtualisation.nix
+  #     ../../modules/common/xdg.nix
+  #     ../../modules/common/misc.nix
+  #     ../../modules/common/utils/options.nix
+  #
+  #
+  #     ../../modules/system-modules.nix
+  #
+  #     # Users of the machine
+  #     ../../users
+  #   ];
 
   config = {
     bluetooth.enable = true;

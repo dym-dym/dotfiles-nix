@@ -45,7 +45,7 @@
 
 
       # Media
-	    jellyfin-media-player
+	    # jellyfin-media-player
       jellyfin-mpv-shim
 	    mpv
 
@@ -72,8 +72,8 @@
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # VPN
-      wireguard-tools
-      proton-vpn
+      # wireguard-tools
+      # proton-vpn
 
       gamemode
       gnome-keyring

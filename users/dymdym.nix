@@ -5,7 +5,7 @@
     dymdym = {
       shell = pkgs.nushell;
       isNormalUser = true;
-      # initialPassword = "password123";
+      initialPassword = "password123";
       description = "dymdym";
       extraGroups = [ "networkmanager" "wheel" ]; # "libvirtd" ];
 
