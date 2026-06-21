@@ -1,8 +1,4 @@
 { config, lib, pkgs, ... }:
-
-let
-  terminal = if (config.alacritty.enable) then "alacritty" else (if config.alacritty.enable then "kitty" else "kitty");
-in
 {
 
   imports = [
@@ -28,16 +24,25 @@ in
           honor-xdg-activation-with-invalid-serial = {};
         };
 
-        prefer-no-csd = true;
-        input.keyboard.xkb = {
-          layout = "us";
-          variant = "intl";
+        xwayland-satellite = {
+          path =  "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
         };
-        input.keyboard.numlock = true;
 
-        input.touchpad.tap = true;
-        input.touchpad.natural-scroll = false;
-        input.mouse.accel-speed = 0.0;
+        prefer-no-csd = true;
+        input = {
+          keyboard = {
+            xkb = {
+              layout = "us";
+              variant = "intl";
+            };
+            numlock = true;
+          };
+          touchpad = {
+            tap = true;
+            natural-scroll = false;
+          };
+          mouse.accel-speed = 0.0;
+        };
 
         outputs = {
           "DP-1" = {

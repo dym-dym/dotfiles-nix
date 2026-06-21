@@ -16,7 +16,7 @@
     ];
 
   config = {
-    bluetooth.enable = true;
+    bluetooth.enable = false;
     hostname = "carcosa";
     nvidia.enable = true;
   };
