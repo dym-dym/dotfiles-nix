@@ -9,7 +9,11 @@
         "/etc/nixos"
         "/var/lib/bluetooth"
         "/etc/NetworkManager/system-connections"
-        "/tmp"
+        {
+	        directory = "/tmp";
+	        mode = "755";
+	        user = "dymdym";
+	      }
         {
           directory = "/var/lib/nixos";
           inInitrd = true;
@@ -20,6 +24,8 @@
         {
           file = "/etc/machine-id";
           inInitrd = true;
+	        how = "symlink";
+	        configureParent = true;
         }
       ];
 
@@ -42,10 +48,7 @@
         ];
 
         files = [
-          ".gtkrc-2.0"
           ".bash_history"
-          "shell.nix"
-          "these.md"
         ];
       };
     };
