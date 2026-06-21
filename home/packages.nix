@@ -18,7 +18,6 @@ in
       unar
       coq
       # coqPackages.coq-lsp
-      # inputs.zen-browser.packages."${system}".default
       neovim-remote
     ];
   };

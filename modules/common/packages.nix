@@ -77,6 +77,7 @@
 
       gamemode
       gnome-keyring
+      inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
     ])
     ++
     (with pkgs-unstable; [
