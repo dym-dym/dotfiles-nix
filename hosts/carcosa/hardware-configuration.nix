@@ -13,6 +13,36 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/home/dymdym/storage" =
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=@" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/dymdym/storage/data" =
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=data" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/dymdym/storage/games" =
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=games" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/dymdym/storage/important" =
+    { device = "/dev/disk/by-uuid/64c0aa61-f925-4c36-b846-b414af70f2f3";
+      fsType = "btrfs";
+      options = [ "subvol=important" "compress=zstd" "noatime" ];
+    };
+
+  fileSystems."/home/dymdym/ssd-storage" =
+    { device = "/dev/disk/by-uuid/5a718355-1727-4bcf-b091-877ee498419a";
+      fsType = "btrfs";
+      options = [ "subvol=@" "compress=zstd" "noatime" ];
+    };
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
