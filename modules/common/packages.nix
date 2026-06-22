@@ -1,14 +1,14 @@
-{ pkgs, pkgs-unstable, inputs, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
 {
   programs = {
     fish.enable = true;
     nm-applet.enable = true;
     pay-respects.enable = true;
     steam = {
-      enable = true;
-      gamescopeSession.enable = true;
+      enable = config.gaming.enable;
+      gamescopeSession.enable = config.gaming.enable;
     };
-    gamescope.enable = true;
+    gamescope.enable = config.gaming.enable;
     niri.enable = true;
     kdeconnect.enable = true;
     gnome-disks.enable = true;
@@ -54,9 +54,7 @@
 
       # Misc
 	    thunderbird
-	    mangohud
 	    discord
-	    protonup-ng
       simple-scan
       libreoffice
       kanata
@@ -72,13 +70,17 @@
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # VPN
-      # wireguard-tools
-      # proton-vpn
+      proton-vpn
 
-      gamemode
       gnome-keyring
       inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
     ])
+    ++
+    (if config.gaming.enable then with pkgs; [
+	    protonup-ng
+	    mangohud
+      gamemode
+      ] else [])
     ++
     (with pkgs-unstable; [
       # linuxPackages.nvidia_x11_beta

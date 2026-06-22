@@ -36,6 +36,15 @@
       type = lib.types.bool;
       default = false;
     };
-  };
 
+    gui.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+
+    gaming.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
+  };
 }

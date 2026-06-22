@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
@@ -16,21 +16,13 @@
           signal-desktop
           android-tools
           lshw
-          # support 64-bit only
-          (wine.override { wineBuild = "wine64"; })
-          # support 64-bit only
-          wine64
-          # wine-staging (version with experimental features)
-          wineWow64Packages.staging
-          # winetricks (all versions)
-          winetricks
+
           zoxide
           fd
           usbimager
           jellyfin-mpv-shim
           gnumake
           bat
-          awww
           gimp
           zoom
           xautoclick
@@ -42,6 +34,19 @@
           elan
           lazygit
         ])
+        ++
+        (if config.gaming.enable then
+          with pkgs; [
+            # support 64-bit only
+            (wine.override { wineBuild = "wine64"; })
+            # support 64-bit only
+            wine64
+            # wine-staging (version with experimental features)
+            wineWow64Packages.staging
+            # winetricks (all versions)
+            winetricks
+          ]
+        else [])
         ++
         (with pkgs-unstable; [
         ]);

@@ -7,13 +7,7 @@
     preserveAt."/persistent" = {
       directories = [
         "/etc/nixos"
-        # "/var/lib/bluetooth"
         "/etc/NetworkManager/system-connections"
-	      #  {
-	      #   directory = "/tmp";
-	      #   mode = "1777";
-	      #   user = "dymdym";
-	      # }
         {
           directory = "/var/lib/nixos";
           inInitrd = true;
@@ -24,8 +18,6 @@
         {
           file = "/etc/machine-id";
           inInitrd = true;
-	        # how = "symlink";
-	        # configureParent = true;
         }
       ];
 
