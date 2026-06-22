@@ -1,10 +1,7 @@
 # Ed~/.dotfiles/user/sheloit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ lib, ... }:
-
-{
+{lib, ...}: {
   time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
@@ -22,7 +19,6 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-
   # Configure console keymap
   console.keyMap = "us-acentos";
 
@@ -38,7 +34,7 @@
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "niri";
-  }; 
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -58,9 +54,9 @@
   };
 
   system.autoUpgrade = {
-   enable = true;
-   channel = "https://nixos.org/channels/nixos-24.05";
+    enable = true;
+    channel = "https://nixos.org/channels/nixos-24.05";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 }

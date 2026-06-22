@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../noctalia
   ];
@@ -10,14 +13,12 @@
   };
 
   config = lib.mkIf config.niri.enable {
-
     noctalia.enable = lib.mkDefault true;
 
     programs.niri = {
       package = pkgs.niri;
       enable = true;
       settings = {
-
         xwayland-satellite.enable = true;
 
         debug = {
@@ -25,7 +26,7 @@
         };
 
         xwayland-satellite = {
-          path =  "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
+          path = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
         };
 
         prefer-no-csd = true;
@@ -78,13 +79,11 @@
         };
 
         window-rules = [
-          { clip-to-geometry = true; }
+          {clip-to-geometry = true;}
           {
-            geometry-corner-radius =
-            let
+            geometry-corner-radius = let
               radius = 2.0;
-            in
-            {
+            in {
               top-left = radius;
               top-right = radius;
               bottom-left = radius;
@@ -106,13 +105,12 @@
         layout = {
           gaps = 10;
           preset-column-widths = [
-            { proportion = 0.33333; }
-            { proportion = 0.5; }
-            { proportion = 0.66667; }
+            {proportion = 0.33333;}
+            {proportion = 0.5;}
+            {proportion = 0.66667;}
           ];
 
-
-          default-column-width = { proportion = 0.5; };
+          default-column-width = {proportion = 0.5;};
 
           focus-ring = {
             width = 2;
@@ -127,35 +125,32 @@
           };
 
           background-color = "transparent";
-
         };
 
         spawn-at-startup = [
-          { argv = ["noctalia"]; }
-          { argv = ["protonvpn-app" "--spawn-minimized"]; }
+          {argv = ["noctalia"];}
+          {argv = ["protonvpn-app" "--spawn-minimized"];}
         ];
 
-
         switch-events = {
-          "lid-close".action.spawn = [ "noctalia" "msg" "screen-lock" ];
+          "lid-close".action.spawn = ["noctalia" "msg" "screen-lock"];
         };
 
         binds = {
-
           "Mod+Shift+Slash".action.show-hotkey-overlay = {};
 
           "Mod+Return".action.spawn = "kitty";
-          "Mod+Shift+Return".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
-          "Mod+Shift+D".action.spawn = [ "noctalia" "msg" "screen-lock" ];
+          "Mod+Shift+Return".action.spawn = ["noctalia" "msg" "panel-toggle" "launcher"];
+          "Mod+Shift+D".action.spawn = ["noctalia" "msg" "screen-lock"];
           "Mod+B".action.spawn = "zen-beta";
 
-          "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" ];
-          "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" ];
-          "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mut" ];
-          "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "mic-mute" ];
+          "XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "volume-up"];
+          "XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "volume-down"];
+          "XF86AudioMute".action.spawn = ["noctalia" "msg" "volume-mut"];
+          "XF86AudioMicMute".action.spawn = ["noctalia" "msg" "mic-mute"];
 
-          "XF86MonBrightnessUp".action.spawn = [ "noctalia" "msg" "brightness-up" ];
-          "XF86MonBrightnessDown".action.spawn = [ "noctalia" "msg" "brightness-down" ];
+          "XF86MonBrightnessUp".action.spawn = ["noctalia" "msg" "brightness-up"];
+          "XF86MonBrightnessDown".action.spawn = ["noctalia" "msg" "brightness-down"];
 
           "Mod+O".action.toggle-overview = {};
           "Mod+C".action.close-window = {};
@@ -180,16 +175,13 @@
           "Mod+Shift+8".action.move-column-to-workspace = 8;
           "Mod+Shift+9".action.move-column-to-workspace = 9;
 
-
           "Mod+U".action.focus-workspace-down = {};
           "Mod+I".action.focus-workspace-up = {};
-
 
           "Mod+Shift+H".action.focus-monitor-left = {};
           "Mod+Shift+J".action.focus-monitor-down = {};
           "Mod+Shift+K".action.focus-monitor-up = {};
           "Mod+Shift+L".action.focus-monitor-right = {};
-
 
           "Mod+Ctrl+H".action.move-column-left = {};
           "Mod+Ctrl+J".action.move-window-down = {};
@@ -219,7 +211,6 @@
 
           "Mod+Shift+E".action.quit = {};
         };
-
       };
     };
   };

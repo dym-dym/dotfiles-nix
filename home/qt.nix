@@ -1,4 +1,3 @@
-_ :
-{
+_: {
   qt.enable = true;
 }

@@ -19,7 +19,6 @@
     content = {
       type = "gpt";
       partitions = {
-
         boot = {
           name = "boot";
           size = "1M";
@@ -48,12 +47,12 @@
 
             subvolumes = {
               "/persistent" = {
-                mountOptions = ["subvol=persistent" "noatime" "compress=zstd" ];
+                mountOptions = ["subvol=persistent" "noatime" "compress=zstd"];
                 mountpoint = "/persistent";
               };
 
               "/nix" = {
-                mountOptions = ["subvol=nix" "noatime" "compress=zstd" ];
+                mountOptions = ["subvol=nix" "noatime" "compress=zstd"];
                 mountpoint = "/nix";
               };
             };

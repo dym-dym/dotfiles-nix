@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     zotero.enable = lib.mkEnableOption "enable zotero";
   };

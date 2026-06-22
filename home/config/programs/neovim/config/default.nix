@@ -1,13 +1,16 @@
-{ lib, config, ... }:
 {
-	imports = [
+  lib,
+  config,
+  ...
+}: {
+  imports = [
     ./auto-pairs.nix
-		./git.nix
-		./lazygit.nix
-		./options.nix
-		./mini.nix
-		./blankline.nix
-		./treesitter.nix
+    ./git.nix
+    ./lazygit.nix
+    ./options.nix
+    ./mini.nix
+    ./blankline.nix
+    ./treesitter.nix
     ./cmp.nix
     ./which-key.nix
     ./fidget.nix
@@ -21,5 +24,5 @@
     ./lsp/none-ls.nix
     ./lsp/vimtex.nix
     ./smartcolumn.nix
-	];
+  ];
 }

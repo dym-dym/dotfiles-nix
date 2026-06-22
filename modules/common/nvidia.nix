@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   config = lib.mkIf config.nvidia.enable {
-
     hardware.nvidia = {
       modesetting.enable = true;
       open = false;
@@ -23,7 +26,6 @@
       # Value of package if you want to get back to stable branch
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
       # package = config.boot.kernelPackages.nvidiaPackages.stable;
-
     };
 
     nixpkgs.config.allowUnfreePredicate = pkg:

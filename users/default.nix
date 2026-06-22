@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   ## == Users ==
 
   imports = [
@@ -9,5 +8,4 @@
   users = {
     defaultUserShell = pkgs.nushell;
   };
-
 }

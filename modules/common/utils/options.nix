@@ -1,7 +1,5 @@
-{lib, ... }:
-{
+{lib, ...}: {
   options = {
-    
     hostname = lib.mkOption {
       type = lib.types.str;
       default = "nixos";
@@ -45,6 +43,11 @@
     gaming.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
+    };
+
+    virtualisation.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
     };
   };
 }

@@ -1,12 +1,13 @@
-{ lib, config, ... }:
 {
-
+  lib,
+  config,
+  ...
+}: {
   options = {
     neovim.enable = lib.mkEnableOption "enable neovim";
   };
 
   config = lib.mkIf config.neovim.enable {
-
     programs.nixvim = {
       enable = true;
 
@@ -22,7 +23,6 @@
         mapleader = " ";
         maplocalleader = " ";
       };
-
 
       highlight.ExtraWhitespace.bg = "red";
       extraConfigLua = '''';
@@ -40,7 +40,6 @@
         }
       ];
 
-
       imports = [
         ./config
       ];
@@ -49,9 +48,7 @@
       plugins.lualine.enable = true;
       plugins.web-devicons.enable = true;
 
-
       keymaps = [
-
         # Movements
         {
           mode = "n";
@@ -105,13 +102,13 @@
           mode = "n";
           key = "<S-h>";
           action = "<CMD>BufferLineCyclePrev<CR>";
-        }        
+        }
 
         {
           mode = "n";
           key = "<S-l>";
           action = "<CMD>BufferLineCycleNext<CR>";
-        }        
+        }
 
         # Yazi
         {
@@ -133,9 +130,7 @@
           key = "<leader>gg";
           action = "<CMD>LazyGit<CR>";
         }
-
       ];
     };
-
   };
 }

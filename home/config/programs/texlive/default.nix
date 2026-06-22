@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     texlive.enable = lib.mkEnableOption "enable texlive";
   };
@@ -8,7 +12,6 @@
     programs.texlive = {
       enable = true;
       # package = pkgs.texliveFull;
-
     };
   };
 }

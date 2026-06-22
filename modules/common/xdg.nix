@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
@@ -10,7 +13,7 @@
     ];
     config = {
       common = {
-        default = [ "*" ];
+        default = ["*"];
       };
       niri = lib.mkDefault {
         default = [

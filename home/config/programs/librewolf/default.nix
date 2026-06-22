@@ -1,5 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   options = {
     librewolf.enable = lib.mkEnableOption "enable librewolf";
   };

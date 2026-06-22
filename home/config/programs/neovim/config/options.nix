@@ -1,5 +1,8 @@
-{ lib, pkgs, ...}:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   config.opts = {
     updatetime = 100; # Faster completion
 

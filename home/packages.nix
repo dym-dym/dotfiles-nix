@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   system = "x86_64-linux";
-in
-{
+in {
   home = {
     packages = with pkgs; [
       atuin

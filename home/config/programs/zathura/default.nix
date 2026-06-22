@@ -1,11 +1,14 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     zathura.enable = lib.mkEnableOption "enable zathura";
   };
 
   config = {
-
     programs.zathura = {
       enable = true;
 
@@ -48,4 +51,3 @@
     };
   };
 }
-

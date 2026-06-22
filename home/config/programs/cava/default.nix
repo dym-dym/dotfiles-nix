@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     cava.enable = lib.mkEnableOption "enable Cava";
   };
@@ -9,7 +13,6 @@
       enable = true;
       package = pkgs.cava;
       settings = {
-
         output = {
           vertex_shader = "pass_through.vert";
           fragment_shader = "bar_spectrum.frag";
@@ -33,4 +36,3 @@
     };
   };
 }
-

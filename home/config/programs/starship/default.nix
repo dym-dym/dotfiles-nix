@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     starship.enable = lib.mkEnableOption "enable starship prompt";
   };

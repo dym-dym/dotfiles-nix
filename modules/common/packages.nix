@@ -1,5 +1,10 @@
-{ config, pkgs, pkgs-unstable, inputs, ... }:
 {
+  config,
+  pkgs,
+  pkgs-unstable,
+  inputs,
+  ...
+}: {
   programs = {
     fish.enable = true;
     nm-applet.enable = true;
@@ -16,45 +21,44 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = 
+  environment.systemPackages =
     (with pkgs; [
-     # Terminal
-	    git
-	    fzf
-	    grc
-	    btop
-	    tealdeer
-	    eza
-	    ripgrep
+      # Terminal
+      git
+      fzf
+      grc
+      btop
+      tealdeer
+      eza
+      ripgrep
 
       # File explorers
-	    pcmanfm
-	    nautilus
+      pcmanfm
+      nautilus
 
       # Fonts (and TeX)
 
       # nerdfonts
       nerd-fonts.jetbrains-mono
-	    nerd-fonts.fira-code
-	    font-awesome
+      nerd-fonts.fira-code
+      font-awesome
       nerd-fonts.noto
       noto-fonts
       noto-fonts-color-emoji
 
       texliveFull
 
-
       # Media
-	    # jellyfin-media-player
+      # jellyfin-media-player
       jellyfin-mpv-shim
-	    mpv
+      mpv
 
       # Sound
-	    pavucontrol
+      pavucontrol
 
       # Misc
-	    thunderbird
-	    discord
+      thunderbird
+      discord
       simple-scan
       libreoffice
       kanata
@@ -75,14 +79,17 @@
       gnome-keyring
       inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
     ])
-    ++
-    (if config.gaming.enable then with pkgs; [
-	    protonup-ng
-	    mangohud
-      gamemode
-      ] else [])
-    ++
-    (with pkgs-unstable; [
+    ++ (
+      if config.gaming.enable
+      then
+        with pkgs; [
+          protonup-ng
+          mangohud
+          gamemode
+        ]
+      else []
+    )
+    ++ (with pkgs-unstable; [
       # linuxPackages.nvidia_x11_beta
     ]);
 }

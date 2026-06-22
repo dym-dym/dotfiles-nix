@@ -1,11 +1,14 @@
-{ pkgs, lib, ...}:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./programs/zotero
 
     ./services/sddm
   ];
 
-	sddm.enable = true;
+  sddm.enable = true;
   zotero.enable = true;
 }

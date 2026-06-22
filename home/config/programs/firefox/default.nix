@@ -1,5 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   options = {
     firefox.enable = lib.mkEnableOption "enable firefox";
   };
@@ -27,17 +32,17 @@
         # ];
         #
         search.engines = {
-
           "SearXNG" = {
-            urls = [{
-              template = "";
-              params = [
-                {}
-                {}
-              ];
-            }];
+            urls = [
+              {
+                template = "";
+                params = [
+                  {}
+                  {}
+                ];
+              }
+            ];
           };
-
         };
         search.force = true;
 
@@ -55,63 +60,63 @@
         # ];
 
         userChrome = ''
-        /*
-         * This Source Code Form is subject to the terms of the Mozilla Public
-         * License, v. 2.0. If a copy of the MPL was not distributed with this
-         * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-         */
-        
-        @import url("browser/main.css");
-        @import url("vars.css");
-        
-        :root {
-            @media not (-moz-bool-pref: "uc.tweak.no-panel-hint") {
-                --uc-panel-hint: color-mix( in srgb, var(--toolbarbutton-icon-fill), transparent 75%);
-            }
-        
-            --uc-bg: var(--uc-bg-opaque);
-            
-            --uc-bg-opaque: light-dark(rgb(239, 239, 242), rgb(27, 26, 32));
-            @media (-moz-bool-pref: "uc.tweak.translucency") {
-                --uc-bg: light-dark(
-                    color-mix(in srgb, rgb(239, 239, 242), transparent 10%), 
-                    color-mix(in srgb, rgb(27, 26, 32), transparent 10%) 
-                );
-            }
-        
-            &[lwtheme="true"] {
-                --uc-bg-opaque: var(--lwt-accent-color);
-                @media (-moz-bool-pref: "uc.tweak.translucency") {
-                    --uc-bg: color-mix(in srgb, var(--lwt-accent-color), transparent 10%);
-                }
-            }
-        }
+          /*
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */
+
+          @import url("browser/main.css");
+          @import url("vars.css");
+
+          :root {
+              @media not (-moz-bool-pref: "uc.tweak.no-panel-hint") {
+                  --uc-panel-hint: color-mix( in srgb, var(--toolbarbutton-icon-fill), transparent 75%);
+              }
+
+              --uc-bg: var(--uc-bg-opaque);
+
+              --uc-bg-opaque: light-dark(rgb(239, 239, 242), rgb(27, 26, 32));
+              @media (-moz-bool-pref: "uc.tweak.translucency") {
+                  --uc-bg: light-dark(
+                      color-mix(in srgb, rgb(239, 239, 242), transparent 10%),
+                      color-mix(in srgb, rgb(27, 26, 32), transparent 10%)
+                  );
+              }
+
+              &[lwtheme="true"] {
+                  --uc-bg-opaque: var(--lwt-accent-color);
+                  @media (-moz-bool-pref: "uc.tweak.translucency") {
+                      --uc-bg: color-mix(in srgb, var(--lwt-accent-color), transparent 10%);
+                  }
+              }
+          }
         '';
 
         userContent = ''
-        /*
-         * This Source Code Form is subject to the terms of the Mozilla Public
-         * License, v. 2.0. If a copy of the MPL was not distributed with this
-         * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-         */
-        
-        @import url("vars.css");
-        @import url("content/sidebery.css");
-        @import url("content/about.css");
-        
-        /* pdf viewer */
-        [mozdisallowselectionprint] > body {
-            & #mainContainer {
-                & .toolbar {
-                    padding: 4px !important;
-                    padding-bottom: none !important;
-                    & #toolbarContainer {
-                        border-radius: var(--user-radius) !important;
-                        box-shadow: none !important;
-                    }
-                }
-            }
-        }
+          /*
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */
+
+          @import url("vars.css");
+          @import url("content/sidebery.css");
+          @import url("content/about.css");
+
+          /* pdf viewer */
+          [mozdisallowselectionprint] > body {
+              & #mainContainer {
+                  & .toolbar {
+                      padding: 4px !important;
+                      padding-bottom: none !important;
+                      & #toolbarContainer {
+                          border-radius: var(--user-radius) !important;
+                          box-shadow: none !important;
+                      }
+                  }
+              }
+          }
         '';
 
         extraConfig = ''
@@ -121,7 +126,7 @@
           // Fill SVG Color
           user_pref("svg.context-properties.content.enabled", true);
 
-          // CSS's `:has()` selector 
+          // CSS's `:has()` selector
           user_pref("layout.css.has-selector.enabled", true);
 
           // Integrated calculator at urlbar
@@ -149,7 +154,6 @@
           // uidensity -> compact
           user_pref("browser.uidensity", 1);
         '';
-
       };
     };
   };

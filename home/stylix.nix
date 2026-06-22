@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   theme = "tokyo-night-dark";
   polarity = "dark";
   wallpaper = "SELInternet.jpg";
-in
-{
+in {
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
@@ -20,7 +18,6 @@ in
       size = 25;
     };
 
-
     targets = {
       fish.enable = true;
       waybar.enable = false;
@@ -29,23 +26,23 @@ in
       # gtk.enable = false;
       # qt.enable = false;
       yazi.enable = false;
-      librewolf.profileNames = [ "dymdym" ];
-      firefox.profileNames = [ "dymdym" ];
+      librewolf.profileNames = ["dymdym"];
+      firefox.profileNames = ["dymdym"];
     };
 
-	  fonts = {
-	    monospace = {
+    fonts = {
+      monospace = {
         package = pkgs.nerd-fonts.dejavu-sans-mono;
         name = "DejaVu Sans Mono";
-	    };
-	    sansSerif = {
-	       package = pkgs.nerd-fonts.dejavu-sans-mono;
-	       name = "DejaVu Sans";
-	    };
-	    serif = {
-	      package = pkgs.nerd-fonts.dejavu-sans-mono;
-	      name = "DejaVu Serif";
-	    };
+      };
+      sansSerif = {
+        package = pkgs.nerd-fonts.dejavu-sans-mono;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.nerd-fonts.dejavu-sans-mono;
+        name = "DejaVu Serif";
+      };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";

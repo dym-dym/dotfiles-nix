@@ -1,21 +1,26 @@
 {
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  config,
+  lib,
+  ...
+}: {
+  config = lib.mkIf config.virtualisation.enable {
+    virtualisation.libvirtd.enable = true;
+    programs.virt-manager.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-    # Customize Docker daemon settings using the daemon.settings option
-    daemon.settings = {
-      dns = [ "1.1.1.1" "8.8.8.8" ];
-      log-driver = "journald";
-      registry-mirrors = [ "https://mirror.gcr.io" ];
-      storage-driver = "overlay2";
-    };
-    # Use the rootless mode - run Docker daemon as non-root user
-    rootless = {
+    virtualisation.docker = {
       enable = true;
-      setSocketVariable = true;
+      # Customize Docker daemon settings using the daemon.settings option
+      daemon.settings = {
+        dns = ["1.1.1.1" "8.8.8.8"];
+        log-driver = "journald";
+        registry-mirrors = ["https://mirror.gcr.io"];
+        storage-driver = "overlay2";
+      };
+      # Use the rootless mode - run Docker daemon as non-root user
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
   };
-
 }

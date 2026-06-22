@@ -1,16 +1,26 @@
-{ config, pkgs, pkgs-unstable, ... }:
 {
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
     dymdym = {
       shell = pkgs.nushell;
       isNormalUser = true;
-      # initialPassword = "password123";
+      initialPassword = "password123";
       description = "dymdym";
-      extraGroups = [ "networkmanager" "wheel" ]; # "libvirtd" ];
+      extraGroups =
+        ["networkmanager" "wheel"]
+        ++ (
+          if config.virtualisation.enable
+          then ["libvirtd"]
+          else []
+        );
 
       # User packages
-      packages = 
+      packages =
         (with pkgs; [
           telegram-desktop
           signal-desktop
@@ -34,22 +44,23 @@
           elan
           lazygit
         ])
-        ++
-        (if config.gaming.enable then
-          with pkgs; [
-            # support 64-bit only
-            (wine.override { wineBuild = "wine64"; })
-            # support 64-bit only
-            wine64
-            # wine-staging (version with experimental features)
-            wineWow64Packages.staging
-            # winetricks (all versions)
-            winetricks
-          ]
-        else [])
-        ++
-        (with pkgs-unstable; [
-        ]);
+        ++ (
+          if config.gaming.enable
+          then
+            with pkgs; [
+              # support 64-bit only
+              (wine.override {wineBuild = "wine64";})
+              # support 64-bit only
+              wine64
+              # wine-staging (version with experimental features)
+              wineWow64Packages.staging
+              # winetricks (all versions)
+              winetricks
+            ]
+          else []
+        )
+        ++ (with pkgs-unstable; [
+          ]);
     };
   };
 }

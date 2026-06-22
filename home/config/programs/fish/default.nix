@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
-
 {
-  options ={
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options = {
     fish.enable = lib.mkEnableOption "enable fish";
   };
 
@@ -24,7 +27,7 @@
       functions = {
         fish_greeting = {
           body = "";
-        }; 
+        };
       };
 
       shellAliases = {

@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 
@@ -29,14 +28,14 @@
 
     file = {
       ".XCompose".text = ''
-          include "%L"
+        include "%L"
 
-          <dead_acute> <C> : "Ç"
-          <dead_acute> <c> : "ç"
+        <dead_acute> <C> : "Ç"
+        <dead_acute> <c> : "ç"
       '';
     };
     sessionVariables = {
-       EDITOR = "nvim";
+      EDITOR = "nvim";
     };
   };
 
