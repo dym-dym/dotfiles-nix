@@ -25,7 +25,7 @@
   firefox.enable = lib.mkDefault true;
   fish.enable = lib.mkDefault false;
   nushell.enable = lib.mkDefault true;
-  librewolf.enable = lib.mkDefault true;
+  librewolf.enable = lib.mkDefault false;
   neovim.enable = lib.mkDefault true;
   niri.enable = lib.mkDefault true;
   starship.enable = lib.mkDefault true;
