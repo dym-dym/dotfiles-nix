@@ -43,12 +43,14 @@
     lib = nixpkgs.lib;
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
   in {
     nixosConfigurations = {
       void = lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           inherit pkgs-unstable;
+          inherit secrets;
         };
 
         inherit system;

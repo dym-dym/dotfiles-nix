@@ -2,6 +2,7 @@
   config,
   pkgs,
   pkgs-unstable,
+  secrets,
   ...
 }: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -9,7 +10,7 @@
     dymdym = {
       shell = pkgs.nushell;
       isNormalUser = true;
-      initialPassword = "password123";
+      initialPassword = "${secrets.dymdym.password}";
       description = "dymdym";
       extraGroups =
         ["networkmanager" "wheel"]

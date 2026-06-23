@@ -25,6 +25,7 @@
       users.dymdym = {
         directories = [
           ".atuin"
+          ".config/discord"
           ".dotfiles"
           ".librewolf"
           ".local"
