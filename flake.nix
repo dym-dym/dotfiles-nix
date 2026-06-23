@@ -34,6 +34,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
@@ -50,7 +51,6 @@
         specialArgs = {
           inherit inputs;
           inherit pkgs-unstable;
-          inherit secrets;
         };
 
         inherit system;
@@ -94,6 +94,7 @@
         specialArgs = {
           inherit inputs;
           inherit pkgs-unstable;
+          inherit secrets;
         };
 
         inherit system;
