@@ -6,6 +6,8 @@
 
     preserveAt."/persistent" = {
       directories = [
+        "/var/log"
+        "/var/lib"
         "/etc/nixos"
         "/etc/NetworkManager/system-connections"
         {
@@ -25,6 +27,7 @@
       users.dymdym = {
         directories = [
           ".atuin"
+          ".cache"
           ".config/discord"
           ".config/Signal"
           ".dotfiles"
