@@ -42,6 +42,7 @@
   # texlive.enable = true;
 
   services.udiskie.enable = true;
+  services.gnome-keyring.enable = true;
 
   # Let Home Manager install and manage itself.
 }

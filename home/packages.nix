@@ -17,6 +17,7 @@ in {
       coq
       # coqPackages.coq-lsp
       neovim-remote
+      gcr
     ];
   };
 

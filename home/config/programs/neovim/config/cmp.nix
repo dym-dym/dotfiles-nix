@@ -1,7 +1,6 @@
 # # Source: https://github.com/hmajid2301/dotfiles/blob/ab7098387426f73c461950c7c0a4f8fb4c843a2c/home-manager/editors/nvim/plugins/coding/cmp.nix
 {
   plugins = {
-    luasnip.enable = true;
 
     cmp-buffer = {enable = true;};
 
@@ -11,7 +10,20 @@
 
     cmp_luasnip = {enable = true;};
 
-    cmp-vimtex = {enable = true;};
+    cmp-vimtex = {
+      enable = true;
+      autoLoad = true;
+    };
+
+    luasnip = {
+      enable = true;
+      settings = {
+        enable_autosnippets = true;
+        store_selection_keys = "<Tab>";
+      };
+    };
+
+    friendly-snippets.enable = true;
 
     cmp = {
       enable = true;
@@ -38,6 +50,7 @@
         sources = [
           {name = "nvim_lsp";}
           {name = "luasnip";}
+          {name = "vimtex";}
           {
             name = "buffer";
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";

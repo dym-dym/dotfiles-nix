@@ -7,6 +7,10 @@
         nixd.enable = true;
         ruff.enable = true;
 
+        # LaTeX config
+        ltex.enable = true; # autocorrect
+
+
         # Packages is set to null to rely on the system wide installed packages
         # this is done to avoid conflicts with the nixpkgs versions.
 
