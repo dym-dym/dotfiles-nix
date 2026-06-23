@@ -32,6 +32,7 @@
           ".ssh"
           ".thunderbird"
           ".zen"
+          ".zotero"
           ".steam"
           "Documents"
           "Downloads"
