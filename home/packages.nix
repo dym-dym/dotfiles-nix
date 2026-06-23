@@ -18,6 +18,7 @@ in {
       # coqPackages.coq-lsp
       neovim-remote
       gcr
+      seahorse
     ];
   };
 

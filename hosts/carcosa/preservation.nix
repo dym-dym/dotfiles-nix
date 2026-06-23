@@ -28,8 +28,7 @@
         directories = [
           ".atuin"
           ".cache"
-          ".config/discord"
-          ".config/Signal"
+          ".config"
           ".dotfiles"
           ".librewolf"
           ".local"
