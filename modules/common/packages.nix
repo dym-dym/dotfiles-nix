@@ -25,6 +25,7 @@
     (with pkgs; [
       # Terminal
       git
+      git-crypt
       fzf
       grc
       btop
