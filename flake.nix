@@ -177,6 +177,7 @@
         specialArgs = {
           inherit inputs;
           inherit pkgs-unstable;
+          inherit secrets;
         };
 
         inherit system;
