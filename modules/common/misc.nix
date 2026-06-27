@@ -55,8 +55,13 @@
 
   system.autoUpgrade = {
     enable = true;
-    channel = "https://nixos.org/channels/nixos-24.05";
+    channel = "https://nixos.org/channels/nixos-26.05";
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings = {
+    trusted-users = [ "root" "@wheel" ];
+
+    experimental-features = ["nix-command" "flakes"];
+  };
+  
 }

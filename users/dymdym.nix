@@ -27,6 +27,7 @@
           signal-desktop
           android-tools
           lshw
+          nh
 
           zoxide
           fd
