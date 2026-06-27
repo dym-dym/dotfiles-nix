@@ -79,7 +79,7 @@ widgetSpacing = 6
     capsule = true
     center = [ "workspaces" ]
     contact_shadow = true
-    end = [ "network", "bluetooth", "volume", "brightness", "battery", "notifications", "control-center" ]
+    end = [ "clock", "network", "bluetooth", "volume", "brightness", "battery", "notifications", "control-center" ]
     position = "left"
     start = [ "launcher", "wallpaper", "tray", "media" ]
     widget_spacing = 8
@@ -400,7 +400,7 @@ suspendTimeout = 1800
 
 [location]
 analogClockInCalendar = false
-autoLocate = true
+autoLocate = true 
 firstDayOfWeek = -1
 hideWeatherCityName = false
 hideWeatherTimezone = false
@@ -590,7 +590,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "gtk4", "qt" ]
+    builtin_ids = [ "qt" ]
     community_ids = [ "yazi" ]
 
 [ui]

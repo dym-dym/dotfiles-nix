@@ -42,7 +42,7 @@
   };
 
   fileSystems."/home/dymdym/ssd-storage" = {
-    device = "/dev/disk/by-uuid/5519c24e-abb7-4e40-bd79-91772c8d3e6a";
+    device = "/dev/disk/by-uuid/74218e0d-0d52-4ecb-a3fa-88e016178ead";
     fsType = "btrfs";
     options = ["subvol=@" "compress=zstd" "noatime"];
   };
