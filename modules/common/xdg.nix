@@ -9,16 +9,19 @@
     wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-wlr
+      # pkgs.xdg-desktop-portal-gnome
     ];
     config = {
       common = {
-        default = ["*"];
+        default = [ 
+          "gtk" 
+        ]; 
       };
       niri = lib.mkDefault {
         default = [
           "gtk"
-          "gnome"
+          # "gnome"
         ];
         "org.freedesktop.impl.portal.Access" = "gtk";
         "org.freedesktop.impl.portal.Notification" = "gtk";

@@ -24,10 +24,10 @@
       packages =
         (with pkgs; [
           telegram-desktop
-          signal-desktop
           android-tools
           lshw
           nh
+          alejandra
 
           zoxide
           fd
@@ -62,6 +62,7 @@
           else []
         )
         ++ (with pkgs-unstable; [
+            signal-desktop
           ]);
     };
   };

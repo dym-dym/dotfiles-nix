@@ -4,7 +4,6 @@ in {
   home = {
     packages = with pkgs; [
       atuin
-      signal-desktop
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       font-awesome
