@@ -28,6 +28,7 @@
           lshw
           nh
           alejandra
+          via
 
           zoxide
           fd

@@ -104,7 +104,10 @@
     avahi.enable = true;
     avahi.nssmdns4 = true;
 
-    udev.enable = true;
+    udev = {
+      enable = true;
+      packages = with pkgs; [ via ];
+    };
 
     btrfs.autoScrub = {
       enable = true;
