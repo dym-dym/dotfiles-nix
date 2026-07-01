@@ -79,6 +79,8 @@
 
       gnome-keyring
       inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
+
+      wireplumber
     ])
     ++ (
       if config.gaming.enable

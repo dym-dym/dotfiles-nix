@@ -402,13 +402,14 @@
         "lastModified": 1782908037,
         "narHash": "sha256-HhDaT7wG5n5V635A24zLIiTIMiD84QlGoAt2XD6gWTI=",
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
+        "repo": "noctalia",
         "rev": "e51e7fdeee22b1fa4110b6a7da77634fab60a887",
         "type": "github"
       },
       "original": {
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
+        "ref": "cachix",
+        "repo": "noctalia",
         "type": "github"
       }
     },

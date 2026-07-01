@@ -15,7 +15,7 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/cachix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
