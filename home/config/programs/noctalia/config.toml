@@ -79,9 +79,9 @@ widgetSpacing = 6
     capsule = true
     center = [ "workspaces" ]
     contact_shadow = true
-    end = [ "clock", "network", "bluetooth", "volume", "brightness", "battery", "notifications", "control-center" ]
+    end = [ "clock", "network", "bluetooth", "volume", "brightness", "battery", "control-center" ]
     position = "left"
-    start = [ "launcher", "wallpaper", "tray", "media" ]
+    start = [ "launcher", "wallpaper", "tray", "media", "notifications" ]
     widget_spacing = 8
 
         [[bar.widgets.left]]
