@@ -47,8 +47,6 @@
 
     dbus.packages = [
       pkgs.nautilus
-      # pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-gtk
     ];
 
     # Enable the OpenSSH daemon.
@@ -106,7 +104,7 @@
 
     udev = {
       enable = true;
-      packages = with pkgs; [ via ];
+      packages = with pkgs; [via];
     };
 
     btrfs.autoScrub = {

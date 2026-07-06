@@ -36,6 +36,8 @@
     XDG_SESSION_DESKTOP = "niri";
   };
 
+  environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

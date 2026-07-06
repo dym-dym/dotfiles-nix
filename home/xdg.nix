@@ -1,13 +1,13 @@
-_: {
+{ lib, ... }: {
   xdg = {
     mimeApps = {
       enable = true;
-      defaultApplications = {
+      defaultApplications = lib.mkForce {
         "inode/directory" = ["pcmanfm.desktop"]; # Directories
         "text/plain" = ["neovim.desktop"]; # Plain text
         # "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"]; # .docx
         # "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"]; # .pptx
-        "application/pdf" = ["zathura.desktop"]; # .pdf
+        "application/pdf" = lib.mkForce ["zathura.desktop"]; # .pdf
         "application/zip" = ["xarchiver.desktop"];
         "text/*" = ["neovim.desktop"]; # Any text files
         "video/*" = ["mpv.desktop"]; # Any video files
@@ -32,7 +32,7 @@ _: {
         "application/x-extension-xhtml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
         "application/x-extension-xht" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
       };
-      associations.added = {
+      associations.added = lib.mkForce {
         "x-scheme-handler/http" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
         "x-scheme-handler/https" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
         "x-scheme-handler/chrome" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
@@ -43,6 +43,7 @@ _: {
         "application/xhtml+xml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
         "application/x-extension-xhtml" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
         "application/x-extension-xht" = ["userapp-Zen6RAP32.desktop" "zen-beta.desktop"];
+        "application/pdf" = ["zathura.desktop"]; # .pdf
       };
     };
   };
