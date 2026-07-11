@@ -18,6 +18,7 @@ in {
       neovim-remote
       gcr
       seahorse
+      vesktop
     ];
   };
 
