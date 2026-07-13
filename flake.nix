@@ -185,10 +185,10 @@
 
         modules = [
           ./hosts/midian
-          # inputs.disko.nixosModules.disko
+          inputs.disko.nixosModules.disko
           # inputs.preservation.nixosModules.default
           # ./hosts/midian/preservation.nix
-          # ./hosts/midian/disko.nix
+          ./hosts/midian/disko.nix
           {
             nixpkgs.overlays = [
               (final: prev: {
