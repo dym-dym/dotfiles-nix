@@ -2,7 +2,6 @@
   fileSystems."/nix".neededForBoot = true;
   # fileSystems."/".neededForBoot = true; # sometimes needed too
 
-
   disko.devices.disk.main = {
     device = "/dev/nvme0n1"; # MAKE SURE TOO SELECT CORRECT DISK HERE
     type = "disk";
