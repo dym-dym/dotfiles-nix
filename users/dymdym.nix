@@ -46,6 +46,7 @@
           lean4
           elan
           lazygit
+          jellyfin-tui
         ])
         ++ (
           if config.gaming.enable

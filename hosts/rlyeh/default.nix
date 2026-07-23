@@ -14,6 +14,7 @@
   config = {
     bluetooth.enable = true;
     hostname = "rlyeh";
+    timezone = "Europe/Paris";
     secureBoot.enable = true;
   };
 }
