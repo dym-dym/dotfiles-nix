@@ -146,7 +146,7 @@
 
           "XF86AudioRaiseVolume".action.spawn = ["noctalia" "msg" "volume-up"];
           "XF86AudioLowerVolume".action.spawn = ["noctalia" "msg" "volume-down"];
-          "XF86AudioMute".action.spawn = ["noctalia" "msg" "volume-mut"];
+          "XF86AudioMute".action.spawn = ["noctalia" "msg" "volume-mute"];
           "XF86AudioMicMute".action.spawn = ["noctalia" "msg" "mic-mute"];
 
           "XF86MonBrightnessUp".action.spawn = ["noctalia" "msg" "brightness-up"];
