@@ -63,9 +63,10 @@
             ]
           else []
         )
-        ++ (with pkgs-unstable; [
-          signal-desktop
-        ]);
+        # ++ (with pkgs-unstable; [
+        #   signal-desktop
+        # ])
+        ;
     };
   };
 }

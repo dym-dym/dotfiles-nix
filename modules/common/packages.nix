@@ -92,7 +92,8 @@
         ]
       else []
     )
-    ++ (with pkgs-unstable; [
-      # linuxPackages.nvidia_x11_beta
-    ]);
+    # ++ (with pkgs-unstable; [
+    #   # linuxPackages.nvidia_x11_beta
+    # ])
+    ;
 }

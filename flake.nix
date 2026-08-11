@@ -7,7 +7,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     stylix.url = "github:danth/stylix/release-26.05";
@@ -41,7 +41,8 @@
   } @ inputs: let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-    pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = nixpkgs-unstable.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
   in {
