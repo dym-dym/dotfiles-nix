@@ -19,6 +19,7 @@
         };
 
         ocamllsp.enable = true;
+
       };
 
       keymaps.lspBuf = {

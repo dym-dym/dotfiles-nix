@@ -23,6 +23,7 @@
     ./lsp
     ./lsp/none-ls.nix
     ./lsp/vimtex.nix
+    ./lsp/lean.nix
     ./smartcolumn.nix
   ];
 }
