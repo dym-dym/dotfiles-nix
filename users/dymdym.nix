@@ -47,6 +47,8 @@
           elan
           lazygit
           jellyfin-tui
+
+          signal-desktop
         ])
         ++ (
           if config.gaming.enable
