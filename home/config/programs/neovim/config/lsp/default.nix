@@ -20,6 +20,10 @@
 
         ocamllsp.enable = true;
 
+        agda_ls.enable = true;
+        agda_ls.package = null;
+        
+
       };
 
       keymaps.lspBuf = {
