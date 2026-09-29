@@ -15,5 +15,7 @@
     bluetooth.enable = true;
     hostname = "carcosa";
     nvidia.enable = true;
+    fingerprint-reader.enable = false;
+    greeter = "sddm";
   };
 }
