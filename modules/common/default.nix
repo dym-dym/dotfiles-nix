@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./boot.nix
+    ./fprintd.nix
     ./hardware.nix
     ./networking.nix
     ./packages.nix

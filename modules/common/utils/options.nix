@@ -49,5 +49,16 @@
       type = lib.types.bool;
       default = false;
     };
+
+    fingerprint-reader.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+
+    greeter = lib.mkOption {
+      type = lib.types.str;
+      default = "sddm";
+    };
+
   };
 }

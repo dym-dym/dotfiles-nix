@@ -18,6 +18,11 @@
       url = "github:noctalia-dev/noctalia/cachix";
     };
 
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -103,6 +108,7 @@
           ./hosts/carcosa
           inputs.disko.nixosModules.disko
           inputs.preservation.nixosModules.default
+          inputs.noctalia-greeter.nixosModules.default
           ./hosts/carcosa/preservation.nix
           ./hosts/carcosa/disko.nix
           {
@@ -145,6 +151,7 @@
 
         modules = [
           ./hosts/rlyeh
+          inputs.noctalia-greeter.nixosModules.default
           {
             nixpkgs.overlays = [
               (final: prev: {
@@ -186,6 +193,7 @@
         modules = [
           ./hosts/midian
           inputs.disko.nixosModules.disko
+          inputs.noctalia-greeter.nixosModules.default
           # inputs.preservation.nixosModules.default
           # ./hosts/midian/preservation.nix
           ./hosts/midian/disko.nix

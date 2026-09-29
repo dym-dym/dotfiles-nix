@@ -16,5 +16,7 @@
     hostname = "rlyeh";
     timezone = "Europe/Paris";
     secureBoot.enable = true;
+    fingerprint-reader.enable = true;
+    greeter = "sddm";
   };
 }
