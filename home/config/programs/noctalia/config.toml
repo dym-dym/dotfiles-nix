@@ -28,8 +28,8 @@ terminalCommand = "alacritty -e"
 viewMode = "list"
 
 [audio]
-mprisBlacklist = []
-preferredPlayer = ""
+# mprisBlacklist = []
+# preferredPlayer = ""
 spectrumFrameRate = 30
 spectrumMirrored = true
 visualizerType = "linear"
@@ -208,9 +208,9 @@ brightnessStep = 5
 enableDdcSupport = false
 enforceMinimum = true
 
-[[calendar.cards]]
-enabled = true
-id = "calendar-header-card"
+# [[calendar.cards]]
+# enabled = true
+# id = "calendar-header-card"
 
 [[calendar.cards]]
 enabled = true
@@ -313,7 +313,7 @@ launcherIcon = ""
 launcherIconColor = "none"
 launcherPosition = "end"
 launcherUseDistroLogo = false
-monitors = []
+# monitors = []
 onlySameOutput = true
 pinnedApps = []
 pinnedStatic = false
@@ -472,13 +472,13 @@ respectExpireTimeout = false
 	volume = 0.5
 
 [osd]
-autoHideMs = 2000
-backgroundOpacity = 1
+# autoHideMs = 2000
+# backgroundOpacity = 1
 enabled = true
-enabledTypes = [ 0, 1, 2 ]
-location = "top_right"
+# enabledTypes = [ 0, 1, 2 ]
+# location = "top_right"
 monitors = []
-overlayLayer = true
+# overlayLayer = true
 
 [plugins]
 autoUpdate = false
@@ -608,44 +608,44 @@ tooltipsEnabled = true
 translucentWidgets = false
 
 [wallpaper]
-automationEnabled = false
+# automationEnabled = false
 directory = "/home/dymdym/Pictures/Wallpapers"
-enableMultiMonitorDirectories = false
+# enableMultiMonitorDirectories = false
 enabled = true
-favorites = []
-fillColor = "#000000"
-fillMode = "crop"
-hideWallpaperFilenames = false
-linkLightAndDarkWallpapers = true
-monitorDirectories = []
-overviewBlur = 0.40000000000000002
-overviewEnabled = false
-overviewTint = 0.59999999999999998
-panelPosition = "follow_bar"
-randomIntervalSec = 300
-setWallpaperOnAllMonitors = true
-showHiddenFiles = false
-skipStartupTransition = false
-solidColor = "#1a1a2e"
-sortOrder = "name"
-transitionDuration = 1500
-transitionEdgeSmoothness = 0.050000000000000003
-transitionType = [ "fade", "disc", "stripes", "wipe", "pixelate", "honeycomb" ]
-useOriginalImages = false
-useSolidColor = false
-useWallhaven = false
-viewMode = "single"
-wallhavenApiKey = ""
-wallhavenCategories = "111"
-wallhavenOrder = "desc"
-wallhavenPurity = "100"
-wallhavenQuery = ""
-wallhavenRatios = ""
-wallhavenResolutionHeight = ""
-wallhavenResolutionMode = "atleast"
-wallhavenResolutionWidth = ""
-wallhavenSorting = "relevance"
-wallpaperChangeMode = "random"
+# favorites = []
+# fillColor = "#000000"
+# fillMode = "crop"
+# hideWallpaperFilenames = false
+# linkLightAndDarkWallpapers = true
+# monitorDirectories = []
+# overviewBlur = 0.40000000000000002
+# overviewEnabled = false
+# overviewTint = 0.59999999999999998
+# panelPosition = "follow_bar"
+# randomIntervalSec = 300
+# setWallpaperOnAllMonitors = true
+# showHiddenFiles = false
+# skipStartupTransition = false
+# solidColor = "#1a1a2e"
+# sortOrder = "name"
+# transitionDuration = 1500
+# transitionEdgeSmoothness = 0.050000000000000003
+# transitionType = [ "fade", "disc", "stripes", "wipe", "pixelate", "honeycomb" ]
+# useOriginalImages = false
+# useSolidColor = false
+# useWallhaven = false
+# viewMode = "single"
+# wallhavenApiKey = ""
+# wallhavenCategories = "111"
+# wallhavenOrder = "desc"
+# wallhavenPurity = "100"
+# wallhavenQuery = ""
+# wallhavenRatios = ""
+# wallhavenResolutionHeight = ""
+# wallhavenResolutionMode = "atleast"
+# wallhavenResolutionWidth = ""
+# wallhavenSorting = "relevance"
+# wallpaperChangeMode = "random"
 
     [wallpaper.default]
     path = "/home/dymdym/Pictures/Wallpapers/disco.png"
