@@ -16,5 +16,7 @@
     hostname = "midian";
     nvidia.enable = true;
     gaming.enable = false;
+    # fingerprint-reader.enable = true;
+    greeter = "sddm";
   };
 }
