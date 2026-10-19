@@ -28,7 +28,7 @@
           lshw
           nh
           alejandra
-          via
+          vial
 
           zoxide
           fd
