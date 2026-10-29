@@ -80,6 +80,7 @@
 
         window-rules = [
           {clip-to-geometry = true;}
+          {open-maximized = true;}
           {
             geometry-corner-radius = let
               radius = 2.0;

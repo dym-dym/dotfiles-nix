@@ -18,7 +18,7 @@
     nvidia.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-    };
+  };
 
     extraBootEntries = lib.mkOption {
       type = lib.types.str;
@@ -58,6 +58,11 @@
     greeter = lib.mkOption {
       type = lib.types.str;
       default = "sddm";
+    };
+
+    localLLM.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
     };
 
   };

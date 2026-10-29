@@ -17,5 +17,6 @@
     nvidia.enable = true;
     fingerprint-reader.enable = false;
     greeter = "sddm";
+    localLLM.enable = true;
   };
 }

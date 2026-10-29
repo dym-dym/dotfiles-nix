@@ -9,7 +9,7 @@
     ./gtk.nix
     ./xdg.nix
     ./config
-    #./hermes.nix
+    ./hermes.nix
     # ./questline.nix
     # ../modules
   ];

@@ -4,7 +4,7 @@
     ./fprintd.nix
     ./hardware.nix
     ./networking.nix
-    # ./ollama.nix
+    ./ollama.nix
     ./packages.nix
     ./services.nix
     ./systemd.nix
