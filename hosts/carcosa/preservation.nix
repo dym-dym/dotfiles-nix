@@ -32,6 +32,7 @@
           ".cache"
           ".config"
           ".dotfiles"
+          ".hermes"
           ".librewolf"
           ".local"
           ".mozilla"

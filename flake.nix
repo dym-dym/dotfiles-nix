@@ -35,6 +35,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs = {
@@ -129,11 +131,15 @@
               useUserPackages = true;
               users.dymdym = import ./home;
 
+              extraSpecialArgs = {
+                  inherit inputs;
+              };
               sharedModules = [
                 inputs.stylix.homeModules.stylix
                 inputs.niri.homeModules.niri
                 inputs.noctalia.homeModules.default
                 inputs.nixvim.homeModules.nixvim
+                inputs.hermes-agent.homeManagerModules.default
               ];
             };
           }
