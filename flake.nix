@@ -132,7 +132,8 @@
               users.dymdym = import ./home;
 
               extraSpecialArgs = {
-                  inherit inputs;
+                inherit inputs;
+                inherit secrets;
               };
               sharedModules = [
                 inputs.stylix.homeModules.stylix

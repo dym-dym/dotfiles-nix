@@ -1,4 +1,4 @@
-{ config, lib, osConfig, ... }:
+{ config, lib, osConfig, secrets, ... }:
 
 {
   config = lib.mkIf osConfig.localLLM.enable {
@@ -22,6 +22,17 @@
           context_length = 65536;
         };
       };
+
+
+      gateway.enable = true;
+
+      environment = {
+        TELEGRAM_BOT_TOKEN = secrets.hermes.telegram.bot_token;
+        TELEGRAM_ALLOWED_USERS = secrets.hermes.telegram.user_id;
+        TELEGRAM_HOME_CHANNEL = secrets.hermes.telegram.user_id;
+      };
+
+
     };
   };
 }
