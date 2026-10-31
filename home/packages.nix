@@ -17,6 +17,7 @@
       neovim-remote
       gcr
       seahorse
+      obsidian
     ];
   };
 
