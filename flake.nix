@@ -178,12 +178,17 @@
               useUserPackages = true;
               users.dymdym = import ./home;
 
+              extraSpecialArgs = {
+                inherit inputs;
+                inherit secrets;
+              };
               sharedModules = [
                 inputs.stylix.homeModules.stylix
                 inputs.niri.homeModules.niri
                 inputs.noctalia.homeModules.default
                 inputs.nixvim.homeModules.nixvim
-              ];
+                inputs.hermes-agent.homeManagerModules.default
+              ];            
             };
           }
         ];
@@ -223,13 +228,17 @@
               useUserPackages = true;
               users.dymdym = import ./home;
 
+              extraSpecialArgs = {
+                inherit inputs;
+                inherit secrets;
+              };
               sharedModules = [
                 inputs.stylix.homeModules.stylix
                 inputs.niri.homeModules.niri
                 inputs.noctalia.homeModules.default
                 inputs.nixvim.homeModules.nixvim
-              ];
-            };
+                inputs.hermes-agent.homeManagerModules.default
+              ];            };
           }
         ];
       };
