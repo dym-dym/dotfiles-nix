@@ -14,7 +14,7 @@
     };
 
     systemd.services.ollama.environment = {
-      OLLAMA_CONTEXT_LENGTH = "65536";
+      OLLAMA_CONTEXT_LENGTH = "250000";
     };
   };
 }

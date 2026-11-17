@@ -41,6 +41,24 @@
     };
   };
 
+  # Fixes us intl keyboard issues with deadkey characters
+  xdg.desktopEntries = {
+    signal-desktop = {
+      name = "Signal";
+      exec = "signal-desktop --ozone-platform=x11";
+      icon = "signal-desktop";
+      terminal = false;
+      categories = [ "Network" "InstantMessaging" ];
+    };
+    discord = {
+      name = "Discord";
+      exec = "discord --ozone-platform=x11";
+      icon = "discord";
+      terminal = false;
+      categories = [ "Network" "InstantMessaging" ];
+    };
+  };
+
   # texlive.enable = true;
 
   services.udiskie.enable = true;
