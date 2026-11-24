@@ -136,6 +136,13 @@
                     let patter = if ($pattern | is-empty) { [ '.' ] } else { $pattern }
                     (nvim ...$pattern)
                   }
+
+                  def z [
+                    ...pattern: glob
+                  ] : [ nothing -> nothing ] {
+                    let patter = if ($pattern | is-empty) { [ '.' ] } else { $pattern }
+                    (zathura ...$pattern)
+                  }
         '';
 
         shellAliases = {
