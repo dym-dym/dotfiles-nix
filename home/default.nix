@@ -50,13 +50,13 @@
       terminal = false;
       categories = [ "Network" "InstantMessaging" ];
     };
-    discord = {
-      name = "Discord";
-      exec = "discord --ozone-platform=x11";
-      icon = "discord";
-      terminal = false;
-      categories = [ "Network" "InstantMessaging" ];
-    };
+    # discord = {
+    #   name = "Discord";
+    #   exec = "discord --ozone-platform=x11";
+    #   icon = "discord";
+    #   terminal = false;
+    #   categories = [ "Network" "InstantMessaging" ];
+    # };
   };
 
   # texlive.enable = true;
